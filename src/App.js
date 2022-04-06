@@ -1,3 +1,4 @@
+// Greetings
 
 function App() {
   return (
