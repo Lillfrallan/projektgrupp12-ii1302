@@ -7,8 +7,8 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('url is correct', () => {
-  render(<App />);
-  const linkElement = screen.getByTestId(/learn-link/i);
-  expect(linkElement.href).toContain('ultimateqa.com')
-});
+// test('url is correct', () => {
+//   render(<App />);
+//   const linkElement = screen.getByTestId(/learn-link/i);
+//   expect(linkElement.href).toContain('ultimateqa.com')
+// });
