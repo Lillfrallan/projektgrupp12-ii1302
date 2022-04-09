@@ -1,6 +1,6 @@
 import './App.css';
-import * as api_client from './services/api_client'
-import React, {useState, useEffect, inputRef} from 'react';
+// import * as api_client from './services/api_client'
+import React from 'react';
 
 
 
@@ -19,7 +19,7 @@ function App() {
   // )
 
 
-  const [images, setImages] = useState([api_client.get_images]);
+  // const [images, setImages] = useState([api_client.get_images]);
 
   
   return (
@@ -28,9 +28,7 @@ function App() {
           WEBSITE IS UP AND RUNNING
           {/* <img src={imgs[0]}/>
           <img src={imgs[1]}/> */}
-          <img
-          images={images}
-          />
+
     </div >
   );
 }
