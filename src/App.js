@@ -1,5 +1,5 @@
 import './App.css';
-import * as api_client from './services/api_client'
+// import * as api_client from './services/api_client'
 import React from 'react';
 
 
