@@ -10,10 +10,10 @@ function BodyPresenter() {
     const account = "ktodb";
     const containerName = "images";
 
-    const blobServiceClient = new BlobServiceClient(api_client.get_blob_account(account));
 
     useEffect(() => {
         async function main() {
+            const blobServiceClient = new BlobServiceClient(api_client.get_blob_account(account));
             const containerClient = blobServiceClient.getContainerClient(containerName);
             
             let blobs = containerClient.listBlobsFlat();

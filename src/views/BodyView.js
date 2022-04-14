@@ -11,6 +11,7 @@ function BodyView( {blobies} ) {
                 <img
                     key={blobies.id}
                     src={api_client.get_image_url(blobies)}
+                    alt=""
                 />
             </div>
         ))} 
