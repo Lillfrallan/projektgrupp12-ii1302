@@ -1,18 +1,10 @@
-
-const get_images = () => {
-    return [
-        {"name": "koi"},
-        {"name": "kth"},
-        {"name": "Picture3"},
-        {"name": "Picture4"}
-    ];
-}
-    
 const get_image_url = (image_id) => {
-    return `https://ktodb.blob.core.windows.net/pictures/${image_id}.jpg`;
+    return `https://ktodb.blob.core.windows.net/images/${image_id}`;
+}
+
+const get_blob_account = (account) => {
+    return `https://${account}.blob.core.windows.net`;
 }
 
 
-// https://ktodb.blob.core.windows.net/pictures/${image_id}.jpg
-
-export  {get_image_url, get_images}
+export  {get_image_url, get_blob_account}
