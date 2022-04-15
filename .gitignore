@@ -4,6 +4,7 @@
 /.pnp
 .pnp.js
 
+# ignores all node_modules except @azure
 /node_modules/*
 !/node_modules/@azure
 
