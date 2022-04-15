@@ -2,7 +2,7 @@ import React from 'react'
 import './Body.css'
 // import * as api_client from '../services/api_client'
 
-function BodyView( {} ) { //blobImages, blobDateTime
+function BodyView() { //blobImages, blobDateTime
 
     // console.log(blobDateTime)
 
