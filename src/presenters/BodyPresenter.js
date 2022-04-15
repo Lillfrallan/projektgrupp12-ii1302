@@ -40,8 +40,8 @@ function BodyPresenter() {
     return (
         <div className="BodyPresenter">
             <BodyView
-                // blobImages={blobImages}
-                // blobDateTime={blobDateTime}
+                blobImages={blobImages}
+                blobDateTime={blobDateTime}
             />
         </div >
     )
