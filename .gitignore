@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-!@azure
-!@storage-blob
+!node_modules/@azure
+!node_modules/@storage-blob
 
 # testing
 /coverage
