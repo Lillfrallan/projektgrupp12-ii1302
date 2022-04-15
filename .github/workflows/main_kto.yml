@@ -28,6 +28,8 @@ jobs:
     - name: Install azure
       run: |
           npm install @azure/storage-blob
+    - name: Install azure2
+      run: |
           npm install react-azure-blob-storage
     - name: Install dependencies
       run: |
