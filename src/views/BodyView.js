@@ -12,12 +12,14 @@ function BodyView( {blobImages} ) {
             <div>
                 {blobImages.map( (blobImages) => (
                     <div>
+                        <div>WTHTHTHTHFH</div>
                         <div className="images">
                             <img
                                 src={api_client.get_image_url(blobImages)}
                                 alt=""
                             /> 
                         </div>
+                        <div>WTHTHTHASDASDASTHFH</div>
                         
                     </div>
                 ))} 
