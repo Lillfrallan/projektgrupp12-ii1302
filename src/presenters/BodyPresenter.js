@@ -5,37 +5,44 @@ import BodyView from '../views/BodyView';
 
 function BodyPresenter() {
 
-    const [blobies, setBlobies] = useState([]);
+    const [blobImages, setBlobImages] = useState([]);
+    const [blobDateTime, setBlobDateTime] = useState([]);
 
     const account = "ktodb";
     const containerName = "images";
 
-
     useEffect(() => {
-        async function main() {
+        async function blobStorage() {
             const blobServiceClient = new BlobServiceClient(api_client.get_blob_account(account));
             const containerClient = blobServiceClient.getContainerClient(containerName);
             
             let blobs = containerClient.listBlobsFlat();
         
-            let newArray = [];
+            let newArrayForImages = [];
+            let newArrayforDates = [];
             for await (const blob of blobs) {
         
                 // console.log(`${blob.name}`); //`Blob ${i++}: 
         
-                newArray.push(blob.name); 
+                newArrayForImages.push(blob.name); 
+                newArrayforDates.push(blob.properties.createdOn)
             }
-        
-            setBlobies(newArray);
+            
+            setBlobImages(newArrayForImages);
+            setBlobDateTime(newArrayforDates);
+            
         }
-        return main;
-    }, [blobies])
+        return blobStorage;
+    }, [blobImages])
 
-    
+    console.log(blobDateTime)
+
     return (
         <div className="BodyPresenter">
             <BodyView
-            blobies={blobies}/>
+                blobImages={blobImages}
+                blobDateTime={blobDateTime}
+            />
         </div >
     )
 }
