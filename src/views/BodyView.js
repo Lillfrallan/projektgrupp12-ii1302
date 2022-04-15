@@ -1,14 +1,15 @@
 import React from 'react'
 import './Body.css'
-import * as api_client from '../services/api_client'
+// import * as api_client from '../services/api_client'
 
-function BodyView( {blobImages, blobDateTime} ) {
+function BodyView( {} ) { //blobImages, blobDateTime
 
-    console.log(blobDateTime)
+    // console.log(blobDateTime)
 
     return (
         <div>
-            {blobImages.map( (blobImages) => (
+            HEEEEEEEY
+            {/* {blobImages.map( (blobImages) => (
                 <div>
                     <div className="images">
                         <img
@@ -19,7 +20,7 @@ function BodyView( {blobImages, blobDateTime} ) {
                     </div>
                     
                 </div>
-            ))} 
+            ))}  */}
         </div>
         )
 }
