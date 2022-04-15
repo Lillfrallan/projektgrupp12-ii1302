@@ -35,7 +35,7 @@ function BodyPresenter() {
         return blobStorage;
     }, [blobImages])
 
-    //console.log(blobDateTime)
+    console.log(blobDateTime)
 
     return (
         <div className="BodyPresenter">
