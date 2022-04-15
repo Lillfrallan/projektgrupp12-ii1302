@@ -8,7 +8,7 @@ function BodyView( {blobImages, blobDateTime} ) {
 
     return (
         <div>
-            {blobImages.map( (blobImages, blobDateTime) => (
+            {blobImages.map( (blobImages) => (
                 <div>
                     <div className="images">
                         <img
@@ -17,7 +17,6 @@ function BodyView( {blobImages, blobDateTime} ) {
                             alt=""
                         /> 
                     </div>
-                    <div>{blobDateTime}</div>
                     
                 </div>
             ))} 
