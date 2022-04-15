@@ -9,17 +9,19 @@ function BodyView( {blobImages} ) {
     return (
         <div>
             HEEEEEEEY
-            {blobImages.map( (blobImages) => (
-                <div>
-                    <div className="images">
-                        <img
-                            src={api_client.get_image_url(blobImages)}
-                            alt=""
-                        /> 
+            <div>
+                {blobImages.map( (blobImages) => (
+                    <div>
+                        <div className="images">
+                            <img
+                                src={api_client.get_image_url(blobImages)}
+                                alt=""
+                            /> 
+                        </div>
+                        
                     </div>
-                    
-                </div>
-            ))} 
+                ))} 
+            </div>
         </div>
         )
 }
