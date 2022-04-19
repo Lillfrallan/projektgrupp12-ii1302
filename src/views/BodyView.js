@@ -6,7 +6,7 @@ function BodyView( {blobImages} ) {
 
     return (
         <div>
-            HEEEEEEEY
+            HEEEEEEEY PÅÅÅ DIG
             <div>
                 {blobImages.map( (blobImages, i) => (
                     <div key={i}>
