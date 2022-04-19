@@ -1,5 +1,5 @@
 import React from 'react'
-import './Body.css'
+import './css/Body.css'
 import * as api_client from '../services/api_client'
 
 function BodyView( {blobImages} ) { 
@@ -17,8 +17,6 @@ function BodyView( {blobImages} ) {
                                 alt=""
                             /> 
                         </div>
-
-
                     </div>
                 ))} 
             </div>

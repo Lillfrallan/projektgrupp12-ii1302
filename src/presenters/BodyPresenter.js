@@ -35,6 +35,7 @@ function BodyPresenter() {
         return blobStorage;
     }, [blobImages])  
 
+
     return (
         <div className="BodyPresenter">
             <BodyView
