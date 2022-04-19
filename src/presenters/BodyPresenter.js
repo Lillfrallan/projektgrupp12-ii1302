@@ -40,7 +40,7 @@ function BodyPresenter() {
             
         }
         return blobStorage;
-    }, [blobImages])  
+    }, [blobImages, blobDateTime])  
 
     // console.log(blobs)
 
