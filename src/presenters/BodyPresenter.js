@@ -7,6 +7,7 @@ function BodyPresenter() {
 
     const [blobImages, setBlobImages] = useState([]);
     const [blobDateTime, setBlobDateTime] = useState([]);
+    const [blobs, setBlobs] = useState([]);
 
     const account = "ktodb";
     const containerName = "images";
@@ -20,28 +21,35 @@ function BodyPresenter() {
         
             let newArrayForImages = [];
             let newArrayforDates = [];
+
             for await (const blob of blobs) {
         
                 // console.log(`${blob.name}`); //`Blob ${i++}: 
         
                 newArrayForImages.push(blob.name); 
-                newArrayforDates.push(blob.properties.createdOn)
+                newArrayforDates.push(blob.properties.blobType)
             }
             
             setBlobImages(newArrayForImages);
             setBlobDateTime(newArrayforDates);
+
+            setBlobs([{
+                image : blobImages,
+                dateAndTime : blobDateTime
+            }])
             
         }
         return blobStorage;
     }, [blobImages])  
 
+    // console.log(blobs)
 
     return (
         <div className="BodyPresenter">
+        
             <BodyView
-                blobImages={blobImages}
-                blobDateTime={blobDateTime}
-            />
+                blobs={blobs}
+            /> 
         </div >
     )
 }
