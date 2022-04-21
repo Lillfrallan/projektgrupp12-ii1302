@@ -1,12 +1,14 @@
-import BodyPresenter from './presenters/BodyPresenter';
+import Body from './presenters/BodyPresenter';
 import React from 'react';
+import Header from './presenters/HeaderPresenter';
 
 
 function App() {
 
     return (
       <div className="App">
-            <BodyPresenter/>
+          <Header/>
+          <Body/>
       </div >
     );
 }

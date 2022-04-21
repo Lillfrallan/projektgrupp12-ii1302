@@ -1,18 +1,30 @@
-.images {
-    height:20em;
-    width:25em;
-    border-radius: 25px;
-    font-family: 'Lato';
-    display:flex;
-    flex-direction: column;
-    cursor: pointer;
-    margin: auto;
+.elementBox {
 }
 
-/* .images:hover {
-    box-shadow:10px 10px 7px rgba(0,0,0,.7);
-    transform: scale(1.5);
-    position:relative;
-    z-index:5;
+.imageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
- */
+
+.image {
+    padding-top: 0.5%;
+}
+
+img{
+    max-width:60%;
+}
+
+.dateAndTimeBox {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-right: 8%;
+}
+
+.dateAndTime{
+    padding-top: 2em;
+    
+}
+
+
