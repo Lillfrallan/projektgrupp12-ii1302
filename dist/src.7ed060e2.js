@@ -75239,6 +75239,11 @@ exports.default = _default;
 },{"./presenters/BodyPresenter":"../src/presenters/BodyPresenter.js","react":"../node_modules/react/index.js","./presenters/HeaderPresenter":"../src/presenters/HeaderPresenter.js"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.blobServiceClient = void 0;
+
 var _react = _interopRequireWildcard(require("react"));
 
 var _client = require("react-dom/client");
@@ -75255,6 +75260,8 @@ const {
   BlobServiceClient
 } = require("@azure/storage-blob");
 
+const blobServiceClient = new BlobServiceClient(get_blob_account(ktodb));
+exports.blobServiceClient = blobServiceClient;
 const rootElement = document.getElementById('root');
 const root = (0, _client.createRoot)(rootElement);
 root.render( /*#__PURE__*/_react.default.createElement(_react.StrictMode, null, /*#__PURE__*/_react.default.createElement(_App.default, null)));
