@@ -1,32 +1,30 @@
 import React from 'react'
 import './css/Body.css'
 import * as api_client from '../services/api_client'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+const DateAndTimeBox = ({ blob }) => {
+    return (
+        <div className="dateAndTimeBox">
+            {blob.dateAndTime.map((dateAndTime, i) => (
+                <div className="dateAndTime" key={i}>
+                    {dateAndTime}
+                </div>  
+            ))}
+        </div>
+    );
+};
 
-// const DateAndTimeBox = ({ blob }) => {
-//     return (
-//         <div className="dateAndTimeBox">
-//             {blob.dateAndTime.map((dateAndTime, i) => (
-//                 <div className="dateAndTime" key={i}>
-//                     {dateAndTime}
-//                 </div>  
-//             ))}
-//         </div>
-//     );
-// };
-
-// const ImageBox = ({ blob }) => {
-//     return (
-//         <div className="imageBox">
-//             {blob.image.map((images, i) => (
-//                 <div className="image" key={i}>
-//                     <img src={api_client.get_image_url(images)} alt="" />
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// };
+const ImageBox = ({ blob }) => {
+    return (
+        <div className="imageBox">
+            {blob.image.map((images, i) => (
+                <div className="image" key={i}>
+                    <img src={api_client.get_image_url(images)} alt="" />
+                </div>
+            ))}
+        </div>
+    );
+};
 
 function BodyView({ blobs }) {
     return (
