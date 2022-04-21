@@ -1,6 +1,6 @@
 import * as api_client from '../services/api_client'
 import React, {useState, useEffect} from 'react';
-import BodyView from '../views/BodyView';
+// import BodyView from '../views/BodyView';
 
 function BodyPresenter() {
 
