@@ -1,6 +1,7 @@
 import React, {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App';
+const { BlobServiceClient } = require("@azure/storage-blob");
 
 
 const rootElement = document.getElementById('root');
