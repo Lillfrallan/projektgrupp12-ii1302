@@ -39,14 +39,14 @@ function BodyPresenter() {
                 let temp = [];
                 for (let i = 0; i < N; i++) {
                     temp.push(array[i]);
-                    if (((i + 1) % K) == 0) {
+                    if (((i + 1) % K) === 0) {
                         ans.push(temp);
                         temp = [];
                     }
                 }
-                if (temp.length != 0) {
+                if (temp.length !== 0) {
                     let a = temp.length;
-                    while (a != K) {
+                    while (a !== K) {
                         temp.push(0);
                         a++;
                     }
@@ -55,7 +55,8 @@ function BodyPresenter() {
                 return ans;
             }
 
-            let splittedArray = divideArray(arrayForBlobs, 2, arrayForBlobs.length);
+            // let splittedArray = divideArray(arrayForBlobs, 2, arrayForBlobs.length);
+
 
             setBlobs(divideArray(arrayForBlobs, 2, arrayForBlobs.length))
 
@@ -85,12 +86,12 @@ function BodyPresenter() {
     
     return (
         <div className="BodyPresenter">
-            {blobs.map(() => {
+            {/* {blobs.map(() => {
                 <BodyView
                     image={blobs[0]}
                 /> 
 
-            })}
+            })} */}
             
         </div >
     )

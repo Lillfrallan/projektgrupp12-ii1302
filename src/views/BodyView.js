@@ -32,7 +32,8 @@ function BodyView({ blobs }) {
             <div className="blobs">
                 {blobs.map((blob, i) => (
                     <div key={i} className="elementBox">
-                        <img src={blob} alt=""/>
+                        <DateAndTimeBox/>
+                        <ImageBox/>
                     </div>
                 ))}
             </div>
