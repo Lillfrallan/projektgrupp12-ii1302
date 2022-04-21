@@ -75226,6 +75226,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _HeaderPresenter = _interopRequireDefault(require("./presenters/HeaderPresenter"));
 
+require("./services/api_client");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
@@ -75236,7 +75238,7 @@ function App() {
 
 var _default = App;
 exports.default = _default;
-},{"./presenters/BodyPresenter":"../src/presenters/BodyPresenter.js","react":"../node_modules/react/index.js","./presenters/HeaderPresenter":"../src/presenters/HeaderPresenter.js"}],"../src/index.js":[function(require,module,exports) {
+},{"./presenters/BodyPresenter":"../src/presenters/BodyPresenter.js","react":"../node_modules/react/index.js","./presenters/HeaderPresenter":"../src/presenters/HeaderPresenter.js","./services/api_client":"../src/services/api_client.js"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -75250,6 +75252,8 @@ var _client = require("react-dom/client");
 
 var _App = _interopRequireDefault(require("./App"));
 
+require("./services/api_client");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -75260,12 +75264,13 @@ const {
   BlobServiceClient
 } = require("@azure/storage-blob");
 
+//required to be here for github actions to work -> not used
 const blobServiceClient = new BlobServiceClient(`https://ktodb.blob.core.windows.net`);
 exports.blobServiceClient = blobServiceClient;
 const rootElement = document.getElementById('root');
 const root = (0, _client.createRoot)(rootElement);
 root.render( /*#__PURE__*/_react.default.createElement(_react.StrictMode, null, /*#__PURE__*/_react.default.createElement(_App.default, null)));
-},{"react":"../node_modules/react/index.js","react-dom/client":"../node_modules/react-dom/client.js","./App":"../src/App.js","@azure/storage-blob":"../node_modules/@azure/storage-blob/dist-esm/storage-blob/src/index.browser.js"}],"../../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom/client":"../node_modules/react-dom/client.js","./App":"../src/App.js","@azure/storage-blob":"../node_modules/@azure/storage-blob/dist-esm/storage-blob/src/index.browser.js","./services/api_client":"../src/services/api_client.js"}],"../../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -75293,7 +75298,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50178" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61788" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
