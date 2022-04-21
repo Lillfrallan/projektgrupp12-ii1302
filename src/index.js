@@ -2,7 +2,6 @@ import React, {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import App from './App';
 import './services/api_client';
-import { BlobServiceClient } from '@azure/storage-blob';
 const { BlobServiceClient } = require("@azure/storage-blob");
 
 
