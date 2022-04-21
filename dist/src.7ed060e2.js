@@ -75260,7 +75260,7 @@ const {
   BlobServiceClient
 } = require("@azure/storage-blob");
 
-const blobServiceClient = new BlobServiceClient(get_blob_account(ktodb));
+const blobServiceClient = new BlobServiceClient(`https://ktodb.blob.core.windows.net`);
 exports.blobServiceClient = blobServiceClient;
 const rootElement = document.getElementById('root');
 const root = (0, _client.createRoot)(rootElement);

@@ -3,7 +3,7 @@ import {createRoot} from 'react-dom/client';
 import App from './App';
 const { BlobServiceClient } = require("@azure/storage-blob");
 
-const blobServiceClient = new BlobServiceClient(get_blob_account(ktodb));
+const blobServiceClient = new BlobServiceClient(`https://ktodb.blob.core.windows.net`);
 
 
 const rootElement = document.getElementById('root');
