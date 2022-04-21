@@ -75262,15 +75262,15 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 const {
   BlobServiceClient
-} = require("@azure/storage-blob");
+} = require("@azure/storage-blob"); //required to be here for github actions to work -> not used
 
-//required to be here for github actions to work -> not used
+
 const blobServiceClient = new BlobServiceClient(`https://ktodb.blob.core.windows.net`);
 exports.blobServiceClient = blobServiceClient;
 const rootElement = document.getElementById('root');
 const root = (0, _client.createRoot)(rootElement);
 root.render( /*#__PURE__*/_react.default.createElement(_react.StrictMode, null, /*#__PURE__*/_react.default.createElement(_App.default, null)));
-},{"react":"../node_modules/react/index.js","react-dom/client":"../node_modules/react-dom/client.js","./App":"../src/App.js","@azure/storage-blob":"../node_modules/@azure/storage-blob/dist-esm/storage-blob/src/index.browser.js","./services/api_client":"../src/services/api_client.js"}],"../../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom/client":"../node_modules/react-dom/client.js","./App":"../src/App.js","./services/api_client":"../src/services/api_client.js","@azure/storage-blob":"../node_modules/@azure/storage-blob/dist-esm/storage-blob/src/index.browser.js"}],"../../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
