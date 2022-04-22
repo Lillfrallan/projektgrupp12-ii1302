@@ -1,0 +1,63 @@
+.bodyView {
+  width: 30%;
+  justify-content: center;
+  padding: 1rem;
+  display: flex;
+}
+
+.blobs {
+  grid-gap: 1rem;
+  background-color: #dcdcdf;
+  border-radius: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  padding-top: 2%;
+  display: grid;
+}
+
+.imageContainer {
+  justify-content: center;
+  display: flex;
+}
+
+.image {
+  max-width: 60%;
+}
+
+.dateAndTimeContainer {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.dateAndTime {
+  color: #030303;
+  text-transform: uppercase;
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  display: flex;
+}
+
+.headerContainer {
+  background-color: #24b6e7;
+  border-bottom: .2px solid #d3d3d3;
+  flex-flow: row;
+  place-content: center space-between;
+  align-items: center;
+  display: flex;
+}
+
+.headerTitle {
+  white-space: nowrap;
+  color: #3b478a;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px #0006;
+  font-size: 3.3em;
+  font-weight: bold;
+}
+
+.lastCreatedText {
+  padding-bottom: 10%;
+}
+
+/*# sourceMappingURL=index.1616972c.css.map */

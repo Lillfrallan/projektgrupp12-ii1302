@@ -1,38 +1,43 @@
-.elementBox {
-}
 
-.imageBox {
+.bodyView {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 1rem;  
+    width: 30%
 }
 
 
-.image {
-    padding-top: 0.5%;
+.blobs { 
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    background-color:#dcdcdf;
+    border-radius: 25px;
+    padding-top: 2%;
 }
 
-img{
-    max-width:60%;
-}
-
-.dateAndTimeBox {
+.imageContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+
+.image{
+    max-width: 60%;
+}
+
+.dateAndTimeContainer {
+    display: flex;
     align-items: center;
-    padding-right: 8%;
+    justify-content: center;
+    
+    
 }
 
-.dateAndTime{
-    padding-top: 2em;
-
+.dateAndTime {
+    color: #030303;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
-
-
-/* .images:hover {
-    box-shadow:10px 10px 7px rgba(0,0,0,.7);
-    transform: scale(1.5);
-    position:relative;
-    z-index:5;
-}
- */

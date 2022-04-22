@@ -16,7 +16,7 @@ function HeaderPresenter() {
             for await (const blob of blobs) {
                 newArrayforDates.push(
                     blob.properties.lastModified.getDate() + "/" + 
-                    blob.properties.lastModified.getMonth() + "-" + 
+                    (blob.properties.lastModified.getMonth()+1) + "-" + 
                     blob.properties.lastModified.getFullYear() + " " + 
                     blob.properties.lastModified.getHours() + ":" + 
                     blob.properties.lastModified.getMinutes() + ":" + 
@@ -24,12 +24,11 @@ function HeaderPresenter() {
                 )    
             }
 
-            var lastBlob;
-            newArrayforDates.reverse();
-            for(var i = 0; i <= newArrayforDates.length; i++) {
-                lastBlob = newArrayforDates[i-1];
-
-            }
+            let lastBlob;
+            let reversedArray = [];
+            reversedArray = newArrayforDates.reverse();
+            lastBlob = reversedArray[0];
+    
             setLastCreatedBlob(lastBlob);
         }
         return blobStorage;

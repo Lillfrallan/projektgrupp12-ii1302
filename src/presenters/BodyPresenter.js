@@ -18,13 +18,14 @@ function BodyPresenter() {
                 arrayForBlobs.push(blob.name); 
                 arrayForBlobs.push(
                     blob.properties.createdOn.getDate() + "/" + 
-                    blob.properties.createdOn.getMonth() + "-" + 
+                    (blob.properties.createdOn.getMonth()+1) + "-" + 
                     blob.properties.createdOn.getFullYear() + " " + 
                     blob.properties.createdOn.getHours() + ":" + 
                     blob.properties.createdOn.getMinutes() + ":" + 
                     blob.properties.createdOn.getSeconds()
                 )
             }
+
 
             /**
              * Divides array into smaller arrays.
@@ -39,14 +40,14 @@ function BodyPresenter() {
                 let temp = [];
                 for (let i = 0; i < N; i++) {
                     temp.push(array[i]);
-                    if (((i + 1) % K) == 0) {
+                    if (((i + 1) % K) === 0) {
                         ans.push(temp);
                         temp = [];
                     }
                 }
-                if (temp.length != 0) {
+                if (temp.length !== 0) {
                     let a = temp.length;
-                    while (a != K) {
+                    while (a !== K) {
                         temp.push(0);
                         a++;
                     }
@@ -55,34 +56,24 @@ function BodyPresenter() {
                 return ans;
             }
 
-            // let splittedArray = divideArray(arrayForBlobs, 2, arrayForBlobs.length);
-
-            setBlobs(divideArray(arrayForBlobs, 2, arrayForBlobs.length))
-
-            // console.log(blobObject)
+            setBlobs(divideArray(arrayForBlobs, 2, arrayForBlobs.length));
 
         }
         return blobStorage;
     }, [blobs])  
 
-    
-
-    // console.log(blobs[0])
-
 
     return (
-        <div className="BodyPresenter">
-
-            <BodyView
-                blobs={blobs}
-            /> 
-            {blobs.map(() => {
-                <BodyView
-                    image={blobs[0]}
-                /> 
-
-            })}
-
+        <div className="bodyPresenter">
+                {blobs.map((blob, i) => (
+                    <div key={i} className="elementBox">
+                        <BodyView
+                            images={blob[0]}
+                            datesAndTime={blob[1]}  
+                            key={i}    
+                        />
+                    </div>
+                ))}   
         </div >
     )
 }
