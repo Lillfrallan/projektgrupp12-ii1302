@@ -59520,12 +59520,19 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _bodyCss = require("./css/Body.css");
 var _apiClient = require("../services/api_client");
-function BodyView({ images , datesAndTime  }) {
+function BodyView({ images , datesAndTime , i  }) {
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         className: "bodyView",
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: "blobs",
             children: [
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Link, {
+                    href: `/image?id=${i + 1}`
+                }, void 0, false, {
+                    fileName: "src/views/BodyView.js",
+                    lineNumber: 10,
+                    columnNumber: 17
+                }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
                     className: "imageContainer",
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
@@ -59534,12 +59541,12 @@ function BodyView({ images , datesAndTime  }) {
                         alt: ""
                     }, void 0, false, {
                         fileName: "src/views/BodyView.js",
-                        lineNumber: 11,
+                        lineNumber: 12,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "src/views/BodyView.js",
-                    lineNumber: 10,
+                    lineNumber: 11,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -59549,12 +59556,12 @@ function BodyView({ images , datesAndTime  }) {
                         children: datesAndTime
                     }, void 0, false, {
                         fileName: "src/views/BodyView.js",
-                        lineNumber: 14,
+                        lineNumber: 15,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "src/views/BodyView.js",
-                    lineNumber: 13,
+                    lineNumber: 14,
                     columnNumber: 17
                 }, this)
             ]
