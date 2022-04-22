@@ -1,10 +1,16 @@
 import * as api_client from '../services/api_client'
 import React, {useState, useEffect} from 'react';
 import BodyView from '../views/BodyView';
+import { useNavigate } from 'react-router-dom';
+import { nanoid } from '@reduxjs/toolkit';
+import '../views/css/Body.css'
 
 function BodyPresenter() {
 
     const [blobs, setBlobs] = useState([]);
+
+    //Navigate the user around the website
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function blobStorage() {
@@ -14,6 +20,7 @@ function BodyPresenter() {
             let arrayForBlobs = [];
 
             for await (const blob of blobs) {
+                let index = nanoid();
 
                 arrayForBlobs.push(blob.name); 
                 arrayForBlobs.push(
@@ -24,6 +31,7 @@ function BodyPresenter() {
                     blob.properties.createdOn.getMinutes() + ":" + 
                     blob.properties.createdOn.getSeconds()
                 )
+                arrayForBlobs.push(index)
             }
 
 
@@ -56,12 +64,19 @@ function BodyPresenter() {
                 return ans;
             }
 
-            setBlobs(divideArray(arrayForBlobs, 2, arrayForBlobs.length));
+            let splittedArray = divideArray(arrayForBlobs, 3, arrayForBlobs.length).reverse();
+
+            setBlobs(splittedArray);
 
         }
         return blobStorage;
-    }, [blobs])  
+    }, [blobs]) 
 
+    // console.log(blobs)
+    
+    const redirect = (index) => {
+        return navigate("/summary/" + index);
+    }
 
     return (
         <div className="bodyPresenter">
@@ -70,6 +85,8 @@ function BodyPresenter() {
                         <BodyView
                             images={blob[0]}
                             datesAndTime={blob[1]}  
+                            index ={blob[2]}
+                            redirect={redirect}
                             key={i}    
                         />
                     </div>
