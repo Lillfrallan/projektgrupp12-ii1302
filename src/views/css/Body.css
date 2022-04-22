@@ -1,0 +1,38 @@
+.elementBox {
+}
+
+.imageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.image {
+    padding-top: 0.5%;
+}
+
+img{
+    max-width:60%;
+}
+
+.dateAndTimeBox {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-right: 8%;
+}
+
+.dateAndTime{
+    padding-top: 2em;
+
+}
+
+
+/* .images:hover {
+    box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    transform: scale(1.5);
+    position:relative;
+    z-index:5;
+}
+ */

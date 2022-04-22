@@ -1,7 +1,9 @@
-import React from 'react';
-import {createRoot} from 'react-dom/client';
-import App from './App';
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { BlobServiceClient } from '@azure/storage-blob';
+
+/**
+ * Holds the API connections to Azure Portal.
+ * 
+*/
 
 const account = "ktodb";
 const containerName = "images";
@@ -19,15 +21,5 @@ const blobServiceClient = new BlobServiceClient(get_blob_account(account));
 const containerClient = blobServiceClient.getContainerClient(containerName);
 
 
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
-
-export  {get_image_url, get_blob_account, containerClient}
-
-
+export  {get_image_url, get_blob_account, containerClient} 
