@@ -14,6 +14,10 @@ function HeaderView( {lastCreatedBlob} ) {
                     <span className="headerTitle">KTH-LINK</span>
                 </div>
                 <div className="rightContainer"></div>
+<<<<<<< HEAD
+                {/* <HeaderButtons icon={"fas fa-home fa-1g"} title="Home"/> */}
+=======
+>>>>>>> 766f8fa070b2b0d6dd483fb51b7c7d30221f7cf2
             </div>
         </div>
     )

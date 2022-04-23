@@ -1,7 +1,6 @@
 import Body from './presenters/BodyPresenter';
 import React from 'react';
 import Header from './presenters/HeaderPresenter';
-import './services/api_client';
 
 
 function App() {
@@ -14,4 +13,4 @@ function App() {
     );
 }
 
-export default App;
+export default App
