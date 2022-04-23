@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import '../views/css/Body.css'
 import { saveAs } from 'file-saver'
-var FileSaver = require('file-saver')
 
 function BodyPresenter() {
 
