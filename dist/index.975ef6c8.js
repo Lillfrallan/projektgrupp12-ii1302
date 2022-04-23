@@ -25083,7 +25083,7 @@ var _bodyViewDefault = parcelHelpers.interopDefault(_bodyView);
 var _reactRouterDom = require("react-router-dom");
 var _toolkit = require("@reduxjs/toolkit");
 var _bodyCss = require("../views/css/Body.css");
-var Buffer = require("buffer").Buffer;
+var _fileSaver = require("file-saver");
 var _s = $RefreshSig$();
 function BodyPresenter() {
     _s();
@@ -25138,48 +25138,10 @@ function BodyPresenter() {
     const redirect = (index)=>{
         return navigate("/summary/" + index);
     };
-    // const blobName = blobs[0][0]
-    // console.log(blobs[0][0])
-    // async function main() {
-    //     const blobClient = api_client.containerClient.getBlobClient(blobs[0][0]);
-    //     // Get blob content from position 0 to the end
-    //     // In browsers, get downloaded data by accessing downloadBlockBlobResponse.blobBody
-    //     const downloadBlockBlobResponse = await blobClient.download();
-    //     const downloaded = await blobToString(await downloadBlockBlobResponse.blobBody);
-    //     console.log("Downloaded blob content", downloaded);
-    //     // [Browsers only] A helper method used to convert a browser Blob into string.
-    //     async function blobToString(blob) {
-    //     const fileReader = new FileReader();
-    //     return new Promise((resolve, reject) => {
-    //         fileReader.onloadend = (ev) => {
-    //         resolve(ev.target.result);
-    //         };
-    //         fileReader.onerror = reject;
-    //         fileReader.readAsText(blob);
-    //     });
-    //     }
-    // }
-    async function main() {
-        const blobClient = containerClient.getBlobClient(blobs1[0][0]);
-        // Get blob content from position 0 to the end
-        // In Node.js, get downloaded data by accessing downloadBlockBlobResponse.readableStreamBody
-        const downloadBlockBlobResponse = await blobClient.download();
-        const downloaded = (await streamToBuffer(downloadBlockBlobResponse.readableStreamBody)).toString();
-        console.log("Downloaded blob content:", downloaded);
-        // [Node.js only] A helper method used to read a Node.js readable stream into a Buffer
-        async function streamToBuffer(readableStream) {
-            return new Promise((resolve, reject)=>{
-                const chunks = [];
-                readableStream.on("data", (data)=>{
-                    chunks.push(data instanceof Buffer ? data : Buffer.from(data));
-                });
-                readableStream.on("end", ()=>{
-                    resolve(Buffer.concat(chunks));
-                });
-                readableStream.on("error", reject);
-            });
-        }
-    }
+    const downloadImage = ()=>{
+        _fileSaver.saveAs(_apiClient.get_image_url(blobs1[0][0]), blobs1[0][0]);
+        _fileSaver.saveAs(blobs1[0][1], "hello world.txt");
+    };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         className: "bodyPresenter",
         children: [
@@ -25192,26 +25154,26 @@ function BodyPresenter() {
                         redirect: redirect
                     }, i, false, {
                         fileName: "src/presenters/BodyPresenter.js",
-                        lineNumber: 140,
+                        lineNumber: 91,
                         columnNumber: 25
                     }, this)
                 }, i, false, {
                     fileName: "src/presenters/BodyPresenter.js",
-                    lineNumber: 139,
+                    lineNumber: 90,
                     columnNumber: 21
                 }, this)
             ),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
-                onClick: main
+                onClick: downloadImage
             }, void 0, false, {
                 fileName: "src/presenters/BodyPresenter.js",
-                lineNumber: 149,
+                lineNumber: 100,
                 columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/presenters/BodyPresenter.js",
-        lineNumber: 137,
+        lineNumber: 88,
         columnNumber: 9
     }, this);
 }
@@ -25230,7 +25192,7 @@ $RefreshReg$(_c, "BodyPresenter");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../services/api_client":"lBH88","react":"21dqq","../views/BodyView":"f8KGR","react-router-dom":"fdOAw","@reduxjs/toolkit":"lL1Ef","../views/css/Body.css":"cIccu","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP","buffer":"fCgem"}],"lBH88":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../services/api_client":"lBH88","react":"21dqq","../views/BodyView":"f8KGR","react-router-dom":"fdOAw","@reduxjs/toolkit":"lL1Ef","../views/css/Body.css":"cIccu","file-saver":"3ILQE","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP"}],"lBH88":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "get_image_url", ()=>get_image_url
@@ -65264,7 +65226,85 @@ var thunk = createThunkMiddleware(); // Attach the factory function so users can
 thunk.withExtraArgument = createThunkMiddleware;
 exports.default = thunk;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ"}],"cIccu":[function() {},{}],"2UFZO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ"}],"cIccu":[function() {},{}],"3ILQE":[function(require,module,exports) {
+var global = arguments[3];
+(function(a, b) {
+    if ("function" == typeof define && define.amd) define([], b);
+    else b();
+})(this, function() {
+    "use strict";
+    function b1(a, b) {
+        return "undefined" == typeof b ? b = {
+            autoBom: !1
+        } : "object" != typeof b && (console.warn("Deprecated: Expected third argument to be a object"), b = {
+            autoBom: !b
+        }), b.autoBom && /^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type) ? new Blob([
+            "\uFEFF",
+            a
+        ], {
+            type: a.type
+        }) : a;
+    }
+    function c1(a, b, c) {
+        var d = new XMLHttpRequest;
+        d.open("GET", a), d.responseType = "blob", d.onload = function() {
+            g1(d.response, b, c);
+        }, d.onerror = function() {
+            console.error("could not download file");
+        }, d.send();
+    }
+    function d1(a) {
+        var b = new XMLHttpRequest;
+        b.open("HEAD", a, !1);
+        try {
+            b.send();
+        } catch (a2) {}
+        return 200 <= b.status && 299 >= b.status;
+    }
+    function e1(a) {
+        try {
+            a.dispatchEvent(new MouseEvent("click"));
+        } catch (c) {
+            var b = document.createEvent("MouseEvents");
+            b.initMouseEvent("click", !0, !0, window, 0, 0, 0, 80, 20, !1, !1, !1, !1, 0, null), a.dispatchEvent(b);
+        }
+    }
+    var f1 = "object" == typeof window && window.window === window ? window : "object" == typeof self && self.self === self ? self : "object" == typeof global && global.global === global ? global : void 0, a1 = f1.navigator && /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent), g1 = f1.saveAs || ("object" != typeof window || window !== f1 ? function() {} : "download" in HTMLAnchorElement.prototype && !a1 ? function(b, g, h) {
+        var i = f1.URL || f1.webkitURL, j = document.createElement("a");
+        g = g || b.name || "download", j.download = g, j.rel = "noopener", "string" == typeof b ? (j.href = b, j.origin === location.origin ? e1(j) : d1(j.href) ? c1(b, g, h) : e1(j, j.target = "_blank")) : (j.href = i.createObjectURL(b), setTimeout(function() {
+            i.revokeObjectURL(j.href);
+        }, 4E4), setTimeout(function() {
+            e1(j);
+        }, 0));
+    } : "msSaveOrOpenBlob" in navigator ? function(f, g, h) {
+        if (g = g || f.name || "download", "string" != typeof f) navigator.msSaveOrOpenBlob(b1(f, h), g);
+        else if (d1(f)) c1(f, g, h);
+        else {
+            var i = document.createElement("a");
+            i.href = f, i.target = "_blank", setTimeout(function() {
+                e1(i);
+            });
+        }
+    } : function(b, d, e, g) {
+        if (g = g || open("", "_blank"), g && (g.document.title = g.document.body.innerText = "downloading..."), "string" == typeof b) return c1(b, d, e);
+        var h = "application/octet-stream" === b.type, i = /constructor/i.test(f1.HTMLElement) || f1.safari, j = /CriOS\/[\d]+/.test(navigator.userAgent);
+        if ((j || h && i || a1) && "undefined" != typeof FileReader) {
+            var k = new FileReader;
+            k.onloadend = function() {
+                var a = k.result;
+                a = j ? a : a.replace(/^data:[^;]*;/, "data:attachment/file;"), g ? g.location.href = a : location = a, g = null;
+            }, k.readAsDataURL(b);
+        } else {
+            var l = f1.URL || f1.webkitURL, m = l.createObjectURL(b);
+            g ? g.location = m : location.href = m, g = null, setTimeout(function() {
+                l.revokeObjectURL(m);
+            }, 4E4);
+        }
+    });
+    f1.saveAs = g1.saveAs = g1, module.exports = g1;
+});
+
+},{}],"2UFZO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9d65 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
