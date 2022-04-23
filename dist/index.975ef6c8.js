@@ -1035,12 +1035,12 @@ const root = _client.createRoot(rootElement);
 root.render(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactDefault.default.StrictMode, {
     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_appDefault.default, {}, void 0, false, {
         fileName: "src/index.js",
-        lineNumber: 27,
+        lineNumber: 28,
         columnNumber: 5
     }, undefined)
 }, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 26,
+    lineNumber: 27,
     columnNumber: 3
 }, undefined));
 
@@ -25019,8 +25019,6 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _headerPresenter = require("./presenters/HeaderPresenter");
 var _headerPresenterDefault = parcelHelpers.interopDefault(_headerPresenter);
 var _reactRouterDom = require("react-router-dom");
-var _summaryPresenter = require("./presenters/SummaryPresenter");
-var _summaryPresenterDefault = parcelHelpers.interopDefault(_summaryPresenter);
 function App() {
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         className: "App",
@@ -25028,42 +25026,32 @@ function App() {
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_headerPresenterDefault.default, {}, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 13,
+                    lineNumber: 11,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Routes, {
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
-                            path: "/",
-                            element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_bodyPresenterDefault.default, {}, void 0, false, void 0, void 0)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 15,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
-                            path: "summary/:id",
-                            element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_summaryPresenterDefault.default, {}, void 0, false, void 0, void 0)
-                        }, void 0, false, {
-                            fileName: "src/App.js",
-                            lineNumber: 16,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
+                        path: "/",
+                        element: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_bodyPresenterDefault.default, {}, void 0, false, void 0, void 0)
+                    }, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 13,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
                     fileName: "src/App.js",
-                    lineNumber: 14,
+                    lineNumber: 12,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/App.js",
-            lineNumber: 12,
+            lineNumber: 10,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "src/App.js",
-        lineNumber: 11,
+        lineNumber: 9,
         columnNumber: 7
     }, this);
 }
@@ -25077,7 +25065,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./presenters/BodyPresenter":"kwpGQ","react":"21dqq","./presenters/HeaderPresenter":"2UFZO","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP","react-router-dom":"fdOAw","./presenters/SummaryPresenter":"7J5jc"}],"kwpGQ":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./presenters/BodyPresenter":"kwpGQ","react":"21dqq","./presenters/HeaderPresenter":"2UFZO","react-router-dom":"fdOAw","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP"}],"kwpGQ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8115 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25094,8 +25082,8 @@ var _bodyView = require("../views/BodyView");
 var _bodyViewDefault = parcelHelpers.interopDefault(_bodyView);
 var _reactRouterDom = require("react-router-dom");
 var _toolkit = require("@reduxjs/toolkit");
-var _summaryPresenter = require("./SummaryPresenter");
-var _summaryPresenterDefault = parcelHelpers.interopDefault(_summaryPresenter);
+var _bodyCss = require("../views/css/Body.css");
+var Buffer = require("buffer").Buffer;
 var _s = $RefreshSig$();
 function BodyPresenter() {
     _s();
@@ -25139,7 +25127,8 @@ function BodyPresenter() {
                 }
                 return ans;
             }
-            setBlobs(divideArray(arrayForBlobs, 3, arrayForBlobs.length));
+            let splittedArray = divideArray(arrayForBlobs, 3, arrayForBlobs.length).reverse();
+            setBlobs(splittedArray);
         }
         return blobStorage;
     }, [
@@ -25149,29 +25138,80 @@ function BodyPresenter() {
     const redirect = (index)=>{
         return navigate("/summary/" + index);
     };
+    // const blobName = blobs[0][0]
+    // console.log(blobs[0][0])
+    // async function main() {
+    //     const blobClient = api_client.containerClient.getBlobClient(blobs[0][0]);
+    //     // Get blob content from position 0 to the end
+    //     // In browsers, get downloaded data by accessing downloadBlockBlobResponse.blobBody
+    //     const downloadBlockBlobResponse = await blobClient.download();
+    //     const downloaded = await blobToString(await downloadBlockBlobResponse.blobBody);
+    //     console.log("Downloaded blob content", downloaded);
+    //     // [Browsers only] A helper method used to convert a browser Blob into string.
+    //     async function blobToString(blob) {
+    //     const fileReader = new FileReader();
+    //     return new Promise((resolve, reject) => {
+    //         fileReader.onloadend = (ev) => {
+    //         resolve(ev.target.result);
+    //         };
+    //         fileReader.onerror = reject;
+    //         fileReader.readAsText(blob);
+    //     });
+    //     }
+    // }
+    async function main() {
+        const blobClient = containerClient.getBlobClient(blobs1[0][0]);
+        // Get blob content from position 0 to the end
+        // In Node.js, get downloaded data by accessing downloadBlockBlobResponse.readableStreamBody
+        const downloadBlockBlobResponse = await blobClient.download();
+        const downloaded = (await streamToBuffer(downloadBlockBlobResponse.readableStreamBody)).toString();
+        console.log("Downloaded blob content:", downloaded);
+        // [Node.js only] A helper method used to read a Node.js readable stream into a Buffer
+        async function streamToBuffer(readableStream) {
+            return new Promise((resolve, reject)=>{
+                const chunks = [];
+                readableStream.on("data", (data)=>{
+                    chunks.push(data instanceof Buffer ? data : Buffer.from(data));
+                });
+                readableStream.on("end", ()=>{
+                    resolve(Buffer.concat(chunks));
+                });
+                readableStream.on("error", reject);
+            });
+        }
+    }
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
         className: "bodyPresenter",
-        children: blobs1.map((blob, i)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                className: "elementBox",
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_bodyViewDefault.default, {
-                    images: blob[0],
-                    datesAndTime: blob[1],
-                    index: blob[2],
-                    redirect: redirect
+        children: [
+            blobs1.map((blob, i)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
+                    className: "elementBox",
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_bodyViewDefault.default, {
+                        images: blob[0],
+                        datesAndTime: blob[1],
+                        index: blob[2],
+                        redirect: redirect
+                    }, i, false, {
+                        fileName: "src/presenters/BodyPresenter.js",
+                        lineNumber: 140,
+                        columnNumber: 25
+                    }, this)
                 }, i, false, {
                     fileName: "src/presenters/BodyPresenter.js",
-                    lineNumber: 83,
-                    columnNumber: 25
+                    lineNumber: 139,
+                    columnNumber: 21
                 }, this)
-            }, i, false, {
+            ),
+            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("button", {
+                onClick: main
+            }, void 0, false, {
                 fileName: "src/presenters/BodyPresenter.js",
-                lineNumber: 82,
-                columnNumber: 21
+                lineNumber: 149,
+                columnNumber: 17
             }, this)
-        )
-    }, void 0, false, {
+        ]
+    }, void 0, true, {
         fileName: "src/presenters/BodyPresenter.js",
-        lineNumber: 80,
+        lineNumber: 137,
         columnNumber: 9
     }, this);
 }
@@ -25190,7 +25230,7 @@ $RefreshReg$(_c, "BodyPresenter");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../services/api_client":"lBH88","react":"21dqq","../views/BodyView":"f8KGR","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP","react-router-dom":"fdOAw","@reduxjs/toolkit":"lL1Ef","./SummaryPresenter":"7J5jc"}],"lBH88":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../services/api_client":"lBH88","react":"21dqq","../views/BodyView":"f8KGR","react-router-dom":"fdOAw","@reduxjs/toolkit":"lL1Ef","../views/css/Body.css":"cIccu","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP","buffer":"fCgem"}],"lBH88":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "get_image_url", ()=>get_image_url
@@ -59574,36 +59614,22 @@ function BodyView({ images , datesAndTime , index , redirect  }) {
             onClick: ()=>redirect(index)
             ,
             children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "imageContainer",
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
-                        className: "image",
-                        src: _apiClient.get_image_url(images),
-                        alt: ""
-                    }, void 0, false, {
-                        fileName: "src/views/BodyView.js",
-                        lineNumber: 11,
-                        columnNumber: 21
-                    }, this)
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
+                    className: "image",
+                    src: _apiClient.get_image_url(images),
+                    alt: ""
                 }, void 0, false, {
                     fileName: "src/views/BodyView.js",
                     lineNumber: 10,
-                    columnNumber: 17
+                    columnNumber: 21
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                    className: "dateAndTimeContainer",
-                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-                        className: "dateAndTime",
-                        children: datesAndTime
-                    }, void 0, false, {
-                        fileName: "src/views/BodyView.js",
-                        lineNumber: 14,
-                        columnNumber: 21
-                    }, this)
+                    className: "dateAndTime",
+                    children: datesAndTime
                 }, void 0, false, {
                     fileName: "src/views/BodyView.js",
-                    lineNumber: 13,
-                    columnNumber: 17
+                    lineNumber: 11,
+                    columnNumber: 21
                 }, this)
             ]
         }, void 0, true, {
@@ -65238,85 +65264,7 @@ var thunk = createThunkMiddleware(); // Attach the factory function so users can
 thunk.withExtraArgument = createThunkMiddleware;
 exports.default = thunk;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ"}],"7J5jc":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$0117 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$0117.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _summaryView = require("../views/SummaryView");
-var _summaryViewDefault = parcelHelpers.interopDefault(_summaryView);
-var _reactRouterDom = require("react-router-dom");
-var _s = $RefreshSig$();
-function SummaryPresenter() {
-    _s();
-    const [summaryCard, setSummaryCard] = _react.useState({});
-    _react.useEffect(()=>{
-        fetch("http://localhost:1234/summary/" + uniqueID).then((res)=>res.json()
-        ).then((result)=>{
-            setSummaryCard(result);
-        });
-    });
-    console.log(uniqueID);
-    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_summaryViewDefault.default, {}, void 0, false, {
-            fileName: "src/presenters/SummaryPresenter.js",
-            lineNumber: 26,
-            columnNumber: 13
-        }, this)
-    }, void 0, false, {
-        fileName: "src/presenters/SummaryPresenter.js",
-        lineNumber: 25,
-        columnNumber: 9
-    }, this);
-}
-_s(SummaryPresenter, "esl0XpepJ2EZZftS8PPr0VfZ/SA=");
-_c = SummaryPresenter;
-exports.default = SummaryPresenter;
-var _c;
-$RefreshReg$(_c, "SummaryPresenter");
-
-  $parcel$ReactRefreshHelpers$0117.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP","../views/SummaryView":"d4Nae","react-router-dom":"fdOAw"}],"d4Nae":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$4916 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$4916.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-function SummaryView() {
-    return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {}, void 0, false, {
-        fileName: "src/views/SummaryView.js",
-        lineNumber: 5,
-        columnNumber: 5
-    }, this);
-}
-_c = SummaryView;
-exports.default = SummaryView;
-var _c;
-$RefreshReg$(_c, "SummaryView");
-
-  $parcel$ReactRefreshHelpers$4916.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"36EqP"}],"2UFZO":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ki1DJ"}],"cIccu":[function() {},{}],"2UFZO":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9d65 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

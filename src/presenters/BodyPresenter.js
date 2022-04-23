@@ -4,6 +4,8 @@ import BodyView from '../views/BodyView';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from '@reduxjs/toolkit';
 import '../views/css/Body.css'
+import { saveAs } from 'file-saver'
+var FileSaver = require('file-saver')
 
 function BodyPresenter() {
 
@@ -78,6 +80,11 @@ function BodyPresenter() {
         return navigate("/summary/" + index);
     }
 
+    const downloadImage = () => {
+        saveAs(api_client.get_image_url(blobs[0][0]), blobs[0][0])
+        saveAs(blobs[0][1], "hello world.txt");
+    }
+
     return (
         <div className="bodyPresenter">
                 {blobs.map((blob, i) => (
@@ -91,8 +98,9 @@ function BodyPresenter() {
                         />
                     </div>
                 ))}   
+                <button onClick={downloadImage}></button>
         </div >
     )
 }
 
-export default BodyPresenter
+export default BodyPresenter;

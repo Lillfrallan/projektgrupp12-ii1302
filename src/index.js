@@ -19,6 +19,7 @@ const blobServiceClient = new BlobServiceClient(get_blob_account(account));
 const containerClient = blobServiceClient.getContainerClient(containerName);
 
 
+
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
