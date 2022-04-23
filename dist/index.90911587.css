@@ -1,0 +1,23 @@
+.headerContainer {
+  background-color: #24b6e7;
+  border-bottom: .2px solid #d3d3d3;
+  flex-flow: row;
+  place-content: center space-between;
+  align-items: center;
+  display: flex;
+}
+
+.headerTitle {
+  white-space: nowrap;
+  color: #3b478a;
+  text-transform: uppercase;
+  text-shadow: 0 2px 4px #0006;
+  font-size: 3.3em;
+  font-weight: bold;
+}
+
+.lastCreatedText {
+  padding-bottom: 10%;
+}
+
+/*# sourceMappingURL=index.90911587.css.map */
