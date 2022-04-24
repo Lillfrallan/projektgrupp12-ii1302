@@ -1,20 +1,34 @@
 import React from 'react'
 import './css/Header.css'
+import { FaHome } from "react-icons/fa";
 
-function HeaderView( {lastCreatedBlob} ) {
+
+function HeaderView( { lastCreatedBlob, home, toggleTheme, theme } ) {
+
+    function ToggleSwitch() {
+        return(
+            <label class="form-switch">
+                <input type="checkbox" onChange={toggleTheme} checked={theme === "dark"}/>
+                <i></i>
+            </label>
+        )
+    }
 
     return (
         <div>
             <div className="headerContainer">
                 <div className="leftContainer"> 
-                    <h3>Last uploaded foto:</h3>
-                    <div className="lastCreatedText">{lastCreatedBlob}</div>
+                    <h3>Last uploaded foto: </h3>
+                    <div className="lastCreatedText"> {lastCreatedBlob}</div>
                 </div>
                 <div className="middlecontainer">
                     <span className="headerTitle">KTH-LINK</span>
                 </div>
-                <div className="rightContainer"></div>
-                {/* <HeaderButtons icon={"fas fa-home fa-1g"} title="Home"/> */}
+                <div className="rightContainer">
+                    <FaHome className="homeIcon" onClick={home} />
+                    <ToggleSwitch className="themeSwitch" /> 
+
+                </div>
             </div>
         </div>
     )

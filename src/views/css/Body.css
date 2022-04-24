@@ -1,4 +1,12 @@
 
+#light {
+    background-color: white;
+}
+
+#dark {
+    background-color: black;
+}
+
 .bodyPresenter {
     display: flex;
     flex-wrap: wrap;
@@ -30,11 +38,9 @@
     z-index:5;
 }
 
-
 .image{
     max-width: 60%;
 }
-
 
 .dateAndTime {
     color: #dce2e5;

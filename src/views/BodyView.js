@@ -11,7 +11,7 @@ function BodyView({ images, datesAndTime, index, redirect }) {
                     <div className="dateAndTime">{datesAndTime}</div>
             </div>
         </div>
+            
     );
 }    
-
 export default BodyView

@@ -2,7 +2,6 @@ import * as api_client from '../services/api_client'
 import React, {useState, useEffect} from 'react';
 import BodyView from '../views/BodyView';
 import { useNavigate } from 'react-router-dom';
-import { nanoid } from '@reduxjs/toolkit';
 import '../views/css/Body.css'
 import { saveAs } from 'file-saver'
 
@@ -21,7 +20,7 @@ function BodyPresenter() {
             let arrayForBlobs = [];
 
             for await (const blob of blobs) {
-                let index = nanoid();
+                let index = 1;
 
                 arrayForBlobs.push(blob.name); 
                 arrayForBlobs.push(
@@ -33,8 +32,8 @@ function BodyPresenter() {
                     blob.properties.createdOn.getSeconds()
                 )
                 arrayForBlobs.push(index)
+                index++;
             }
-
 
             /**
              * Divides array into smaller arrays.
@@ -97,7 +96,7 @@ function BodyPresenter() {
                         />
                     </div>
                 ))}   
-                <button onClick={downloadImage}></button>
+                <button onClick={downloadImage}>DOWNLOAD TEST</button>
         </div >
     )
 }
