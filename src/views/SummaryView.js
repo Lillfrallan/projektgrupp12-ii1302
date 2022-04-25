@@ -4,7 +4,7 @@ function SummaryView( {downloadImage} ) {
 
     return (
         <div>
-            <button className="downloadButton" onClick={downloadImage}></button>
+            {/* <button className="downloadButton" onClick={downloadImage}></button> */}
         </div>
     )
 }
