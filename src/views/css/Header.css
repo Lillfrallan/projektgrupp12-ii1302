@@ -1,8 +1,9 @@
+
 .headerContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(9, 53, 90);
+    background-color: rgb(9, 53, 90);   
 }
 #light .headerContainer { background-color: rgb(36, 182, 231); }
 #dark .headerContainer { background-color: rgb(9, 53, 90); }

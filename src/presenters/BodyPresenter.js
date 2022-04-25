@@ -4,99 +4,49 @@ import BodyView from '../views/BodyView';
 import { useNavigate } from 'react-router-dom';
 import '../views/css/Body.css'
 import { saveAs } from 'file-saver'
+import BlobRetriever from '../services/BlobRetriever'
 
 function BodyPresenter() {
 
+    // Navigate the user around the website
+    const navigate = useNavigate();
     const [blobs, setBlobs] = useState([]);
 
-    //Navigate the user around the website
-    const navigate = useNavigate();
-
     useEffect(() => {
-        async function blobStorage() {
 
-            let blobs = api_client.containerClient.listBlobsFlat();
+        BlobRetriever.blobData().then(function(result) {
+            setBlobs(result)
+        })
 
-            let arrayForBlobs = [];
-
-            for await (const blob of blobs) {
-                let index = 1;
-
-                arrayForBlobs.push(blob.name); 
-                arrayForBlobs.push(
-                    blob.properties.createdOn.getDate() + "/" + 
-                    (blob.properties.createdOn.getMonth()+1) + "-" + 
-                    blob.properties.createdOn.getFullYear() + " " + 
-                    blob.properties.createdOn.getHours() + ":" + 
-                    blob.properties.createdOn.getMinutes() + ":" + 
-                    blob.properties.createdOn.getSeconds()
-                )
-                arrayForBlobs.push(index)
-                index++;
-            }
-
-            /**
-             * Divides array into smaller arrays.
-             * 
-             * @param {array to divide} array 
-             * @param {size of each division} K 
-             * @param {array length} N 
-             * @returns the divided array
-             */
-            function divideArray(array, K, N) {
-                let ans = [];
-                let temp = [];
-                for (let i = 0; i < N; i++) {
-                    temp.push(array[i]);
-                    if (((i + 1) % K) === 0) {
-                        ans.push(temp);
-                        temp = [];
-                    }
-                }
-                if (temp.length !== 0) {
-                    let a = temp.length;
-                    while (a !== K) {
-                        temp.push(0);
-                        a++;
-                    }
-                    ans.push(temp);
-                }
-                return ans;
-            }
-
-            let splittedArray = divideArray(arrayForBlobs, 3, arrayForBlobs.length).reverse();
-
-            setBlobs(splittedArray);
-
-        }
-        return blobStorage;
     }, [blobs]) 
+    
+    const redirect = (index, blob) => {
+        return navigate("/summary/" + index, {
+            blob
+        });
+    }
 
     // console.log(blobs)
-    
-    const redirect = (index) => {
-        return navigate("/summary/" + index);
-    }
-
-    const downloadImage = () => {
-        saveAs(api_client.get_image_url(blobs[0][0]), blobs[0][0])
-        saveAs(blobs[0][1], "hello world.txt");
-    }
+    // const downloadImage = () => {
+    //     saveAs(api_client.get_image_url(blobs[0][0]), blobs[0][0])
+    //     saveAs(blobs[0][1], "hello world.txt");
+    // }
 
     return (
         <div className="bodyPresenter">
                 {blobs.map((blob, i) => (
                     <div key={i} className="elementBox">
                         <BodyView
-                            images={blob[0]}
-                            datesAndTime={blob[1]}  
-                            index ={blob[2]}
+                            images={blob.images}
+                            datesAndTime={blob.datesAndTime}  
+                            index = {i}
                             redirect={redirect}
-                            key={i}    
+                            key={i}   
+                            blob={blob}    
                         />
                     </div>
                 ))}   
-                <button onClick={downloadImage}>DOWNLOAD TEST</button>
+                {/* <button onClick={downloadImage}>DOWNLOAD TEST</button> */}
         </div >
     )
 }

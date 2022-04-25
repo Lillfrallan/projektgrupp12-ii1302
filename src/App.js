@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Summary from './presenters/SummaryPresenter';
 import Header from './presenters/HeaderPresenter';
 
-
-
 export const ThemeContext = createContext(null);
 
 function App() {

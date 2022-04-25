@@ -7,7 +7,7 @@ function HeaderView( { lastCreatedBlob, home, toggleTheme, theme } ) {
 
     function ToggleSwitch() {
         return(
-            <label class="form-switch">
+            <label className="form-switch">
                 <input type="checkbox" onChange={toggleTheme} checked={theme === "dark"}/>
                 <i></i>
             </label>
