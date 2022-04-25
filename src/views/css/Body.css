@@ -7,10 +7,44 @@
     background-color: black;
 }
 
+.App {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top:0;
+}
+
 .bodyPresenter {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
+    overflow-x:hidden;
+}
+
+.bodyButtons{
+    display: flex;
+    flex-flow: column wrap;
+    position: absolute;
+    top: 0.2em;
+    left: 0.5em;  
+}
+
+.reverseButton {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+}
+#light .reverseButton {color: white; }
+#dark .reverseButton { color: black;}
+
+.reverseButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
 }
 
 .bodyView {
@@ -43,10 +77,11 @@
 }
 
 .dateAndTime {
-    color: #dce2e5;
     text-transform: uppercase;
     font-size: 1.3em;
     font-weight: bold;
     display: flex;
     align-items: center;
 }
+#light .dateAndTime {color: white; }
+#dark .dateAndTime { color: #abaec4;}

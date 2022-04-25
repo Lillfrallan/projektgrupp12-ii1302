@@ -6,10 +6,50 @@
   background-color: #000;
 }
 
+.App {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .bodyPresenter {
   flex-wrap: wrap;
   justify-content: center;
   display: flex;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bodyButtons {
+  flex-flow: column wrap;
+  display: flex;
+  position: absolute;
+  top: .2em;
+  left: .5em;
+}
+
+.reverseButton {
+  background-color: #88918e;
+  border: none;
+  border-radius: 25px;
+  padding: .2em 1.3em;
+  font-size: 2em;
+}
+
+#light .reverseButton {
+  color: #fff;
+}
+
+#dark .reverseButton {
+  color: #000;
+}
+
+.reverseButton:hover {
+  z-index: 5;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1.05);
 }
 
 .bodyView {
@@ -42,7 +82,6 @@
 }
 
 .dateAndTime {
-  color: #dce2e5;
   text-transform: uppercase;
   align-items: center;
   font-size: 1.3em;
@@ -50,19 +89,24 @@
   display: flex;
 }
 
+#light .dateAndTime {
+  color: #fff;
+}
+
+#dark .dateAndTime {
+  color: #abaec4;
+}
+
+.wholeHeader {
+  overflow: hidden;
+}
+
 .headerContainer {
   background-color: #09355a;
+  flex-flow: row;
   justify-content: space-between;
   align-items: center;
   display: flex;
-}
-
-#light .headerContainer {
-  background-color: #24b6e7;
-}
-
-#dark .headerContainer {
-  background-color: #09355a;
 }
 
 .headerTitle {
@@ -75,7 +119,7 @@
 }
 
 #light .headerTitle {
-  color: #3b478a;
+  color: #fff;
 }
 
 #dark .headerTitle {
@@ -83,7 +127,7 @@
 }
 
 #light .leftContainer {
-  color: #000;
+  color: #fff;
 }
 
 #dark .leftContainer {
@@ -96,11 +140,17 @@
 }
 
 #light .lastCreatedText {
-  color: #000;
+  color: #fff;
 }
 
-#dark .lastCreatedText, .rightContainer {
+#dark .lastCreatedText {
   color: #abaec4;
+}
+
+.rightContainer {
+  align-items: center;
+  gap: .5em;
+  display: flex;
 }
 
 #light .rightContainer {
@@ -116,7 +166,7 @@
 }
 
 #light .homeIcon {
-  color: #000;
+  color: #fff;
 }
 
 #dark .homeIcon {

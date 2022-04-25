@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../views/css/Body.css'
 import BlobRetriever from '../services/BlobRetriever'
 import { BsArrowDownUp } from "react-icons/bs";
+import { enableAllPlugins } from 'immer';
 
 function BodyPresenter() {
 
@@ -34,7 +35,7 @@ function BodyPresenter() {
     return (
         <div className="bodyPresenter">
             <div className="bodyButtons">
-                <button onClick={reverseOrderButton}><BsArrowDownUp/></button>
+                <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
             </div>
                 {blobs.map((blob, i) => (
                     <div key={i} className="elementBox">

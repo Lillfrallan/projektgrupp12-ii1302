@@ -3,6 +3,7 @@ import React, {useState, createContext} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Summary from './presenters/SummaryPresenter';
 import Header from './presenters/HeaderPresenter';
+import '../src/views/css/Body.css'
 
 export const ThemeContext = createContext(null);
 
@@ -10,10 +11,9 @@ function App() {
 
   const[theme, setTheme] = useState("light");
 
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark": "light"))
-  }
-
+    const toggleTheme = () => {
+      setTheme((curr) => (curr === "light" ? "dark": "light"))
+    }
 
     return (
       <ThemeContext.Provider value={{theme, toggleTheme}}>

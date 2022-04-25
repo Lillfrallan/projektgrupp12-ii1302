@@ -1,12 +1,17 @@
 
+.wholeHeader {
+    overflow: hidden;
+}
+
 .headerContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(9, 53, 90);   
+    background-color: rgb(9, 53, 90);  
+    flex-flow: nowrap;
 }
-#light .headerContainer { background-color: rgb(36, 182, 231); }
-#dark .headerContainer { background-color: rgb(9, 53, 90); }
+/* #light .headerContainer { background-color: rgb(36, 182, 231); }
+#dark .headerContainer { background-color: rgb(9, 53, 90); } */
 
 .headerTitle {
     white-space: nowrap;
@@ -17,26 +22,25 @@
     font-size: 3.3em;
     font-weight: bold;
 }
-#light .headerTitle { color: #3b478a; }
+#light .headerTitle { color: white; }
 #dark .headerTitle { color: #abaec4; }
 
 .leftContainer {  
 }
-#light .leftContainer {color: black; }
+#light .leftContainer {color: white; }
 #dark .leftContainer { color: #abaec4;}
 
 .lastCreatedText {
     padding-bottom: 10%;
     font-size: 1.3em;
 }
-#light .lastCreatedText {color: black; }
+#light .lastCreatedText {color: white; }
 #dark .lastCreatedText { color: #abaec4;}
 
-
-
 .rightContainer {
-
-    color: #abaec4;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 #light .rightContainer {color: white; }
 #dark .rightContainer { color: #abaec4;}
@@ -44,7 +48,7 @@
 .homeIcon {
     font-size: 3em;
 }
-#light .homeIcon {color: black; }
+#light .homeIcon {color: white; }
 #dark .homeIcon { color: #abaec4;}
 
 .homeIcon:hover {
@@ -53,7 +57,6 @@
     z-index:5;
     cursor: pointer;
 }
-
 
 .form-switch {
     display: inline-block;
@@ -71,6 +74,7 @@
     vertical-align: text-bottom;
     transition: all 0.3s linear;
 }
+
 .form-switch i::before {
     content: "";
     position: absolute;
@@ -82,6 +86,7 @@
     transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
     transition: all 0.25s linear;
 }
+
 .form-switch i::after {
     content: "";
     position: absolute;
@@ -94,10 +99,12 @@
     transform: translate3d(2px, 2px, 0);
     transition: all 0.2s ease-in-out;
 }
+
 .form-switch:active i::after {
     width: 28px;
     transform: translate3d(2px, 2px, 0);
 }
+
 .form-switch:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
 .form-switch input { display: none; }
 .form-switch input:checked + i { background-color: #4BD763; }
