@@ -1,5 +1,11 @@
 import * as api_client from './api_client'
 
+/**
+ * Retrieves data from Azure blob storage
+ * 
+ * @returns an array of blobs
+ */
+
     async function blobData() {
 
         let blobs = api_client.containerClient.listBlobsFlat();
@@ -11,7 +17,8 @@ import * as api_client from './api_client'
         for await (const blob of blobs) {
 
             t = {
-                images: blob.name,
+                name : blob.name,
+                images: api_client.get_image_url(blob.name),
                 blobType: blob.properties.blobType,
                 etag: blob.properties.etag,
                 accessTier: blob.properties.accessTier,

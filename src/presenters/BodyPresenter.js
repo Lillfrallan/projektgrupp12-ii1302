@@ -1,10 +1,9 @@
-import * as api_client from '../services/api_client'
 import React, {useState, useEffect} from 'react';
 import BodyView from '../views/BodyView';
 import { useNavigate } from 'react-router-dom';
 import '../views/css/Body.css'
-import { saveAs } from 'file-saver'
 import BlobRetriever from '../services/BlobRetriever'
+import { BsArrowDownUp } from "react-icons/bs";
 
 function BodyPresenter() {
 
@@ -14,26 +13,29 @@ function BodyPresenter() {
 
     useEffect(() => {
 
-        BlobRetriever.blobData().then(function(result) {
-            setBlobs(result)
+        BlobRetriever.blobData().then(function(data) {
+            setBlobs(data)
         })
 
-    }, [blobs]) 
+    }, []) 
+
     
     const redirect = (index, blob) => {
-        return navigate("/summary/" + index, {
-            blob
-        });
+        return navigate("/summary/" + index,
+        {blob}
+        );
     }
 
-    // console.log(blobs)
-    // const downloadImage = () => {
-    //     saveAs(api_client.get_image_url(blobs[0][0]), blobs[0][0])
-    //     saveAs(blobs[0][1], "hello world.txt");
-    // }
+    const reverseOrderButton = () => {
+        var y = [...blobs].reverse()
+        setBlobs(y);
+    }
 
     return (
         <div className="bodyPresenter">
+            <div className="bodyButtons">
+                <button onClick={reverseOrderButton}><BsArrowDownUp/></button>
+            </div>
                 {blobs.map((blob, i) => (
                     <div key={i} className="elementBox">
                         <BodyView
@@ -42,11 +44,10 @@ function BodyPresenter() {
                             index = {i}
                             redirect={redirect}
                             key={i}   
-                            blob={blob}    
+                            blob={blob}  
                         />
                     </div>
                 ))}   
-                {/* <button onClick={downloadImage}>DOWNLOAD TEST</button> */}
         </div >
     )
 }

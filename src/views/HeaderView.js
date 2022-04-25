@@ -27,7 +27,6 @@ function HeaderView( { lastCreatedBlob, home, toggleTheme, theme } ) {
                 <div className="rightContainer">
                     <FaHome className="homeIcon" onClick={home} />
                     <ToggleSwitch className="themeSwitch" /> 
-
                 </div>
             </div>
         </div>
