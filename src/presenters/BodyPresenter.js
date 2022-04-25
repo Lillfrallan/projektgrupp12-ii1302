@@ -7,7 +7,6 @@ import { BsArrowDownUp } from "react-icons/bs";
 
 function BodyPresenter() {
 
-    // Navigate the user around the website
     const navigate = useNavigate();
     const [blobs, setBlobs] = useState([]);
 
@@ -20,12 +19,21 @@ function BodyPresenter() {
     }, []) 
 
     
-    const redirect = (index, blob) => {
-        return navigate("/summary/" + index,
-        {blob}
+    /**
+     * Used to redirect to a specific blobs summary page
+     * 
+     * @param {blobs index number} index 
+     * @param {the blob object} blob 
+     * @returns navigates to the page
+     */
+    const redirect = (blobs) => {
+        return navigate("/summary/" + blobs
         );
     }
 
+    /**
+     * Reverses the order of the array of blobs
+     */
     const reverseOrderButton = () => {
         var y = [...blobs].reverse()
         setBlobs(y);
@@ -39,12 +47,13 @@ function BodyPresenter() {
                 {blobs.map((blob, i) => (
                     <div key={i} className="elementBox">
                         <BodyView
+                            name={blob.name}
                             images={blob.images}
                             datesAndTime={blob.datesAndTime}  
                             index = {i}
                             redirect={redirect}
                             key={i}   
-                            blob={blob}  
+                            blobs={blob}  
                         />
                     </div>
                 ))}   

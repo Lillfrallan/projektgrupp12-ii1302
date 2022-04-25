@@ -1,10 +1,10 @@
 import React from 'react'
 
-function SummaryView( {downloadImage} ) {
+function SummaryView( {downloadImageButton} ) {
 
     return (
         <div>
-            {/* <button className="downloadButton" onClick={downloadImage}></button> */}
+            {/* <button className="downloadImageButton" onClick={downloadImage}></button> */}
         </div>
     )
 }
