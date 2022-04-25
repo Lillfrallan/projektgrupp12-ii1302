@@ -1,5 +1,5 @@
 import { BlobServiceClient } from '@azure/storage-blob';
-import credentials from './credentials.js'
+import credentials from './.credentials.js'
 
 /**
  * Holds the API connections to Azure Portal.
