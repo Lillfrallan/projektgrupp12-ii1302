@@ -1,5 +1,5 @@
 import Body from './presenters/BodyPresenter';
-import React, {useState, createContext} from 'react';
+import React, {useState, createContext, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Summary from './presenters/SummaryPresenter';
 import Header from './presenters/HeaderPresenter';
@@ -7,9 +7,22 @@ import '../src/views/css/Body.css'
 
 export const ThemeContext = createContext(null);
 
+function useStickyState(defaultValue, key) {
+  const [value, setValue] = React.useState(() => {
+    const stickyValue = window.localStorage.getItem(key);
+    return stickyValue !== null
+      ? JSON.parse(stickyValue)
+      : defaultValue;
+  });
+  React.useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+  return [value, setValue];
+}
+
 function App() {
 
-  const[theme, setTheme] = useState("light");
+  const [theme, setTheme] = useStickyState("light", "count");
 
     const toggleTheme = () => {
       setTheme((curr) => (curr === "light" ? "dark": "light"))

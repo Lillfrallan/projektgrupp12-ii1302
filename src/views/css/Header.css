@@ -1,6 +1,5 @@
 
 .wholeHeader {
-    overflow: hidden;
 }
 
 .headerContainer {
@@ -25,8 +24,7 @@
 #light .headerTitle { color: white; }
 #dark .headerTitle { color: #abaec4; }
 
-.leftContainer {  
-}
+.leftContainer {}
 #light .leftContainer {color: white; }
 #dark .leftContainer { color: #abaec4;}
 

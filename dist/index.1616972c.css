@@ -97,10 +97,6 @@
   color: #abaec4;
 }
 
-.wholeHeader {
-  overflow: hidden;
-}
-
 .headerContainer {
   background-color: #09355a;
   flex-flow: row;

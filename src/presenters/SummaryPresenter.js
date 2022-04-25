@@ -3,6 +3,7 @@ import SummaryView from '../views/SummaryView'
 import * as api_client from '../services/api_client'
 import { saveAs } from 'file-saver'
 
+
 import { useParams } from 'react-router';
 
 
@@ -22,7 +23,7 @@ function SummaryPresenter() {
     // }
 
     return (
-        <div>
+        <div className="summmaryPresenter">
             <SummaryView  />
         </div>  
     )
