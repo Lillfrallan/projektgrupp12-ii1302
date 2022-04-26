@@ -7,6 +7,7 @@ function BodyView({ images, datesAndTime, index, redirect, blobs, name }) {
     
     return (
         <div className="bodyView">
+            <div>HEEEEEEJ ROBIN</div>
             <div className="blobs" onClick={() => redirect(blobs)}>
                     <img className="image" src={images} alt=""/>
                     <div className="dateAndTime">{datesAndTime}</div>
