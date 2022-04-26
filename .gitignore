@@ -2,15 +2,12 @@
 
 .*
 !/.gitignore
+/services/credentials.js
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
-
-/services/*
-!/services/api_client.js
-!/services/BlobRetriever.js
 
 
 

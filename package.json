@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@parcel/transformer-yaml": "^2.5.0",
     "buffer": "^6.0.3"
   }
 }

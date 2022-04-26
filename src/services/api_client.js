@@ -1,13 +1,12 @@
 import { BlobServiceClient } from '@azure/storage-blob';
-import credentials from './.credentials.js'
 
 /**
  * Holds the API connections to Azure Portal.
  * 
 */
 
-const account = credentials.account;
-const containerName = credentials.containerName;
+const account = "ktodb";
+const containerName = "images";
 
 
 const get_image_url = (image_id) => {
