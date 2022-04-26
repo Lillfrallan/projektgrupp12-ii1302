@@ -5,6 +5,8 @@ import Summary from './presenters/SummaryPresenter';
 import Header from './presenters/HeaderPresenter';
 import '../src/views/css/Body.css'
 
+const hej = 0;
+
 export const ThemeContext = createContext(null);
 
 function useStickyState(defaultValue, key) {
