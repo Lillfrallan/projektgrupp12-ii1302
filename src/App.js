@@ -7,9 +7,6 @@ import '../src/views/css/Body.css'
 
 export const ThemeContext = createContext(null);
 
-const hej = "tja";
-console.log(hej);
-
 function useStickyState(defaultValue, key) {
   const [value, setValue] = React.useState(() => {
     const stickyValue = window.localStorage.getItem(key);
