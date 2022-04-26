@@ -3,12 +3,12 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
+      - main
       - developingBranch
-      - Lillfrallan-patch-1
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - developingBranch
+      - main
 
 jobs:
   build_and_deploy_job:
@@ -31,6 +31,7 @@ jobs:
           app_location: "/" # App source code path
           api_location: "api" # Api source code path - optional
           output_location: "dist" # Built app content directory - optional
+          production_branch: "main"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
