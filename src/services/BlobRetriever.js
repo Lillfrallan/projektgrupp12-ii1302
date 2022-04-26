@@ -44,4 +44,5 @@ import * as api_client from './api_client'
         return arrayForBlobs;
     }
 
+
 export default { blobData }

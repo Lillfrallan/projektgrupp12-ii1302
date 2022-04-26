@@ -7,6 +7,7 @@ import { BsArrowDownUp } from "react-icons/bs";
 
 function BodyPresenter() {
 
+
     const navigate = useNavigate();
     const [blobs, setBlobs] = useState([]);
 
