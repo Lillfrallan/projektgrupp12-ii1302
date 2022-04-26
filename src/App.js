@@ -7,8 +7,6 @@ import '../src/views/css/Body.css'
 
 export const ThemeContext = createContext(null);
 
-console.log("funka nu för fan!!!");
-
 function useStickyState(defaultValue, key) {
   const [value, setValue] = React.useState(() => {
     const stickyValue = window.localStorage.getItem(key);
