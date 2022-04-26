@@ -22,7 +22,7 @@ function HeaderView( { lastCreatedBlob, home, toggleTheme, theme } ) {
                     <div className="lastCreatedText">{lastCreatedBlob}</div>
                 </div>
                 <div className="middlecontainer">
-                    <span className="headerTitle">KTH-LINK</span>
+                    <span className="headerTitle">KTH-FLINK</span>
                 </div>
                 <div className="rightContainer">
                     <FaHome className="homeIcon" onClick={home} />
