@@ -44,5 +44,8 @@ import * as api_client from './api_client'
         return arrayForBlobs;
     }
 
+    const exportBlobs = {
+        blobData
+    };
 
-export default { blobData }
+export default exportBlobs
