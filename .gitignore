@@ -8,6 +8,12 @@
 /.pnp
 .pnp.js
 
+/services/*
+!/services/api_client.js
+!/services/BlobRetriever.js
+
+
+
 # testing
 /coverage
 
