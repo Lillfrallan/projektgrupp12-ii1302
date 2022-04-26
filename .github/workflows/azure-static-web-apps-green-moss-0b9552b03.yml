@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - developingBranch
-      - Lillfrallan-patch-1
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
