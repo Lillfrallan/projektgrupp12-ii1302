@@ -23,6 +23,10 @@ function SummaryPresenter() {
         saveAs(currentBlob.images, currentBlob)
     }
 
+    const viewImageInBrowser = (blob) => {
+        window.location = `https://ktodb.blob.core.windows.net/images/${blob}`
+    }
+
     return (
         <div className="summmaryPresenter">
                 <SummaryView
@@ -38,6 +42,7 @@ function SummaryPresenter() {
                     serverEncrypted = {JSON.stringify(currentBlob.serverEncrypted)}
                     datesAndTime={currentBlob.datesAndTime}  
                     downloadImageButton={downloadImageButton}
+                    viewImageInBrowser={viewImageInBrowser}
                 />
         </div>  
     )

@@ -25,7 +25,7 @@ function HeaderView( { date, home, toggleTheme, theme } ) {
                     <span className="headerTitle">KTH-LINK</span>
                 </div>
                 <div className="rightContainer">
-                    <FaHome className="homeIcon" onClick={home} />
+                    <FaHome className="homeIcon" onClick={home} title="go to home screen" />
                     <ToggleSwitch className="themeSwitch" /> 
                 </div>
             </div>
