@@ -8,9 +8,8 @@
     align-items: center;
     background-color: rgb(9, 53, 90);  
     flex-flow: nowrap;
+    position: static;
 }
-/* #light .headerContainer { background-color: rgb(36, 182, 231); }
-#dark .headerContainer { background-color: rgb(9, 53, 90); } */
 
 .headerTitle {
     white-space: nowrap;
@@ -24,7 +23,11 @@
 #light .headerTitle { color: white; }
 #dark .headerTitle { color: #abaec4; }
 
-.leftContainer {}
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+}
 #light .leftContainer {color: white; }
 #dark .leftContainer { color: #abaec4;}
 

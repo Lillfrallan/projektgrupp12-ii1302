@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BodyView from '../views/BodyView';
 import { useNavigate } from 'react-router-dom';
 import '../views/css/Body.css'
 import { BsArrowDownUp } from "react-icons/bs";
-import { VscAzure } from "react-icons/vsc"
+import { VscAzure, VscGoToFile } from "react-icons/vsc"
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobs } from '../services/BlobRetriever'
 
@@ -12,6 +12,7 @@ function BodyPresenter() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
+    const [blobArray, setBlobArray] = useState(blobs)
 
     useEffect(() => {
         dispatch(getBlobs())
@@ -33,9 +34,12 @@ function BodyPresenter() {
      * Reverses the order of the array of blobs
      */
     const reverseOrderButton = () => {
-        return [...blobs].reverse();
+        setBlobArray([...blobArray].reverse())
     }
 
+    /**
+     * Links the user to Azure portal
+     */
     const goToAzureBlobStorageButton = () => {
         window.location = 
         'https://portal.azure.com/#blade/Microsoft_Azure_Storage/ContainerMenuBlade' + 
@@ -48,10 +52,12 @@ function BodyPresenter() {
     return (
         <div className="bodyPresenter">
             <div className="bodyButtons">
+                <button className="reverseButton" onClick={() => redirect((blobArray[blobArray.length-1].index)-1)} title="go to most recent upload"><VscGoToFile/></button>
                 <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
                 <button className="azureLinkButton" onClick={goToAzureBlobStorageButton} title="go to Azure"><VscAzure/></button>
             </div>
-                {blobs.map((blob, i) => (
+            <div className="blobsList">
+                {blobArray.map((blob, i) => (
                     <div key={i} className="elementBox">
                         <BodyView
                             images={blob.images}
@@ -62,7 +68,8 @@ function BodyPresenter() {
                             blobs={blob} 
                         />
                     </div>
-                ))}   
+                ))} 
+            </div>  
         </div >
     )
 }

@@ -17,20 +17,16 @@
 
 .bodyPresenter {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: relative;
-    overflow-x:hidden;
+    position: static;
 }
 
-.bodyButtons{
+.bodyButtons {
     padding-top: 0.8em;
     display: flex;
     flex-flow: column wrap;
-    position: absolute;
-    top: 0.2em;
-    left: 0.5em;  
     gap: 1em;
+    position: absolute;
+    left: 1rem;
 }
 
 .reverseButton {
@@ -42,6 +38,13 @@
     color: black;
 }
 
+.reverseButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
 .azureLinkButton {
     background-color: #88918e; 
     border: none;
@@ -50,16 +53,24 @@
     font-size: 2em;
 }
 
-.reverseButton:hover {
+.azureLinkButton:hover {
     transform: scale(1.05);
     position:relative;
     z-index:5;
     cursor: pointer;
 }
 
-.bodyView {
+.blobsList {
     display: flex;
-    padding: 1rem; 
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 1rem;
+    grid-gap: 1.5rem;
+    position: static;
+}
+
+
+.bodyView {
 }
 
 .blobs { 
