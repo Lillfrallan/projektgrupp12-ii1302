@@ -44,6 +44,18 @@
     cursor: pointer;
 }
 
+.searchBar {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    height: 3.3em;
+    color: black;
+}
+::placeholder {
+    color: black;
+  }
+
 .blobsList {
     display: flex;
     flex-wrap: wrap;
@@ -52,7 +64,6 @@
     grid-gap: 1.5rem;
     position: static;
 }
-
 
 .bodyView {
 }
