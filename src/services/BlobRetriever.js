@@ -1,22 +1,23 @@
 import * as api_client from './api_client'
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /**
  * Retrieves data from Azure blob storage
  * 
  * @returns an array of blobs
  */
-
-    async function blobData() {
+export const getBlobs = createAsyncThunk("blobs/getBlobs",
+    async () => {
 
         let blobs = api_client.containerClient.listBlobsFlat();
 
         const arrayForBlobs = [];
 
         let index = 1;
-        let t = {};
+        let objects = {};
         for await (const blob of blobs) {
 
-            t = {
+            objects = {
                 name : blob.name,
                 images: api_client.get_image_url(blob.name),
                 blobType: blob.properties.blobType,
@@ -38,14 +39,33 @@ import * as api_client from './api_client'
                 index
             } 
 
-            arrayForBlobs.push(t)
+            arrayForBlobs.push(objects)
             index++;
         }
-        return arrayForBlobs;
+        return arrayForBlobs;   
     }
+)
+/**
+ * Creates a redux slice for the blob data
+ */
+export const blobSlice = createSlice({
+    name: "blobs",
+    initialState: {
+        blobs: [],
+        status: null
+    },
+    extraReducers: {
+        [getBlobs.pending]: (state, action) => {
+            state.status = 'loading'
+        },
+        [getBlobs.fulfilled]: (state, action) => {
+            state.status = 'success'
+            state.blobs = action.payload
+        },
+        [getBlobs.rejected]: (state, action) => {
+            state.status = 'failed'
+        },
+    }
+})
 
-    const exportBlobs = {
-        blobData
-    };
-
-export default exportBlobs
+export default blobSlice.reducer
