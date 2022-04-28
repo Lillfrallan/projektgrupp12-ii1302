@@ -3,8 +3,6 @@ import './css/Body.css'
 
 function BodyView({ images, datesAndTime, index, redirect}) {
 
-    // console.log(blobs)
-    
     return (
         <div className="bodyView">
             <div className="blobs" onClick={() => redirect(index)}>

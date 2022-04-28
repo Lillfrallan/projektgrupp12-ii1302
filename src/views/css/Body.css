@@ -24,11 +24,13 @@
 }
 
 .bodyButtons{
+    padding-top: 0.8em;
     display: flex;
     flex-flow: column wrap;
     position: absolute;
     top: 0.2em;
     left: 0.5em;  
+    gap: 1em;
 }
 
 .reverseButton {
@@ -37,11 +39,16 @@
     padding: 0.2em 1.3em; 
     border-radius: 25px;
     font-size: 2em;
-
-
+    color: black;
 }
-#light .reverseButton {color: white; }
-#dark .reverseButton { color: black;}
+
+.azureLinkButton {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+}
 
 .reverseButton:hover {
     transform: scale(1.05);

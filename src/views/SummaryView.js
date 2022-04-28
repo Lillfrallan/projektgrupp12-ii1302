@@ -8,7 +8,7 @@ function SummaryView( {
 
     
     return (
-        <div>
+        <div className="summaryView">
             <div className="summaryDisplay">
                 <div className="summaryImageContainer">
                     <img className="summaryImage" src={images} alt=""/>
@@ -44,7 +44,7 @@ function SummaryView( {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className="summaryButtonContainer">
                 <button className="downloadImageButton" onClick={downloadImageButton} title="DOWNLOAD IMAGE">
                     <AiOutlineDownload/>
                 </button>
