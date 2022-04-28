@@ -10,7 +10,6 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
-    
 
 
     useEffect(() => {
@@ -33,8 +32,6 @@ function HeaderPresenter( {toggleTheme, theme} ) {
             />
         </div>
     )
-    
-
 }
 
 export default HeaderPresenter 

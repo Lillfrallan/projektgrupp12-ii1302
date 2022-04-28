@@ -1,0 +1,49 @@
+.summmaryPresenter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    overflow-x:hidden;
+}
+
+.summaryDisplay {
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.summaryImageContainer {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.summaryImage{
+    height: 50em;
+}
+
+.summaryData {
+    color: #d2d4dd;
+    font-weight: bold;
+    display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    gap: 2em;
+    font-size: larger;
+    font-weight: bold;
+}
+#light .summaryData {color: rgb(0, 0, 0);}
+#dark .summaryData { color: rgb(237, 233, 233);}
+
+.data {
+    font-weight: Normal;
+}
+
+.downloadImageButton{
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+    cursor: pointer;
+}

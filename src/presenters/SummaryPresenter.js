@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import SummaryView from '../views/SummaryView'
-// import * as api_client from '../services/api_client'
-// import { saveAs } from 'file-saver'
+import { saveAs } from 'file-saver'
+import '../views/css/Summary.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobs } from '../services/BlobRetriever'
-
 
 function SummaryPresenter() {
 
@@ -15,24 +14,35 @@ function SummaryPresenter() {
         dispatch(getBlobs())
     }, [dispatch])
 
+    var currentBlob = blobs[window.location.href.slice(-1)]; 
 
 
-
-    // /**
-    //  * Downloads the image to the computer
-    //  */
-    // const downloadImageButton = () => {
-    //     saveAs(api_client.get_image_url(blob.image), blob)
-    // }
+    /**
+     * Downloads the image to the computer
+     */
+    const downloadImageButton = () => {
+        saveAs(currentBlob.images, currentBlob)
+    }
 
     return (
         <div className="summmaryPresenter">
-            <SummaryView
-                // downloadImageButton={downloadImageButton}
-                blobs={blobs}
-            />
+                <SummaryView
+                    name = {currentBlob.name}
+                    images={currentBlob.images}
+                    blobType={currentBlob.blobType}
+                    etag={currentBlob.etag}
+                    accesstier = {currentBlob.accessTier}
+                    accessTierInferred = {JSON.stringify(currentBlob.accessTierInferred)}
+                    contentType = {currentBlob.contentType}
+                    leaseStatus = {currentBlob.leaseStatus}
+                    leaseState = {currentBlob.leaseState}
+                    serverEncrypted = {JSON.stringify(currentBlob.serverEncrypted)}
+                    datesAndTime={currentBlob.datesAndTime}  
+                    downloadImageButton={downloadImageButton}
+                />
         </div>  
     )
 }
 
 export default SummaryPresenter
+

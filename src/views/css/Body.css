@@ -37,6 +37,8 @@
     padding: 0.2em 1.3em; 
     border-radius: 25px;
     font-size: 2em;
+
+
 }
 #light .reverseButton {color: white; }
 #dark .reverseButton { color: black;}
