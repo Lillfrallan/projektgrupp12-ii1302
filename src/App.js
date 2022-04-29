@@ -45,8 +45,4 @@ function App() {
     );
 }
 
-// /:blobType/:etag
-//               /:accessTier/:accessTierInferred/:contentType/:leaseStatus
-//               /:serverEncrypted/:datesAndTime
-
 export default App

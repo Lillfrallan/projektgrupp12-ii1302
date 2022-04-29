@@ -44,15 +44,43 @@
     cursor: pointer;
 }
 
-.blobsList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 1rem;
-    grid-gap: 1.5rem;
-    position: static;
+.lastUploadedImageButton{
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
 }
 
+.lastUploadedImageButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.searchBar {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    height: 3.3em;
+    color: black;
+}
+::placeholder {
+    color: black;
+}
+
+.blobsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(100px, 0.4fr));
+    padding-top: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1500px;
+    gap: 7em;
+}
 
 .bodyView {
 }
@@ -64,10 +92,11 @@
     padding-top: 1.5rem;
     border: 1px solid #737070;
     border-radius: 25px;
-    min-width: 160px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
     cursor: pointer;
     background-image: url(/resources/Webp.net-resizeimage.jpg);
+    font-family: 'Lato';
+    width: 30em;
 }
 
 .blobs:hover {
@@ -78,7 +107,7 @@
 }
 
 .image{
-    max-width: 60%;
+    max-width: 80%;
 }
 
 .dateAndTime {

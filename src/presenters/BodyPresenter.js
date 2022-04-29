@@ -13,6 +13,7 @@ function BodyPresenter() {
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
     const [blobArray, setBlobArray] = useState(blobs)
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
         dispatch(getBlobs())
@@ -49,15 +50,28 @@ function BodyPresenter() {
         'ptionScope/%24account-encryption-key/denyEncryptionScopeOverride//defaultId//publicAccessVal/Container'
     }
 
+    /**
+     * Filters through the array, used for searching
+     */
+    const filteredArray = blobArray.filter((blob) => {
+        if (searchTerm === '') {
+            return blob;
+        }
+        else if (blob.datesAndTime.includes(searchTerm)) {
+            return blob;
+        }
+    })
+
     return (
         <div className="bodyPresenter">
             <div className="bodyButtons">
-                <button className="reverseButton" onClick={() => redirect((blobArray[blobArray.length-1].index)-1)} title="go to most recent upload"><VscGoToFile/></button>
+                <input className="searchBar" type="text" onChange={event => setSearchTerm(event.target.value)} placeholder='Search for date...'/>
+                <button className="lastUploadedImageButton" onClick={() => redirect((blobArray[blobArray.length-1].index)-1)} title="go to most recent upload"><VscGoToFile/></button>
                 <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
                 <button className="azureLinkButton" onClick={goToAzureBlobStorageButton} title="go to Azure"><VscAzure/></button>
             </div>
             <div className="blobsList">
-                {blobArray.map((blob, i) => (
+                {filteredArray.map((blob, i) => (
                     <div key={i} className="elementBox">
                         <BodyView
                             images={blob.images}

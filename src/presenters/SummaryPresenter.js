@@ -4,9 +4,12 @@ import { saveAs } from 'file-saver'
 import '../views/css/Summary.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobs } from '../services/BlobRetriever'
+import { useNavigate } from 'react-router-dom';
+import { current } from '@reduxjs/toolkit';
 
 function SummaryPresenter() {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
 
@@ -27,6 +30,42 @@ function SummaryPresenter() {
         window.location = `https://ktodb.blob.core.windows.net/images/${blob}`
     }
 
+    /**
+     * Used to redirect to the next blobs summary page
+     * 
+     * @param {blobs index number} index 
+     * @param {the blob object} blob 
+     * @returns navigates to the page
+     */
+    const redirectToNextBlob = (blob) => {
+        if(blob == blobs[blobs.length-1].index) {
+            return;
+        }
+        else
+            return navigate("/summary/" + (blob)
+        );
+    }
+
+
+    /**
+     * Used to redirect to the next blobs summary page
+     * 
+     * @param {blobs index number} index 
+     * @param {the blob object} blob 
+     * @returns navigates to the page
+     */
+    const redirectToPreviousBlob = (blob) => {
+        if(blob == blobs[0].index-1) {
+            return;
+        }
+        else
+            return navigate("/summary/" + (blob-1)
+        );
+    }
+
+
+
+
     return (
         <div className="summmaryPresenter">
                 <SummaryView
@@ -43,6 +82,10 @@ function SummaryPresenter() {
                     datesAndTime={currentBlob.datesAndTime}  
                     downloadImageButton={downloadImageButton}
                     viewImageInBrowser={viewImageInBrowser}
+                    redirectToNextBlob={redirectToNextBlob}
+                    redirectToPreviousBlob={redirectToPreviousBlob}
+                    index={currentBlob.index}
+                    totalNumberOfBlobs={blobs[blobs.length-1].index}
                 />
         </div>  
     )

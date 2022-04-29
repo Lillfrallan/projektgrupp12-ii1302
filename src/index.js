@@ -1,7 +1,7 @@
 import React from 'react';
-import {createRoot} from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import App from './App';
-import {configureStore} from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import blobReducer from './services/BlobRetriever'
 import { persistStore, persistReducer } from 'redux-persist';

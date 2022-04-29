@@ -1,11 +1,13 @@
 import React from 'react'
-import { AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineDownload, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 import { BsGlobe } from "react-icons/bs";
+
 
 function SummaryView( {
     name, images, blobType, etag, accesstier, accessTierInferred, contentType, 
     leaseStatus, leaseState, serverEncrypted, datesAndTime, downloadImageButton,
-    viewImageInBrowser
+    viewImageInBrowser, index, redirectToNextBlob, redirectToPreviousBlob,
+    totalNumberOfBlobs
 } ) {
 
     
@@ -53,6 +55,21 @@ function SummaryView( {
                 <button className="viewInBrowserButton" onClick={() => viewImageInBrowser(name)} title="View in browser">
                     <BsGlobe/>
                 </button>
+            </div>
+            <div className="summaryButtonsContainer">
+                <div className="nextSummaryButtonContainer">
+                    <button className="nextSummaryButton" onClick={() => redirectToPreviousBlob(index-1)} title="previous image">
+                        <AiOutlineArrowLeft/>
+                    </button>
+                </div>
+                <div className="previousSummaryButtonContainer">
+                    <button className="previousSummaryButton" onClick={() => redirectToNextBlob(index)} title="next image">
+                        <AiOutlineArrowRight/>
+                    </button>
+                </div>
+            </div>
+            <div className="pageNumber">
+                {index}({totalNumberOfBlobs})
             </div>
         </div>
     )
