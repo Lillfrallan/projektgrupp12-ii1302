@@ -32,17 +32,19 @@ function BodyPresenter() {
      * Reverses the order of the array of blobs
      */
     const reverseOrderButton = () => {
-        let y = blobs;
         let z = [...blobs].reverse()
-        return y;
+        return z;
+        
     }
 
+    console.log(blobs)
+    
     return (
         <div className="bodyPresenter">
             <div className="bodyButtons">
                 <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
             </div>
-                {reverseOrderButton().map((blob, i) => (
+                {blobs.map((blob, i) => (
                     <div key={i} className="elementBox">
                         <BodyView
                             images={blob.images}
