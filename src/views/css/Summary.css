@@ -6,6 +6,12 @@
     overflow-x:hidden;
 }
 
+.summaryView {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
 .summaryDisplay {
     padding-top: 2em;
     display: flex;
@@ -39,6 +45,10 @@
     font-weight: Normal;
 }
 
+.summaryButtonContainer {
+    
+}
+
 .downloadImageButton{
     background-color: #88918e; 
     border: none;
@@ -47,3 +57,4 @@
     font-size: 2em;
     cursor: pointer;
 }
+

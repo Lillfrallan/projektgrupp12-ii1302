@@ -16,7 +16,6 @@ function SummaryPresenter() {
 
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
-
     /**
      * Downloads the image to the computer
      */

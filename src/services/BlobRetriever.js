@@ -36,7 +36,7 @@ export const getBlobs = createAsyncThunk("blobs/getBlobs",
                 blob.properties.createdOn.getMinutes() + ":" + 
                 blob.properties.createdOn.getSeconds(),
                 blob,
-                index
+                index,
             } 
 
             arrayForBlobs.push(objects)
@@ -55,14 +55,14 @@ export const blobSlice = createSlice({
         status: null
     },
     extraReducers: {
-        [getBlobs.pending]: (state, action) => {
+        [getBlobs.pending]: (state) => {
             state.status = 'loading'
         },
         [getBlobs.fulfilled]: (state, action) => {
             state.status = 'success'
             state.blobs = action.payload
         },
-        [getBlobs.rejected]: (state, action) => {
+        [getBlobs.rejected]: (state) => {
             state.status = 'failed'
         },
     }
