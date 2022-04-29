@@ -11,7 +11,7 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
 
-
+    
     useEffect(() => {
         dispatch(getBlobs())
     }, [dispatch])

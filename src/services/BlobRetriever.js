@@ -45,6 +45,7 @@ export const getBlobs = createAsyncThunk("blobs/getBlobs",
         return arrayForBlobs;   
     }
 )
+
 /**
  * Creates a redux slice for the blob data
  */
@@ -69,3 +70,5 @@ export const blobSlice = createSlice({
 })
 
 export default blobSlice.reducer
+
+

@@ -10,7 +10,7 @@ import { PersistGate } from 'redux-persist/es/integration/react'
 
 
 /**
- * All persist codes work like local storage but for redux
+ * All persist code work like local storage but for redux
  */
 const persistConfig = {key:'persist-key',storage }
 

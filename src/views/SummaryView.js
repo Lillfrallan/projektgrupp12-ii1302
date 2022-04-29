@@ -1,9 +1,11 @@
 import React from 'react'
 import { AiOutlineDownload } from "react-icons/ai";
+import { BsGlobe } from "react-icons/bs";
 
 function SummaryView( {
     name, images, blobType, etag, accesstier, accessTierInferred, contentType, 
-    leaseStatus, leaseState, serverEncrypted, datesAndTime, downloadImageButton
+    leaseStatus, leaseState, serverEncrypted, datesAndTime, downloadImageButton,
+    viewImageInBrowser
 } ) {
 
     
@@ -47,6 +49,9 @@ function SummaryView( {
             <div className="summaryButtonContainer">
                 <button className="downloadImageButton" onClick={downloadImageButton} title="DOWNLOAD IMAGE">
                     <AiOutlineDownload/>
+                </button>
+                <button className="viewInBrowserButton" onClick={() => viewImageInBrowser(name)} title="View in browser">
+                    <BsGlobe/>
                 </button>
             </div>
         </div>

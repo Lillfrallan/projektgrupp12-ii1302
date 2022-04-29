@@ -1,0 +1,15 @@
+#light {
+    background-color: white;
+}
+
+#dark {
+    background-color: black;
+}
+
+.App {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top:0;
+    right:0;
+}
