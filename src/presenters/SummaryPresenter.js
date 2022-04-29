@@ -55,13 +55,14 @@ function SummaryPresenter() {
      * @returns navigates to the page
      */
     const redirectToPreviousBlob = (blob) => {
-        if(blob == blobs[0].index) {
+        if(blob == blobs[0].index-1) {
             return;
         }
         else
             return navigate("/summary/" + (blob-1)
         );
     }
+
 
 
 
@@ -84,6 +85,7 @@ function SummaryPresenter() {
                     redirectToNextBlob={redirectToNextBlob}
                     redirectToPreviousBlob={redirectToPreviousBlob}
                     index={currentBlob.index}
+                    totalNumberOfBlobs={blobs[blobs.length-1].index}
                 />
         </div>  
     )

@@ -6,7 +6,8 @@ import { BsGlobe } from "react-icons/bs";
 function SummaryView( {
     name, images, blobType, etag, accesstier, accessTierInferred, contentType, 
     leaseStatus, leaseState, serverEncrypted, datesAndTime, downloadImageButton,
-    viewImageInBrowser, index, redirectToNextBlob, redirectToPreviousBlob
+    viewImageInBrowser, index, redirectToNextBlob, redirectToPreviousBlob,
+    totalNumberOfBlobs
 } ) {
 
     
@@ -66,6 +67,9 @@ function SummaryView( {
                         <AiOutlineArrowRight/>
                     </button>
                 </div>
+            </div>
+            <div className="pageNumber">
+                {index}({totalNumberOfBlobs})
             </div>
         </div>
     )

@@ -139,3 +139,14 @@
     cursor: pointer;
 }
 
+.pageNumber {
+    color: #d2d4dd;
+    font-weight: bold;
+    display: flex;
+    gap: 2em;
+    font-size: larger;
+    font-weight: bold;
+    justify-content: center;
+
+}
+
