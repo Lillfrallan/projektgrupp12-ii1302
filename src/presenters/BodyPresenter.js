@@ -62,14 +62,11 @@ function BodyPresenter() {
         }
     })
 
-
-
-
     return (
         <div className="bodyPresenter">
             <div className="bodyButtons">
                 <input className="searchBar" type="text" onChange={event => setSearchTerm(event.target.value)} placeholder='Search for date...'/>
-                <button className="reverseButton" onClick={() => redirect((blobArray[blobArray.length-1].index)-1)} title="go to most recent upload"><VscGoToFile/></button>
+                <button className="lastUploadedImageButton" onClick={() => redirect((blobArray[blobArray.length-1].index)-1)} title="go to most recent upload"><VscGoToFile/></button>
                 <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
                 <button className="azureLinkButton" onClick={goToAzureBlobStorageButton} title="go to Azure"><VscAzure/></button>
             </div>

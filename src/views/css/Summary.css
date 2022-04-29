@@ -86,3 +86,56 @@
     cursor: pointer;
 }
 
+.summaryButtonsContainer {
+    display:flex;
+    justify-content: space-between;
+}
+
+.nextSummaryButtonContainer {
+    display: flex;
+    justify-content:flex-end;
+    position: relative;
+    bottom: 20em;
+    left:2em;
+}
+
+.nextSummaryButton{
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.0em; 
+    border-radius: 25px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.nextSummaryButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.previousSummaryButtonContainer {
+    display: flex;
+    justify-content:flex-start;
+    position: relative;
+    bottom: 20em;
+    right: 2em;
+}
+
+.previousSummaryButton{
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.0em; 
+    border-radius: 25px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.previousSummaryButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+

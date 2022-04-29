@@ -44,6 +44,21 @@
     cursor: pointer;
 }
 
+.lastUploadedImageButton{
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+}
+
+.lastUploadedImageButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
 .searchBar {
     background-color: #88918e; 
     border: none;
