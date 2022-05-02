@@ -57,7 +57,7 @@
 .downloadImageButton{
     background-color: #88918e; 
     border: none;
-    padding: 0.2em 2.0em; 
+    padding: 0.2em 2.4em; 
     border-radius: 25px;
     font-size: 2em;
     cursor: pointer;
@@ -73,13 +73,29 @@
 .viewInBrowserButton {
     background-color: #88918e; 
     border: none;
-    padding: 0.2em 2.0em; 
+    padding: 0.2em 2.4em; 
     border-radius: 25px;
     font-size: 2em;
     cursor: pointer;
 }
 
 .viewInBrowserButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.deleteBlobButton {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 2.4em; 
+    border-radius: 25px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.deleteBlobButton:hover {
     transform: scale(1.05);
     position:relative;
     z-index:5;
@@ -107,6 +123,7 @@
     font-size: 2em;
     cursor: pointer;
 }
+
 
 .nextSummaryButton:hover {
     transform: scale(1.05);
@@ -147,6 +164,5 @@
     font-size: larger;
     font-weight: bold;
     justify-content: center;
-
 }
 

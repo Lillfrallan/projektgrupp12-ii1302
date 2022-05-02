@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderView from '../views/HeaderView'
 import { useNavigate } from 'react-router-dom';
 import '../views/css/Header.css'
@@ -10,6 +10,7 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
+    const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
 
     
     useEffect(() => {
@@ -28,7 +29,7 @@ function HeaderPresenter( {toggleTheme, theme} ) {
                 home={home}
                 toggleTheme={toggleTheme}
                 theme={theme}
-                date = {blobs[blobs.length-1].datesAndTime}  
+                lastUploadedBlob = {lastUploadedBlob} 
             />
         </div>
     )

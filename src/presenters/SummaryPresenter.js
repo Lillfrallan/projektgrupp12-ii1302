@@ -1,21 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SummaryView from '../views/SummaryView'
 import { saveAs } from 'file-saver'
 import '../views/css/Summary.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobs } from '../services/BlobRetriever'
 import { useNavigate } from 'react-router-dom';
-import { current } from '@reduxjs/toolkit';
+import { containerClient } from '../services/api_client'
 
 function SummaryPresenter() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
+    const [totalNumberOfBlobs, setTotalNumberOfBlobs] = useState(blobs[blobs.length-1].index);
 
     useEffect(() => {
         dispatch(getBlobs())
     }, [dispatch])
+
 
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
@@ -26,7 +28,7 @@ function SummaryPresenter() {
         saveAs(currentBlob.images, currentBlob)
     }
 
-    const viewImageInBrowser = (blob) => {
+    const viewImageInBrowserButton = (blob) => {
         window.location = `https://ktodb.blob.core.windows.net/images/${blob}`
     }
 
@@ -46,7 +48,6 @@ function SummaryPresenter() {
         );
     }
 
-
     /**
      * Used to redirect to the next blobs summary page
      * 
@@ -63,8 +64,15 @@ function SummaryPresenter() {
         );
     }
 
-
-
+    async function deleteBlobButton(blobName, index) {
+        if(window.confirm("Are you sure you want to delete the current blob?")) {
+            containerClient.deleteBlob(blobName)
+            redirectToNextBlob(index)
+            setTotalNumberOfBlobs(totalNumberOfBlobs-1)
+        } else {
+            return null;
+        }
+    }
 
     return (
         <div className="summmaryPresenter">
@@ -81,11 +89,12 @@ function SummaryPresenter() {
                     serverEncrypted = {JSON.stringify(currentBlob.serverEncrypted)}
                     datesAndTime={currentBlob.datesAndTime}  
                     downloadImageButton={downloadImageButton}
-                    viewImageInBrowser={viewImageInBrowser}
+                    viewImageInBrowserButton={viewImageInBrowserButton}
                     redirectToNextBlob={redirectToNextBlob}
                     redirectToPreviousBlob={redirectToPreviousBlob}
+                    deleteBlobButton={deleteBlobButton}
                     index={currentBlob.index}
-                    totalNumberOfBlobs={blobs[blobs.length-1].index}
+                    totalNumberOfBlobs={totalNumberOfBlobs}
                 />
         </div>  
     )

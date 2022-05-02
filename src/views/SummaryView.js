@@ -1,16 +1,15 @@
 import React from 'react'
 import { AiOutlineDownload, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import { BsGlobe } from "react-icons/bs";
+import { BsGlobe, BsFillTrashFill } from "react-icons/bs";
 
 
 function SummaryView( {
     name, images, blobType, etag, accesstier, accessTierInferred, contentType, 
     leaseStatus, leaseState, serverEncrypted, datesAndTime, downloadImageButton,
-    viewImageInBrowser, index, redirectToNextBlob, redirectToPreviousBlob,
-    totalNumberOfBlobs
+    viewImageInBrowserButton, index, redirectToNextBlob, redirectToPreviousBlob,
+    totalNumberOfBlobs, deleteBlobButton
 } ) {
 
-    
     return (
         <div className="summaryView">
             <div className="summaryDisplay">
@@ -52,8 +51,11 @@ function SummaryView( {
                 <button className="downloadImageButton" onClick={downloadImageButton} title="DOWNLOAD IMAGE">
                     <AiOutlineDownload/>
                 </button>
-                <button className="viewInBrowserButton" onClick={() => viewImageInBrowser(name)} title="View in browser">
+                <button className="viewInBrowserButton" onClick={() => viewImageInBrowserButton(name)} title="View in browser">
                     <BsGlobe/>
+                </button>
+                <button className="deleteBlobButton" onClick={() => deleteBlobButton(name, index)} title="delete blob">
+                        <BsFillTrashFill/>
                 </button>
             </div>
             <div className="summaryButtonsContainer">

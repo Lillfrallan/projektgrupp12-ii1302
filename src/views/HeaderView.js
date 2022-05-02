@@ -3,7 +3,7 @@ import './css/Header.css'
 import { FaHome } from "react-icons/fa";
 
 
-function HeaderView( { date, home, toggleTheme, theme } ) {
+function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
 
     const ToggleSwitch = () => {
         return(
@@ -19,7 +19,7 @@ function HeaderView( { date, home, toggleTheme, theme } ) {
             <div className="headerContainer">
                 <div className="leftContainer"> 
                     <h2 className="">Last uploaded foto: </h2>
-                    <div className="lastCreatedText">{date}</div>
+                    <div className="lastCreatedText">{lastUploadedBlob}</div>
                 </div>
                 <div className="middlecontainer">
                     <span className="headerTitle">KTH-LINK</span>
