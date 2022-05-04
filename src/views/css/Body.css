@@ -74,12 +74,11 @@
 .blobsList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(300px, 0.4fr));
     padding-top: 1rem;
     margin-right: auto;
     margin-left: auto;
     max-width: 1500px;
-    gap: 7em;
+    gap: 2em;
 }
 
 .bodyView {

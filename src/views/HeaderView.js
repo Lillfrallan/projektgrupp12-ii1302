@@ -5,6 +5,11 @@ import { FaHome } from "react-icons/fa";
 
 function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
 
+    /**
+     * A toggle switch component, used for dark/light mode toggeling 
+     * 
+     * @returns a toggle switch component
+     */
     const ToggleSwitch = () => {
         return(
             <label className="form-switch">

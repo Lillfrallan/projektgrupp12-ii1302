@@ -5,7 +5,7 @@ import '../views/css/Summary.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobs } from '../services/BlobRetriever'
 import { useNavigate } from 'react-router-dom';
-import { containerClient } from '../services/api_client'
+import { containerClient } from '../services/.api_client'
 
 function SummaryPresenter() {
 
@@ -35,12 +35,12 @@ function SummaryPresenter() {
     /**
      * Used to redirect to the next blobs summary page
      * 
-     * @param {blobs index number} index 
-     * @param {the blob object} blob 
+     * @param {*} index blobs index number 
+     * @param {*} blob the blob object
      * @returns navigates to the page
      */
     const redirectToNextBlob = (blob) => {
-        if(blob == blobs[blobs.length-1].index) {
+        if(blob === blobs[blobs.length-1].index) {
             return;
         }
         else
@@ -51,12 +51,11 @@ function SummaryPresenter() {
     /**
      * Used to redirect to the next blobs summary page
      * 
-     * @param {blobs index number} index 
-     * @param {the blob object} blob 
+     * @param {*} blob blobs index number
      * @returns navigates to the page
      */
     const redirectToPreviousBlob = (blob) => {
-        if(blob == blobs[0].index-1) {
+        if(blob === blobs[0].index-1) {
             return;
         }
         else
@@ -64,12 +63,31 @@ function SummaryPresenter() {
         );
     }
 
+    /**
+     * deletes the current blob
+     * 
+     * @param {*} blobName name of the blob to remove
+     * @param {*} index index of the blob to redirect to
+     * @returns null if no blob can be removed
+     */
     async function deleteBlobButton(blobName, index) {
+        let blobsLeft = blobs.length;
         if(window.confirm("Are you sure you want to delete the current blob?")) {
-            containerClient.deleteBlob(blobName)
-            redirectToNextBlob(index)
-            setTotalNumberOfBlobs(totalNumberOfBlobs-1)
-        } else {
+            if(blobsLeft > 1 && index === blobs[blobs.length -1]) {
+                containerClient.deleteBlob(blobName)
+                setTotalNumberOfBlobs(totalNumberOfBlobs-1)
+            }
+            else if(blobsLeft > 1 && index !== blobs[blobs.length -1]) {
+                containerClient.deleteBlob(blobName)
+                redirectToNextBlob(index)
+                setTotalNumberOfBlobs(totalNumberOfBlobs-1)
+            }
+            else if(blobsLeft = 1) {
+                containerClient.deleteBlob(blobName)
+                navigate("/home")
+            }
+        } 
+        else {
             return null;
         }
     }

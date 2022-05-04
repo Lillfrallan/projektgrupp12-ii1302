@@ -22,8 +22,8 @@ function BodyPresenter() {
     /**
      * Used to redirect to a specific blobs summary page
      * 
-     * @param {blobs index number} index 
-     * @param {the blob object} blob 
+     * @param {*} index blobs index number
+     * @param {*} blob the blob object
      * @returns navigates to the page
      */
     const redirect = (blobs) => {
@@ -61,6 +61,7 @@ function BodyPresenter() {
             return blob;
         }
     })
+
 
     return (
         <div className="bodyPresenter">

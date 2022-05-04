@@ -1,14 +1,11 @@
 
-.wholeHeader {
-}
-
 .headerContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(9, 53, 90);  
     flex-flow: nowrap;
-    position: static;
+    position: sticky;
 }
 
 .headerTitle {

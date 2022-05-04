@@ -18,8 +18,13 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     }, [dispatch])
 
 
-    const home = (e) => {
-        e.preventDefault();
+    /**
+     * redirects the user to the home screen
+     * 
+     * @param {*} e 
+     */
+    const home = (element) => {
+        element.preventDefault();
         navigate("/home")
     }
 
