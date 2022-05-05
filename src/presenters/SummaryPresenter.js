@@ -9,7 +9,7 @@ function SummaryPresenter() {
 
     const {blobs} = useParams();
 
- 
+
     console.log(blobs)
 
     // /**

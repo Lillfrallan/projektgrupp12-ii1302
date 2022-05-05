@@ -50,7 +50,7 @@ function BodyPresenter() {
                         <BodyView
                             name={blob.name}
                             images={blob.images}
-                            datesAndTime={blob.datesAndTime}  
+                            // datesAndTime={blob.datesAndTime}  
                             index = {i}
                             redirect={redirect}
                             key={i}   
