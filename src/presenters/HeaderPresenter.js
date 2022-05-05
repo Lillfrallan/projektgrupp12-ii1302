@@ -24,7 +24,6 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     return  (
         <div className="wholeHeader">
             <HeaderView
-                // lastCreatedBlob={lastCreatedBlob}
                 home={home}
                 toggleTheme={toggleTheme}
                 theme={theme}
