@@ -21,8 +21,4 @@ const containerClient = blobServiceClient.getContainerClient(containerName);
 
 
 
-<<<<<<< HEAD
-export  {get_image_url, get_blob_account, containerClient} 
-=======
 export  {get_image_url, get_blob_account, containerClient}
->>>>>>> 766f8fa070b2b0d6dd483fb51b7c7d30221f7cf2
