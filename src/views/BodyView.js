@@ -1,13 +1,11 @@
 import React from 'react'
 import './css/Body.css'
 
-function BodyView({ images, datesAndTime, index, redirect, blobs, name }) {
+function BodyView({ images, datesAndTime, index, redirect}) {
 
-    // console.log(blob)
-    
     return (
         <div className="bodyView">
-            <div className="blobs" onClick={() => redirect(blobs)}>
+            <div className="blobs" onClick={() => redirect(index)}>
                     <img className="image" src={images} alt=""/>
                     <div className="dateAndTime">{datesAndTime}</div>
             </div>

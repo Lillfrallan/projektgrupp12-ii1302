@@ -24,4 +24,6 @@ const blobServiceClient = new BlobServiceClient(`https://${account}.blob.core.wi
 const containerClient = blobServiceClient.getContainerClient(containerName);
 
 
-export  {get_image_url, get_blob_account, containerClient, blobName} 
+
+export  {get_image_url, get_blob_account, containerClient} 
+

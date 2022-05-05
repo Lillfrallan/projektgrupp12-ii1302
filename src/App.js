@@ -1,9 +1,10 @@
 import Body from './presenters/BodyPresenter';
-import React, {createContext} from 'react';
+import React, { createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Summary from './presenters/SummaryPresenter';
 import Header from './presenters/HeaderPresenter';
-import '../src/views/css/Body.css'
+import '../src/views/css/App.css'
+
 
 export const ThemeContext = createContext(null);
 
@@ -43,9 +44,5 @@ function App() {
       </ThemeContext.Provider>
     );
 }
-
-// /:blobType/:etag
-//               /:accessTier/:accessTierInferred/:contentType/:leaseStatus
-//               /:serverEncrypted/:datesAndTime
 
 export default App

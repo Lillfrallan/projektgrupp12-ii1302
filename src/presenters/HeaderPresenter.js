@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import HeaderView from '../views/HeaderView'
 import { useNavigate } from 'react-router-dom';
-import BlobRetriever from '../services/BlobRetriever'
 import '../views/css/Header.css'
+import { useSelector, useDispatch } from 'react-redux'
+import { getBlobs } from '../services/BlobRetriever'
 
 function HeaderPresenter( {toggleTheme, theme} ) {
 
     const navigate = useNavigate();
-    const [lastCreatedBlob, setLastCreatedBlob] = useState("");
+    const dispatch = useDispatch();
+    const {blobs} = useSelector(state => state.blobs)
+
+    useEffect(() => {
+        dispatch(getBlobs())
+    }, [dispatch])
 
 
-    // useEffect(() => {
-
-    //     BlobRetriever.blobData().then(function(data) {
-    //         setLastCreatedBlob(data[0].datesAndTime)
-    //     })
-
-    // }, []) 
-
-    function home(e) {
+    const home = (e) => {
         e.preventDefault();
         navigate("/home")
     }
-    
+
     return  (
         <div className="wholeHeader">
             <HeaderView
@@ -30,11 +28,10 @@ function HeaderPresenter( {toggleTheme, theme} ) {
                 home={home}
                 toggleTheme={toggleTheme}
                 theme={theme}
+                date = {blobs[blobs.length-1].datesAndTime}  
             />
         </div>
-        
     )
-
 }
 
 export default HeaderPresenter 
