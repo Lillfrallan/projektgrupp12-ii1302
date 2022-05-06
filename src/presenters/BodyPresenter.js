@@ -4,30 +4,45 @@ import { useNavigate } from 'react-router-dom';
 import '../views/css/Body.css'
 import { BsArrowDownUp } from "react-icons/bs";
 import { VscAzure, VscGoToFile } from "react-icons/vsc"
+import { GiCctvCamera } from "react-icons/gi"
 import { useSelector, useDispatch } from 'react-redux'
-import { getBlobs } from '../services/BlobRetriever'
+import { SiFirebase } from 'react-icons/si'
+import { getBlobsAzure } from '../services/BlobRetrieverAzure'
+import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
 
 function BodyPresenter() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {blobs} = useSelector(state => state.blobs)
+    const {blobs}  = useSelector(state => state.blobs);
     const [blobArray, setBlobArray] = useState(blobs)
     const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
-        dispatch(getBlobs())
+        dispatch(getBlobsFirebase())
     }, [dispatch])
 
     /**
      * Used to redirect to a specific blobs summary page
      * 
-     * @param {blobs index number} index 
-     * @param {the blob object} blob 
+     * @param {*} index blobs index number
+     * @param {*} blob the blob object
      * @returns navigates to the page
      */
-    const redirect = (blobs) => {
-        return navigate("/summary/" + blobs
+    const redirectToSummaryPage = (index) => {
+        return navigate("/summary/" + index
+        );
+    }
+
+    /**
+     * Used to redirect to a specific blobs summary page
+     * 
+     * @param {*} index blobs index number
+     * @param {*} blob the blob object
+     * @returns navigates to the page
+     */
+    const redirectToCameraPage = () => {
+        return navigate("/cameraPage"
         );
     }
 
@@ -51,6 +66,16 @@ function BodyPresenter() {
     }
 
     /**
+     * Links the user to Azure portal
+     */
+    const goToFireBaseStorageButton = () => {
+        window.location = 
+        'https://console.firebase.google.com/project/projectgroup12-2f2a2/storage/' +
+        'projectgroup12-2f2a2.appspot.com/files/~2Fimages'
+        console.log("success")
+    }
+
+    /**
      * Filters through the array, used for searching
      */
     const filteredArray = blobArray.filter((blob) => {
@@ -66,20 +91,21 @@ function BodyPresenter() {
         <div className="bodyPresenter">
             <div className="bodyButtons">
                 <input className="searchBar" type="text" onChange={event => setSearchTerm(event.target.value)} placeholder='Search for date...'/>
-                <button className="lastUploadedImageButton" onClick={() => redirect((blobArray[blobArray.length-1].index)-1)} title="go to most recent upload"><VscGoToFile/></button>
+                <button className="lastUploadedImageButton" onClick={() => redirectToSummaryPage((blobArray[blobArray.length-1].index))} title="go to most recent upload"><VscGoToFile/></button>
                 <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
+                <button className="azureLinkButton" onClick={redirectToCameraPage} title="camera info"><GiCctvCamera/></button>
                 <button className="azureLinkButton" onClick={goToAzureBlobStorageButton} title="go to Azure"><VscAzure/></button>
+                <button className="azureLinkButton" onClick={goToFireBaseStorageButton} title="go to Firebase"><SiFirebase/></button>
             </div>
             <div className="blobsList">
                 {filteredArray.map((blob, i) => (
                     <div key={i} className="elementBox">
                         <BodyView
                             images={blob.images}
-                            // datesAndTime={blob.datesAndTime}  
-                            index = {i}
-                            redirect={redirect}
+                            index = {blob.index}
+                            datesAndTime = {blob.datesAndTime}
+                            redirect={redirectToSummaryPage}
                             key={i}  
-                            blobs={blob} 
                         />
                     </div>
                 ))} 

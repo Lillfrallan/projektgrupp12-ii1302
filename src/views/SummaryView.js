@@ -1,16 +1,16 @@
 import React from 'react'
 import { AiOutlineDownload, AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import { BsGlobe } from "react-icons/bs";
+import { BsGlobe, BsFillTrashFill } from "react-icons/bs";
+import '../views/css/Summary.css'
 
 
 function SummaryView( {
-    name, images, blobType, etag, accesstier, accessTierInferred, contentType, 
-    leaseStatus, leaseState, serverEncrypted, datesAndTime, downloadImageButton,
-    viewImageInBrowser, index, redirectToNextBlob, redirectToPreviousBlob,
-    totalNumberOfBlobs
-} ) {
+    name, images, etag, contentType, datesAndTime, 
+    viewImageInBrowserButton, index, redirectToNextBlob, redirectToPreviousBlob,
+    totalNumberOfBlobs, deleteBlobButton, bucket, contentEncoding, crc32c,  generation,
+    md5Hash, metageneration, size,  storageClass, 
+    } ) {
 
-    
     return (
         <div className="summaryView">
             <div className="summaryDisplay">
@@ -19,29 +19,35 @@ function SummaryView( {
                 </div>
                 <div className="summaryData">
                     <div>Blob name: <div className="data">{name}</div></div>
-                    <div>Blob type: 
-                        <div className="data">{blobType}</div>
-                    </div>
                     <div>Etag: 
                         <div className="data">{etag}</div>
                     </div>
-                    <div>Access Tier: 
-                        <div className="data">{accesstier}</div>
+                    <div>Bucket: 
+                        <div className="data">{bucket}</div>
                     </div>
-                    <div>Access Tier Inferred: 
-                        <div className="data">{accessTierInferred}</div>
+                    <div>Storage Class: 
+                        <div className="data">{storageClass}</div>
+                    </div>
+                    <div>Content Encoding: 
+                        <div className="data">{contentEncoding}</div>
                     </div>
                     <div>Content Type: 
                         <div className="data">{contentType}</div>
                     </div>
-                    <div>Lease Status: 
-                        <div className="data">{leaseStatus}</div>
+                    <div>Crc32c: 
+                        <div className="data">{crc32c}</div>
                     </div>
-                    <div>Lease State: 
-                        <div className="data">{leaseState}</div>
+                    <div>Generation: 
+                        <div className="data">{generation}</div>
                     </div>
-                    <div>Server Encrypted: 
-                        <div className="data">{serverEncrypted}</div>
+                    <div>Meta Generation: 
+                        <div className="data">{metageneration}</div>
+                    </div>
+                    <div>Size: 
+                        <div className="data">{size}</div>
+                    </div>
+                    <div>md5Hash: 
+                        <div className="data">{md5Hash}</div>
                     </div>
                     <div>Date and Time: 
                         <div className="data">{datesAndTime}</div>
@@ -49,11 +55,11 @@ function SummaryView( {
                 </div>
             </div>
             <div className="summaryButtonContainer">
-                <button className="downloadImageButton" onClick={downloadImageButton} title="DOWNLOAD IMAGE">
-                    <AiOutlineDownload/>
-                </button>
-                <button className="viewInBrowserButton" onClick={() => viewImageInBrowser(name)} title="View in browser">
+                <button className="viewInBrowserButton" onClick={() => viewImageInBrowserButton(name)} title="View in browser">
                     <BsGlobe/>
+                </button>
+                <button className="deleteBlobButton" onClick={() => deleteBlobButton(name)} title="delete blob">
+                        <BsFillTrashFill/>
                 </button>
             </div>
             <div className="summaryButtonsContainer">

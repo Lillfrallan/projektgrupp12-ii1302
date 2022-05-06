@@ -8,7 +8,14 @@ import '../src/views/css/App.css'
 
 export const ThemeContext = createContext(null);
 
-function useStickyState(defaultValue, key) {
+/**
+ * Helps to keep the state of the light/dark modes even after refreshes.
+ * 
+ * @param {*} defaultValue of the theme
+ * @param {*} key 
+ * @returns 
+ */
+const useStickyState = (defaultValue, key) => {
   const [value, setValue] = React.useState(() => {
     const stickyValue = window.localStorage.getItem(key);
     return stickyValue !== null
@@ -25,6 +32,9 @@ function App() {
 
   const [theme, setTheme] = useStickyState("light", "count");
 
+    /**
+     * Toggles between dark and light mode
+     */
     const toggleTheme = () => {
       setTheme((curr) => (curr === "light" ? "dark": "light"))
     }

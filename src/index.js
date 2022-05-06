@@ -3,10 +3,11 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
-import blobReducer from './services/BlobRetriever'
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/es/integration/react'
+// import blobReducer from './services/BlobRetrieverAzure'
+import blobReducer from './services/BlobRetrieverFireBase'
 
 
 /**
