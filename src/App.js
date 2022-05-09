@@ -1,10 +1,11 @@
 import Body from './presenters/BodyPresenter';
 import React, { createContext } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import Summary from './presenters/SummaryPresenter';
+import SummaryPage from './presenters/SummaryPagePresenter';
 import Header from './presenters/HeaderPresenter';
 import '../src/views/css/App.css'
 import CameraPage from './presenters/CameraPagePresenter';
+import CreatorPage from './presenters/CreatorPagePresenter';
 
 
 export const ThemeContext = createContext(null);
@@ -47,8 +48,9 @@ function App() {
               <Header toggleTheme={toggleTheme} theme={theme}/>
               <Routes>
                 <Route path="/" element={<Body/>}></Route> 
-                <Route path="/summary/:blobs" element={<Summary/>}></Route>
+                <Route path="/summary/:blobs" element={<SummaryPage/>}></Route>
                 <Route path="/cameraPage" element={<CameraPage/>}></Route>
+                <Route path="/creatorPage" element={<CreatorPage/>}></Route>
                 <Route path="*" element={<Body/>}></Route> 
               </Routes>
             </Router>

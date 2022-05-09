@@ -27,6 +27,7 @@ const delete_image = (IMAGE) => {
     deleteObject(deleteRef)
 }
 
+
 const download_image = (IMAGE) => {
     const downloadRef = ref(storage, `images/${IMAGE}`)
 
@@ -43,4 +44,4 @@ const download_image = (IMAGE) => {
 }
 
 
-export  {get_image_url, delete_image, download_image, firebaseConfig, app, analytics, storage} 
+export  {get_image_url, delete_image, download_image,  firebaseConfig, app, analytics, storage, getDownloadURL, ref} 

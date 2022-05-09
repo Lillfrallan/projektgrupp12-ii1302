@@ -3,7 +3,7 @@ import './css/Header.css'
 import { FaHome } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
 
-function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
+function HeaderView( { lastUploadedBlob, redirectToHome, toggleTheme, theme, redirectToCreatorPage } ) {
 
     /**
      * A toggle switch component, used for dark/light mode toggeling 
@@ -27,11 +27,11 @@ function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
                     <div className="lastCreatedText">{lastUploadedBlob}</div>
                 </div>
                 <div className="middlecontainer">
-                    <span className="headerTitle" onClick={home}>KTH-LINK</span>
+                    <span className="headerTitle" onClick={redirectToHome}>KTH-LINK</span>
                 </div>
                 <div className="rightContainer">
-                    <FaHome className="homeIcon" onClick={home} title="go to home screen" />
-                    <RiTeamFill className="teamIcon"/>
+                    <FaHome className="homeIcon" onClick={redirectToHome} title="go to home screen" />
+                    <RiTeamFill className="teamIcon" onClick={redirectToCreatorPage} title="go to creator page"/>
                     <ToggleSwitch className="themeSwitch" /> 
                 </div>
             </div>

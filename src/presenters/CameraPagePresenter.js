@@ -18,7 +18,7 @@ function CameraPagePresenter() {
         return images;
     }
     
-    const images = importImages(require.context('/resources', false, /\.(png|jpe?g|svg)$/));
+    const images = importImages(require.context('../resources', false, /\.(png|jpe?g|svg)$/));
 
     /**
      * redirects the user to the home screen

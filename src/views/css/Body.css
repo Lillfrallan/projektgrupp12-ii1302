@@ -93,7 +93,7 @@
     border-radius: 25px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
     cursor: pointer;
-    background-image: url(/resources/Webp.net-resizeimage.jpg);
+    background-image: url(/src/resources/Webp.net-resizeimage.jpg);
     font-family: 'Lato';
     width: 30em;
 }

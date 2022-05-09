@@ -6,7 +6,7 @@ function CameraPageView( {images, home} ) {
     return (
         <div className="cameraPageView">
             <div className='cameraPictureContainer'>
-                <img className="cameraPicture" src={images['testKameraBild.jpg']} />
+                {/* <img className="cameraPicture" src={images['testKameraBild.jpg']} /> */}
             </div>
             <div className="cameraPageData">
                 <div>Camera Name: 
@@ -18,7 +18,7 @@ function CameraPageView( {images, home} ) {
                 <div>Software Version: 
                     <div className="cameraData">{}</div>
                 </div>
-                <div>Operating System(OS): 
+                <div>Operating System: 
                     <div className="cameraData">{}</div>
                 </div>
                 <div>Processor Architecture: 

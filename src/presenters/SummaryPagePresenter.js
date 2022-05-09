@@ -23,9 +23,6 @@ function SummaryPresenter() {
 
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
-    const downloadImageFirebase = () => {
-        api_client_fireBase.download_image(currentBlob.name)
-    }
 
     const downloadImageFirebase = () => {
         api_client_fireBase.download_image(currentBlob.name)
@@ -171,7 +168,7 @@ function SummaryPresenter() {
                     redirectToNextBlob={redirectToNextBlob}
                     redirectToPreviousBlob={redirectToPreviousBlob}
                     deleteBlobButton={deleteFromFirebase}
-                    downloadBlobButton = {downloadImageFirebase}
+                    downloadImageFirebase = {downloadImageFirebase}
                     index={currentBlob.index}
                     totalNumberOfBlobs={totalNumberOfBlobs}
                     nameWithFolder = {currentBlob.nameWithFolder}
@@ -182,3 +179,4 @@ function SummaryPresenter() {
 }
 
 export default SummaryPresenter
+
