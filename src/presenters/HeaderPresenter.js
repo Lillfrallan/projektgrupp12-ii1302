@@ -20,7 +20,7 @@ function HeaderPresenter( {toggleTheme, theme} ) {
 
     useEffect(() => {
         setLastUploadedBlob(blobs[blobs.length-1].datesAndTime)
-    }, [blobs])
+    }, [])
 
 
     /**
@@ -28,15 +28,26 @@ function HeaderPresenter( {toggleTheme, theme} ) {
      * 
      * @param {*} element 
      */
-    const home = (element) => {
+    const redirectToHome = (element) => {
         element.preventDefault();
         navigate("/home")
+    }
+
+    /**
+     * redirects the user to the creator page
+     * 
+     * @param {*} element 
+     */
+    const redirectToCreatorPage = (element) => {
+        element.preventDefault();
+        navigate("/CreatorPage")
     }
 
     return  (
         <div className="wholeHeader">
             <HeaderView
-                home={home}
+                redirectToHome={redirectToHome}
+                redirectToCreatorPage={redirectToCreatorPage}
                 toggleTheme={toggleTheme}
                 theme={theme}
                 lastUploadedBlob = {lastUploadedBlob} 

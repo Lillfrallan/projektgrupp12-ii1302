@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SummaryView from '../views/SummaryView'
+import SummaryView from '../views/SummaryPageView'
 import { saveAs } from 'file-saver'
 import '../views/css/Summary.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -22,6 +22,11 @@ function SummaryPresenter() {
 
 
     var currentBlob = blobs[window.location.href.slice(-1)]; 
+
+
+    const downloadImageFirebase = () => {
+        api_client_fireBase.download_image(currentBlob.name)
+    }
 
 
     /**
@@ -73,18 +78,20 @@ function SummaryPresenter() {
     const deleteFromFirebase = (blobName, index) => {
         let blobsLeft = blobs.length;
         if(window.confirm("Are you sure you want to delete the current blob?")) {
-            if(blobsLeft > 1 && index === blobs[blobs.length -1]) {
-                api_client_fireBase.delete_image(blobName)
-                setTotalNumberOfBlobs(totalNumberOfBlobs-1)
-            }
-            else if(blobsLeft > 1 && index !== blobs[blobs.length -1]) {
+            if(blobsLeft > 1 && index !== blobs[blobs.length -1]) {
                 api_client_fireBase.delete_image(blobName)
                 redirectToNextBlob(index)
-                setTotalNumberOfBlobs(totalNumberOfBlobs-1)
+                setTotalNumberOfBlobs(totalNumberOfBlobs)
             }
             else if(blobsLeft = 1) {
                 api_client_fireBase.delete_image(blobName)
                 navigate("/home")
+            }
+            if(currentBlob.index === blobs.length-1) {
+                api_client_fireBase.delete_image(blobName)
+                redirectToPreviousBlob(index - 1)
+                setTotalNumberOfBlobs(totalNumberOfBlobs)
+                
             }
         } 
         else {
@@ -128,10 +135,11 @@ function SummaryPresenter() {
     *******************DEPRECATED**********************
     ***************************************************
     */
-    // const downloadImageAzure = (images, name) => {
-    //     saveAs(images, name)
-    // }
+    const downloadImageAzure = (images, name) => {
+        saveAs(images, name)
+    }
 
+    
     /**************************************************
     *******************DEPRECATED**********************
     ***************************************************
@@ -160,6 +168,7 @@ function SummaryPresenter() {
                     redirectToNextBlob={redirectToNextBlob}
                     redirectToPreviousBlob={redirectToPreviousBlob}
                     deleteBlobButton={deleteFromFirebase}
+                    downloadImageFirebase = {downloadImageFirebase}
                     index={currentBlob.index}
                     totalNumberOfBlobs={totalNumberOfBlobs}
                     nameWithFolder = {currentBlob.nameWithFolder}
@@ -170,4 +179,3 @@ function SummaryPresenter() {
 }
 
 export default SummaryPresenter
-
