@@ -11,16 +11,16 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
-    const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
+    // const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
 
     
     useEffect(() => {
         dispatch(getBlobsFirebase())
     }, [dispatch])
 
-    useEffect(() => {
-        setLastUploadedBlob(blobs[blobs.length-1].datesAndTime)
-    }, [])
+    // useEffect(() => {
+    //     setLastUploadedBlob(blobs[blobs.length-1].datesAndTime)
+    // }, [])
 
 
     /**
@@ -50,7 +50,7 @@ function HeaderPresenter( {toggleTheme, theme} ) {
                 redirectToCreatorPage={redirectToCreatorPage}
                 toggleTheme={toggleTheme}
                 theme={theme}
-                lastUploadedBlob = {lastUploadedBlob} 
+                // lastUploadedBlob = {lastUploadedBlob} 
             />
         </div>
     )

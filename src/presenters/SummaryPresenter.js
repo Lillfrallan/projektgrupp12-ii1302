@@ -27,11 +27,6 @@ function SummaryPresenter() {
         api_client_fireBase.download_image(currentBlob.name)
     }
 
-    const downloadImageFirebase = () => {
-        api_client_fireBase.download_image(currentBlob.name)
-    }
-
-
     /**
      * redirects the user to the storage page of firebase
      */
