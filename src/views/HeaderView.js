@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/Header.css'
 import { FaHome } from "react-icons/fa";
-
+import { RiTeamFill } from "react-icons/ri";
 
 function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
 
@@ -27,10 +27,11 @@ function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
                     <div className="lastCreatedText">{lastUploadedBlob}</div>
                 </div>
                 <div className="middlecontainer">
-                    <span className="headerTitle">KTH-LINK</span>
+                    <span className="headerTitle" onClick={home}>KTH-LINK</span>
                 </div>
                 <div className="rightContainer">
                     <FaHome className="homeIcon" onClick={home} title="go to home screen" />
+                    <RiTeamFill className="teamIcon"/>
                     <ToggleSwitch className="themeSwitch" /> 
                 </div>
             </div>

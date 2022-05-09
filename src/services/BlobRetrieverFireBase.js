@@ -39,7 +39,6 @@ export const getBlobsFirebase = createAsyncThunk("blobs/getBlobsFirebase",
     }   
 ) 
 
-
 /**
  * Creates a redux slice for the blob data
  */

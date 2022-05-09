@@ -8,7 +8,7 @@ function SummaryView( {
     name, images, etag, contentType, datesAndTime, 
     viewImageInBrowserButton, index, redirectToNextBlob, redirectToPreviousBlob,
     totalNumberOfBlobs, deleteBlobButton, bucket, contentEncoding, crc32c,  generation,
-    md5Hash, metageneration, size,  storageClass, 
+    md5Hash, metageneration, size,  storageClass, downloadBlobButton
     } ) {
 
     return (
@@ -57,6 +57,9 @@ function SummaryView( {
             <div className="summaryButtonContainer">
                 <button className="viewInBrowserButton" onClick={() => viewImageInBrowserButton(name)} title="View in browser">
                     <BsGlobe/>
+                </button>
+                <button className="deleteBlobButton" onClick={() => downloadBlobButton(name)} title="delete blob">
+                        <AiOutlineDownload/>
                 </button>
                 <button className="deleteBlobButton" onClick={() => deleteBlobButton(name)} title="delete blob">
                         <BsFillTrashFill/>

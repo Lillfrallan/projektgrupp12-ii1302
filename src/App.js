@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Summary from './presenters/SummaryPresenter';
 import Header from './presenters/HeaderPresenter';
 import '../src/views/css/App.css'
+import CameraPage from './presenters/CameraPagePresenter';
 
 
 export const ThemeContext = createContext(null);
@@ -47,6 +48,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Body/>}></Route> 
                 <Route path="/summary/:blobs" element={<Summary/>}></Route>
+                <Route path="/cameraPage" element={<CameraPage/>}></Route>
                 <Route path="*" element={<Body/>}></Route> 
               </Routes>
             </Router>

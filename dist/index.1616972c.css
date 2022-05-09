@@ -303,6 +303,7 @@
   color: #abaec4;
   text-transform: uppercase;
   text-shadow: 0 2px 4px #0006;
+  cursor: pointer;
   font-size: 3.3em;
   font-weight: bold;
 }
@@ -369,6 +370,25 @@
 }
 
 .homeIcon:hover {
+  z-index: 5;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1.05);
+}
+
+.teamIcon {
+  font-size: 3em;
+}
+
+#light .teamIcon {
+  color: #fff;
+}
+
+#dark .teamIcon {
+  color: #abaec4;
+}
+
+.teamIcon:hover {
   z-index: 5;
   cursor: pointer;
   position: relative;
@@ -455,6 +475,70 @@
   position: absolute;
   inset: 0;
   overflow-y: auto;
+}
+
+.cameraPageView {
+  flex-direction: column;
+  display: flex;
+}
+
+.cameraPictureContainer {
+  justify-content: center;
+  padding-top: 1rem;
+  display: flex;
+}
+
+.cameraPicture {
+  width: 30%;
+}
+
+.cameraPageData {
+  color: #d2d4dd;
+  max-width: 1300px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-content: space-between center;
+  align-items: center;
+  gap: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3rem;
+  font-size: larger;
+  font-weight: bold;
+  display: grid;
+  position: relative;
+}
+
+#light .cameraPageData {
+  color: #000;
+}
+
+#dark .cameraPageData {
+  color: #ede9e9;
+}
+
+.cameraData {
+  font-weight: normal;
+}
+
+.goBackButtonContainer {
+  justify-content: center;
+  padding-top: 6em;
+  display: flex;
+}
+
+.goBackButton {
+  background-color: #88918e;
+  border: none;
+  border-radius: 25px;
+  padding: .2em 1.3em;
+  font-size: 2em;
+}
+
+.goBackButton:hover {
+  z-index: 5;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1.05);
 }
 
 /*# sourceMappingURL=index.1616972c.css.map */

@@ -23,6 +23,9 @@ function SummaryPresenter() {
 
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
+    const downloadImageFirebase = () => {
+        api_client_fireBase.download_image(currentBlob.name)
+    }
 
     /**
      * redirects the user to the storage page of firebase
@@ -160,6 +163,7 @@ function SummaryPresenter() {
                     redirectToNextBlob={redirectToNextBlob}
                     redirectToPreviousBlob={redirectToPreviousBlob}
                     deleteBlobButton={deleteFromFirebase}
+                    downloadBlobButton = {downloadImageFirebase}
                     index={currentBlob.index}
                     totalNumberOfBlobs={totalNumberOfBlobs}
                     nameWithFolder = {currentBlob.nameWithFolder}

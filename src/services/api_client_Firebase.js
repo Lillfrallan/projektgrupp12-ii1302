@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getStorage, deleteObject, ref } from "firebase/storage";
+import { getStorage, deleteObject, ref, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAVj7INM7guffGsZhXLNSydDBEmYakAQLk",
@@ -27,5 +27,20 @@ const delete_image = (IMAGE) => {
     deleteObject(deleteRef)
 }
 
+const download_image = (IMAGE) => {
+    const downloadRef = ref(storage, `images/${IMAGE}`)
 
-export  {get_image_url, delete_image, firebaseConfig, app, analytics, storage} 
+    getDownloadURL(downloadRef)
+    .then((url) => {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob'
+        xhr.onload = (event) => {
+            const blob = xhr.response;
+        }
+        xhr.open('GET', url)
+        xhr.send()
+    })
+}
+
+
+export  {get_image_url, delete_image, download_image, firebaseConfig, app, analytics, storage} 
