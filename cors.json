@@ -1,7 +1,6 @@
 [
     {
-        "origin": ["http://projectgroup12-2f2a2.appspot.com"],
-        "responseHeader": ["Content-Type"],
+        "origin": ["*"],
         "method": ["GET", "HEAD", "DELETE", "POST", "PUT", "PATCH"],
         "maxAgeSeconds": 3600
     }

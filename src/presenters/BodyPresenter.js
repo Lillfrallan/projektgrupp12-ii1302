@@ -20,7 +20,6 @@ function BodyPresenter() {
     const [searchTerm, setSearchTerm] = useState('')
     
 
-
     useEffect(() => {
         dispatch(getBlobsFirebase())
     }, [dispatch])

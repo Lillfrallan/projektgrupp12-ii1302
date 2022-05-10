@@ -61,7 +61,7 @@ function SummaryView( {
                 <button className="deleteBlobButton" onClick={() => deleteBlobButton(name, index)} title="delete blob">
                         <BsFillTrashFill/>
                 </button>
-                <button className="deleteBlobButton" onClick={() => downloadImageFirebase(name)} title="delete blob">
+                <button className="downloadBlobButton" onClick={() => downloadImageFirebase(name)} title="download blob">
                         <AiOutlineDownload/>
                 </button> 
             </div>

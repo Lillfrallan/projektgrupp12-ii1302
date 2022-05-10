@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { containerClient } from '../services/api_client_Azure'
 import * as api_client_fireBase from '../services/api_client_Firebase'
 
-function SummaryPresenter() {
+function SummaryPagePresenter() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -24,8 +24,8 @@ function SummaryPresenter() {
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
 
-    const downloadImageFirebase = () => {
-        api_client_fireBase.download_image(currentBlob.name)
+    const downloadImageFirebase = (name) => {
+        api_client_fireBase.download_image(name)
     }
 
 
@@ -178,5 +178,5 @@ function SummaryPresenter() {
     )
 }
 
-export default SummaryPresenter
+export default SummaryPagePresenter
 

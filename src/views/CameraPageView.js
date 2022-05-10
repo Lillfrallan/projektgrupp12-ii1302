@@ -6,7 +6,7 @@ function CameraPageView( {images, home} ) {
     return (
         <div className="cameraPageView">
             <div className='cameraPictureContainer'>
-                {/* <img className="cameraPicture" src={images['testKameraBild.jpg']} /> */}
+                <img className="cameraPicture" src={images['testKameraBild.jpg']} alt="" />
             </div>
             <div className="cameraPageData">
                 <div>Camera Name: 

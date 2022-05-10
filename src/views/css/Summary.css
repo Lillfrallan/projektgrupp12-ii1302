@@ -52,7 +52,7 @@
     left: 1rem;
 }
 
-.downloadImageButton{
+.downloadBlobButton{
     background-color: #88918e; 
     border: none;
     padding: 0.2em 2.4em; 
@@ -61,7 +61,7 @@
     cursor: pointer;
 }
 
-.downloadImageButton:hover {
+.downloadBlobButton:hover {
     transform: scale(1.05);
     position:relative;
     z-index:5;
