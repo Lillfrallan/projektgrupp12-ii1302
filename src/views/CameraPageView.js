@@ -10,31 +10,19 @@ function CameraPageView( {images, home} ) {
             </div>
             <div className="cameraPageData">
                 <div>Camera Name: 
-                    <div className="cameraData">{}</div>
+                    <div className="cameraData">OV2640</div>
                 </div>
                 <div>Camera Manufacturer: 
-                    <div className="cameraData">{}</div>
+                    <div className="cameraData">OmniVision</div>
                 </div>
-                <div>Software Version: 
-                    <div className="cameraData">{}</div>
-                </div>
-                <div>Operating System: 
-                    <div className="cameraData">{}</div>
-                </div>
-                <div>Processor Architecture: 
-                    <div className="cameraData">{}</div>
-                </div>
-                <div>Processor Design: 
-                    <div className="cameraData">{}</div>
+                <div>Processor: 
+                    <div className="cameraData">Xtensa 32-bit LX7 dual-core processor</div>
                 </div>
                 <div>Total Storage: 
-                    <div className="cameraData">{}</div>
+                    <div className="cameraData">32 GB</div>
                 </div>
                 <div>Total Memory: 
-                    <div className="cameraData">{}</div>
-                </div>
-                <div>Date and Time: 
-                    <div className="cameraData">{}</div>
+                    <div className="cameraData">520KB SRAM + 8MB PSRAM</div>
                 </div>
             </div>
             <div className="goBackButtonContainer">
