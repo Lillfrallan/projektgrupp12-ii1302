@@ -6,9 +6,9 @@
 .bodyButtons {
     padding-top: 0.8em;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     gap: 1em;
-    position: absolute;
+    position: flex;
     left: 1rem;
 }
 
@@ -79,7 +79,7 @@
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     padding-top: 1rem;
     margin-right: auto;
-    margin-left: 18em;
+    margin-left: 1em;
     max-width: 80%;
     gap: 1em;
 }
@@ -88,7 +88,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500em;
     padding-top: 1.5rem;
     border: 1px solid #737070;
     border-radius: 25px;
