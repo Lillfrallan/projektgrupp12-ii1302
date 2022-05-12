@@ -2,8 +2,10 @@ import React from 'react'
 import './css/Header.css'
 import { FaHome } from "react-icons/fa";
 import { RiTeamFill } from "react-icons/ri";
+import { VscSignOut } from "react-icons/vsc";
 
-function HeaderView( { lastUploadedBlob, redirectToHome, toggleTheme, theme, redirectToCreatorPage } ) {
+
+function HeaderView( { lastUploadedBlob, redirectToHome, toggleTheme, theme, redirectToCreatorPage, logoutUserButton } ) {
 
     /**
      * A toggle switch component, used for dark/light mode toggeling 
@@ -32,6 +34,7 @@ function HeaderView( { lastUploadedBlob, redirectToHome, toggleTheme, theme, red
                 <div className="rightContainer">
                     <FaHome className="homeIcon" onClick={redirectToHome} title="go to home screen" />
                     <RiTeamFill className="teamIcon" onClick={redirectToCreatorPage} title="go to creator page"/>
+                    <VscSignOut className="logoutIcon" onClick={logoutUserButton} title="logout"/>
                     <ToggleSwitch className="themeSwitch" /> 
                 </div>
             </div>

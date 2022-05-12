@@ -49,13 +49,13 @@ function App() {
             <Router>
               <Header toggleTheme={toggleTheme} theme={theme}/>
               <Routes>
-                <Route path="/" element={<Body/>}></Route> 
+                <Route path="/home" element={<Body/>}></Route> 
                 <Route path="/summary/:blobs" element={<SummaryPage/>}></Route>
                 <Route path="/cameraPage" element={<CameraPage/>}></Route>
                 <Route path="/creatorPage" element={<CreatorPage/>}></Route>
-                <Route path="*" element={<Body/>}></Route> 
-                {/* <Route path="/signInUser" element={<SignInPresenter/>}></Route> 
-                <Route path="/signUpUser" element={<SignUpPresenter/>}></Route>  */}
+                <Route path="*" element={<SignInPresenter/>}></Route> 
+                <Route path="/signInUser" element={<SignInPresenter/>}></Route> 
+                <Route path="/signUpUser" element={<SignUpPresenter/>}></Route> 
               </Routes>
             </Router>
         </div >

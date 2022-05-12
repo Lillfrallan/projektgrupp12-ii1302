@@ -5,7 +5,7 @@ import '../views/css/Header.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobsAzure } from '../services/BlobRetrieverAzure'
 import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
-import { auth, onAuthStateChanged } from '../services/api_client_Firebase'
+import { auth, onAuthStateChanged, signOut } from '../services/api_client_Firebase'
 
 function HeaderPresenter( {toggleTheme, theme} ) {
 
@@ -13,11 +13,11 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
     const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
-    const [currentUser, setCurrentUser] = useState({});
+    // const [currentUser, setCurrentUser] = useState({});
 
-    onAuthStateChanged(auth, (currentuser) => {
-        setCurrentUser(currentuser);
-    })
+    // onAuthStateChanged(auth, (currentuser) => {
+    //     setCurrentUser(currentuser);
+    // })
 
     useEffect(() => {
         dispatch(getBlobsFirebase())
@@ -48,6 +48,12 @@ function HeaderPresenter( {toggleTheme, theme} ) {
         navigate("/CreatorPage")
     }
 
+    const logoutUserButton = async () => {
+        await signOut(auth)
+        navigate("/signInUser")
+    }
+
+
     return  (
         <div className="wholeHeader">
             <HeaderView
@@ -56,7 +62,8 @@ function HeaderPresenter( {toggleTheme, theme} ) {
                 toggleTheme={toggleTheme}
                 theme={theme}
                 lastUploadedBlob = {lastUploadedBlob}
-                currentUser={currentUser?.email} 
+                // currentUser={currentUser?.email} 
+                logoutUserButton={logoutUserButton}
             />
         </div>
     )
