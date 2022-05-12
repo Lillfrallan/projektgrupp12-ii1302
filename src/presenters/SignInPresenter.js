@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SignInPageView from '../views/SignInPageView'
-import { auth, signOut, signInWithEmailAndPassword } from '../services/api_client_Firebase'
+import { auth, signInWithEmailAndPassword } from '../services/api_client_Firebase'
 
 function SignInPresenter() {
     const [loginEmail, setLoginEmail] = useState("");
