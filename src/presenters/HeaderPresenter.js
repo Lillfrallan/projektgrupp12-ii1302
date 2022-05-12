@@ -49,8 +49,10 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     }
 
     const logoutUserButton = async () => {
-        await signOut(auth)
-        navigate("/signInUser")
+        if(window.confirm("Are you sure you wan't to log out?")) {
+            await signOut(auth)
+            navigate("/signInUser")
+        }
     }
 
 
