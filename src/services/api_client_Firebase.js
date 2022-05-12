@@ -2,15 +2,17 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage, deleteObject, ref, getDownloadURL } from "firebase/storage";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
+import {API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID, MEASUREMENT_ID} from './scripts'
+
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAVj7INM7guffGsZhXLNSydDBEmYakAQLk",
-    authDomain: "projectgroup12-2f2a2.firebaseapp.com",
-    projectId: "projectgroup12-2f2a2",
-    storageBucket: "projectgroup12-2f2a2.appspot.com",
-    messagingSenderId: "102821745364",
-    appId: "1:102821745364:web:87c46aaaf783ce42016141",
-    measurementId: "G-X3VRVLMJPS"
+    apiKey: API_KEY,
+    authDomain: AUTH_DOMAIN,
+    projectId:  PROJECT_ID,
+    storageBucket:  STORAGE_BUCKET,
+    messagingSenderId:  MESSAGING_SENDER_ID,
+    appId:  APP_ID,
+    measurementId: MEASUREMENT_ID
 };
 
 const get_image_url = (IMAGE) => {
