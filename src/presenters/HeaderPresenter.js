@@ -13,11 +13,6 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
     const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
-    // const [currentUser, setCurrentUser] = useState({});
-
-    // onAuthStateChanged(auth, (currentuser) => {
-    //     setCurrentUser(currentuser);
-    // })
 
     useEffect(() => {
         dispatch(getBlobsFirebase())
@@ -64,7 +59,6 @@ function HeaderPresenter( {toggleTheme, theme} ) {
                 toggleTheme={toggleTheme}
                 theme={theme}
                 lastUploadedBlob = {lastUploadedBlob}
-                // currentUser={currentUser?.email} 
                 logoutUserButton={logoutUserButton}
             />
         </div>
