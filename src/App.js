@@ -3,6 +3,8 @@ import React, {createContext} from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Summary from './presenters/SummaryPresenter';
 import Header from './presenters/HeaderPresenter';
+import Signup from "./presenters/SignUpPresenter"
+import Signin from "./presenters/SignInPresenter" 
 import '../src/views/css/Body.css'
 
 export const ThemeContext = createContext(null);
@@ -36,16 +38,14 @@ function App() {
               <Routes>
                 <Route path="/" element={<Body/>}></Route> 
                 <Route path="/summary/:blobs" element={<Summary/>}></Route>
-                <Route path="*" element={<Body/>}></Route> 
+                <Route path="*" element={<Body/>}></Route>
+                <Route path="/Signup" element={<Signup />}></Route>
+                <Route path="/Signin" element={<Signin />}></Route> 
               </Routes>
             </Router>
         </div >
       </ThemeContext.Provider>
     );
 }
-
-// /:blobType/:etag
-//               /:accessTier/:accessTierInferred/:contentType/:leaseStatus
-//               /:serverEncrypted/:datesAndTime
 
 export default App
