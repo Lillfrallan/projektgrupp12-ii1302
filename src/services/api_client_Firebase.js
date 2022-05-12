@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage, deleteObject, ref, getDownloadURL } from "firebase/storage";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAVj7INM7guffGsZhXLNSydDBEmYakAQLk",
@@ -21,6 +22,8 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 const storage = getStorage();
+const auth = getAuth(app);
+
 
 const delete_image = (IMAGE) => {
     const deleteRef = ref(storage, `images/${IMAGE}`)
@@ -44,4 +47,19 @@ const download_image = (IMAGE) => {
 }
 
 
-export  {get_image_url, delete_image, download_image,  firebaseConfig, app, analytics, storage, getDownloadURL, ref} 
+export  {
+    get_image_url, 
+    delete_image, 
+    download_image,  
+    firebaseConfig, 
+    app, 
+    analytics, 
+    storage, 
+    getDownloadURL, 
+    ref,
+    auth,
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} 

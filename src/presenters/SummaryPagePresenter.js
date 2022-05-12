@@ -21,10 +21,11 @@ function SummaryPagePresenter() {
     }, [dispatch])
 
 
+
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
 
-    const downloadImageFirebase = (name) => {
+    const downloadImageFirebase = ( name) => {
         api_client_fireBase.download_image(name)
     }
 

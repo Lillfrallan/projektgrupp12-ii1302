@@ -3,6 +3,8 @@ import { ref, listAll } from "firebase/storage";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api_client_fireBase from './api_client_Firebase'
 
+
+
 export const getBlobsFirebase = createAsyncThunk("blobs/getBlobsFirebase",
     (async () => {
 
@@ -39,6 +41,8 @@ export const getBlobsFirebase = createAsyncThunk("blobs/getBlobsFirebase",
                 });
     }
 ))
+
+
 
 /**
  * Creates a redux slice for the blob data

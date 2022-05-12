@@ -5,6 +5,7 @@ import '../views/css/Header.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobsAzure } from '../services/BlobRetrieverAzure'
 import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
+import { auth, onAuthStateChanged } from '../services/api_client_Firebase'
 
 function HeaderPresenter( {toggleTheme, theme} ) {
 
@@ -12,14 +13,18 @@ function HeaderPresenter( {toggleTheme, theme} ) {
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
     const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
+    const [currentUser, setCurrentUser] = useState({});
 
-    
+    onAuthStateChanged(auth, (currentuser) => {
+        setCurrentUser(currentuser);
+    })
+
     useEffect(() => {
         dispatch(getBlobsFirebase())
     }, [dispatch])
 
     useEffect(() => {
-        setLastUploadedBlob(blobs[blobs.length-1].datesAndTime)
+        setLastUploadedBlob(blobs[blobs.length-1]?.datesAndTime)
     }, [blobs])
 
 
@@ -50,7 +55,8 @@ function HeaderPresenter( {toggleTheme, theme} ) {
                 redirectToCreatorPage={redirectToCreatorPage}
                 toggleTheme={toggleTheme}
                 theme={theme}
-                lastUploadedBlob = {lastUploadedBlob} 
+                lastUploadedBlob = {lastUploadedBlob}
+                currentUser={currentUser?.email} 
             />
         </div>
     )

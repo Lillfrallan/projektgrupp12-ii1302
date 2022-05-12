@@ -2,6 +2,7 @@ import React from 'react'
 import './css/Body.css'
 
 function BodyView({ images, datesAndTime, index, redirect}) {
+    
 
     return (
         <div className="bodyView">

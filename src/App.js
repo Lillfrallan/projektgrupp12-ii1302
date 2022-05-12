@@ -6,6 +6,8 @@ import Header from './presenters/HeaderPresenter';
 import '../src/views/css/App.css'
 import CameraPage from './presenters/CameraPagePresenter';
 import CreatorPage from './presenters/CreatorPagePresenter';
+import SignInPresenter from './presenters/SignInPresenter';
+import SignUpPresenter from './presenters/SignUpPresenter'
 
 
 export const ThemeContext = createContext(null);
@@ -52,6 +54,8 @@ function App() {
                 <Route path="/cameraPage" element={<CameraPage/>}></Route>
                 <Route path="/creatorPage" element={<CreatorPage/>}></Route>
                 <Route path="*" element={<Body/>}></Route> 
+                {/* <Route path="/signInUser" element={<SignInPresenter/>}></Route> 
+                <Route path="/signUpUser" element={<SignUpPresenter/>}></Route>  */}
               </Routes>
             </Router>
         </div >
