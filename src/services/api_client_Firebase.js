@@ -15,10 +15,6 @@ const firebaseConfig = {
     measurementId: MEASUREMENT_ID
 };
 
-const get_image_url = (IMAGE) => {
-    return `https://firebasestorage.googleapis.com/v0/b/projectgroup12-2f2a2.appspot.com/o/images%2F${IMAGE}?alt=media`;
-}
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -26,12 +22,14 @@ const analytics = getAnalytics(app);
 const storage = getStorage();
 const auth = getAuth(app);
 
+const get_image_url = (IMAGE) => {
+    return `https://firebasestorage.googleapis.com/v0/b/projectgroup12-2f2a2.appspot.com/o/images%2F${IMAGE}?alt=media`;
+}
 
 const delete_image = (IMAGE) => {
     const deleteRef = ref(storage, `images/${IMAGE}`)
     deleteObject(deleteRef)
 }
-
 
 const download_image = (IMAGE) => {
     const downloadRef = ref(storage, `images/${IMAGE}`)
@@ -47,7 +45,6 @@ const download_image = (IMAGE) => {
         xhr.send()
     })
 }
-
 
 export  {
     get_image_url, 

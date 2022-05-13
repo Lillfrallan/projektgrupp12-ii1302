@@ -20,8 +20,6 @@ function SummaryPagePresenter() {
         dispatch(getBlobsFirebase())
     }, [dispatch])
 
-
-
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
 
@@ -67,7 +65,6 @@ function SummaryPagePresenter() {
             return navigate("/summary/" + (blob)
         );
     }
-
 
     /**
      * deletes the current blob from Firebase storage

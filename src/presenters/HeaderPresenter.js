@@ -7,7 +7,7 @@ import { getBlobsAzure } from '../services/BlobRetrieverAzure'
 import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
 import { auth, onAuthStateChanged, signOut } from '../services/api_client_Firebase'
 
-function HeaderPresenter( {toggleTheme, theme} ) {
+function HeaderPresenter( {toggleTheme, theme, setIsLoggedIn} ) {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function HeaderPresenter( {toggleTheme, theme} ) {
         setLastUploadedBlob(blobs[blobs.length-1]?.datesAndTime)
     }, [blobs])
 
-
+    
     /**
      * redirects the user to the home screen
      * 
@@ -47,6 +47,7 @@ function HeaderPresenter( {toggleTheme, theme} ) {
         if(window.confirm("Are you sure you wan't to log out?")) {
             await signOut(auth)
             navigate("/signInUser")
+            setIsLoggedIn(false);
         }
     }
 
