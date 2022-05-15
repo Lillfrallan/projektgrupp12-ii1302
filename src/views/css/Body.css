@@ -9,7 +9,7 @@
     flex-flow: column;
     gap: 1em;
     position: flex;
-    left: 1rem;
+    left: 1em;
 }
 
 .reverseButton {
