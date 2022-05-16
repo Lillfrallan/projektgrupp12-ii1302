@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SummaryView from '../views/SummaryPageView'
+import SummaryPageView from '../views/SummaryPageView'
 import { saveAs } from 'file-saver'
 import '../views/css/Summary.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -150,7 +150,7 @@ function SummaryPresenter() {
 
     return (
         <div className="summmaryPresenter">
-                <SummaryView
+                <SummaryPageView
                     name = {currentBlob.name}
                     images={currentBlob.images}
                     bucket={currentBlob.bucket}

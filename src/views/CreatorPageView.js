@@ -1,5 +1,5 @@
 import React from 'react'
-import personImage from '../resources/personTemplate.png'
+// import personImage from '../resources/personTemplate.png'
 import './css/CreatorPage.css'
 
 const RenderPerson = ( {name, role, image} ) => {
@@ -20,11 +20,11 @@ function CreatorPageView() {
     return (
         <div>
             <div className="personContainer">
-                <RenderPerson name="Malcolm Liljedahl" role="Projektledare" image={personImage}/>
+                {/* <RenderPerson name="Malcolm Liljedahl" role="Projektledare" image={personImage}/>
                 <RenderPerson name="Nahom Kifle Solomon" role="Kravansvarig" image={personImage}/>
                 <RenderPerson name="Robin Fransson" role="Arkitekt" image={personImage}/>
                 <RenderPerson name="Maximilian Petersson" role="Utvecklingsansvarig" image={personImage}/>
-                <RenderPerson name="Anders Bager Björzén" role="Testansvarig" image={personImage}/>
+                <RenderPerson name="Anders Bager Björzén" role="Testansvarig" image={personImage}/> */}
             </div>
             <div className="imageSource">
                 <a href={"https://www.kindpng.com/imgv/iooTihR_cartoon-businessman-thinking-cartoon-person-png-transparent-png/"}>Image Source </a>

@@ -12,13 +12,13 @@ function CameraPagePresenter() {
      * @param {*} image the images to import
      * @returns an array of the imported images
      */
-    const importImages = (image) => {
-        let images = {};
-        image.keys().map((item) => { images[item.replace('./', '')] = image(item); });
-        return images;
-    }
+    // const importImages = (image) => {
+    //     let images = {};
+    //     image.keys().map((item) => { images[item.replace('./', '')] = image(item); });
+    //     return images;
+    // }
     
-    const images = importImages(require.context('../resources', false, /\.(png|jpe?g|svg)$/));
+    // const images = importImages(require.context('../resources', false, /\.(png|jpe?g|svg)$/));
 
     /**
      * redirects the user to the home screen
@@ -33,7 +33,7 @@ function CameraPagePresenter() {
     return (
         <div>
             <CameraView
-                images={images}
+                // images={images}
                 home={home}
             />
         </div>

@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
+import { useState,useEffect } from "react";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage, deleteObject, ref, getDownloadURL } from "firebase/storage";
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAVj7INM7guffGsZhXLNSydDBEmYakAQLk",
@@ -12,12 +14,15 @@ const firebaseConfig = {
     measurementId: "G-X3VRVLMJPS"
 };
 
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+
 const get_image_url = (IMAGE) => {
     return `https://firebasestorage.googleapis.com/v0/b/projectgroup12-2f2a2.appspot.com/o/images%2F${IMAGE}?alt=media`;
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+
 const analytics = getAnalytics(app);
 
 const storage = getStorage();
@@ -42,6 +47,33 @@ const download_image = (IMAGE) => {
         xhr.send()
     })
 }
+export function signup(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password);
+}
+export function login(email, password) {
+    return signInWithEmailAndPassword(auth, email, password);
+}
+
+export function useAuth() {
+    const [ currentUser, setCurrentUser ] = useState();
+  
+    useEffect(() => {
+      const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+      return unsub;
+    }, [])
+  
+    return currentUser;
+  }
 
 
-export  {get_image_url, delete_image, download_image,  firebaseConfig, app, analytics, storage, getDownloadURL, ref} 
+export  {
+            get_image_url, 
+            delete_image, 
+            download_image, 
+            app, 
+            analytics, 
+            storage, 
+            getDownloadURL, 
+            ref, 
+            
+        }

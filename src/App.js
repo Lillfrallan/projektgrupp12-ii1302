@@ -5,7 +5,9 @@ import SummaryPage from './presenters/SummaryPagePresenter';
 import Header from './presenters/HeaderPresenter';
 import '../src/views/css/App.css'
 import CameraPage from './presenters/CameraPagePresenter';
-import CreatorPage from './presenters/CreatorPagePresenter';
+import CreatorPage from './presenters/CreatorPagePresenter'; 
+import SignupPresenter from './presenters/SignUpPresenter';
+import SignInPresenter from './presenters/SignInPresenter';
 
 
 export const ThemeContext = createContext(null);
@@ -51,7 +53,9 @@ function App() {
                 <Route path="/summary/:blobs" element={<SummaryPage/>}></Route>
                 <Route path="/cameraPage" element={<CameraPage/>}></Route>
                 <Route path="/creatorPage" element={<CreatorPage/>}></Route>
-                <Route path="*" element={<Body/>}></Route> 
+                <Route path="*" element={<SignInPresenter/>}></Route> 
+                <Route path="/Signup" element={<SignupPresenter />}></Route>
+                <Route path="/Signin" element={<SignInPresenter />}></Route>
               </Routes>
             </Router>
         </div >
