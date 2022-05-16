@@ -4,7 +4,7 @@ function SignUpPageView( {setRegisterPassword , setRegisterEmail, registerUser }
     
     return (
         <div>
-            <h3>Sign up</h3>
+            <h3>Sign up.</h3>
                 <input placeholder="Enter an email" onChange={(event) => {setRegisterEmail(event.target.value)}}/>
                 <input placeholder="Enter a password" onChange={(event) => {setRegisterPassword(event.target.value)}}/>
 
