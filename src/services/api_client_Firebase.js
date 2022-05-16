@@ -49,10 +49,6 @@ const download_image = (IMAGE) => {
     })
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2a62d07c65ff0477cda75a0a0e891b3271fbbd5a
 export  {
     get_image_url, 
     delete_image, 
