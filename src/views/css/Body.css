@@ -8,8 +8,7 @@
     display: flex;
     flex-flow: column;
     gap: 1em;
-    position: flex;
-    left: 1em;
+    max-width: 8em;
 }
 
 .reverseButton {
