@@ -15,12 +15,12 @@ function SignupPresenter() {
 
   async function handleSignup() {
     setLoading(true);
-     try {
+    try {
       await signup(emailRef.current.value, passwordRef.current.value);
-     } catch {
-       alert("Error!");
-     }
-     navigate("/signin")
+    } catch {
+      alert("Error!");
+    }
+    navigate("/signin")
     setLoading(false);
   }
 
