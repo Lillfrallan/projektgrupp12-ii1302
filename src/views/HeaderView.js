@@ -1,9 +1,11 @@
 import React from 'react'
 import './css/Header.css'
 import { FaHome } from "react-icons/fa";
+import { VscSignOut } from "react-icons/vsc";
 
 
-function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
+
+function HeaderView( { lastUploadedBlob, home, toggleTheme, theme ,logoutUserButton} ) {
 
     /**
      * A toggle switch component, used for dark/light mode toggeling 
@@ -31,6 +33,7 @@ function HeaderView( { lastUploadedBlob, home, toggleTheme, theme } ) {
                 </div>
                 <div className="rightContainer">
                     <FaHome className="homeIcon" onClick={home} title="go to home screen" />
+                    <VscSignOut className="logoutIcon" onClick={logoutUserButton} title="logout"/>
                     <ToggleSwitch className="themeSwitch" /> 
                 </div>
             </div>

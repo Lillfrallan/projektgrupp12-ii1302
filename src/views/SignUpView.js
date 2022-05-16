@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SignUp({emailRef, passwordRef,signUp}) {
   return (
@@ -25,8 +26,12 @@ function SignUp({emailRef, passwordRef,signUp}) {
                 <br></br>
                 <label>
                     <button className='signUpButton' type="submit">Sign Up</button>
-                    
-                </label>
+                    <br></br>
+                    <br></br>
+                </label>    
+                    <Link to='/signin' style={{ textDecoration: 'none' }}>
+                        <span>Already a member? Sign In now</span>
+                    </Link>
             </form>
     </div>
     </div>  

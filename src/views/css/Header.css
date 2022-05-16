@@ -71,6 +71,18 @@
     vertical-align: text-bottom;
     transition: all 0.3s linear;
 }
+.logoutIcon {
+    font-size: 3em;
+}
+#light .homeIcon {color: white; }
+#dark .homeIcon { color: #abaec4;}
+
+.logoutIcon:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
 
 .form-switch i::before {
     content: "";

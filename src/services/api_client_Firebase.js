@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { useState,useEffect } from "react";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage, deleteObject, ref, getDownloadURL } from "firebase/storage";
-import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth';
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,onAuthStateChanged, signOut} from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAVj7INM7guffGsZhXLNSydDBEmYakAQLk",
@@ -54,16 +54,7 @@ export function login(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
 }
 
-export function useAuth() {
-    const [ currentUser, setCurrentUser ] = useState();
-  
-    useEffect(() => {
-      const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
-      return unsub;
-    }, [])
-  
-    return currentUser;
-  }
+
 
 
 export  {
@@ -75,5 +66,7 @@ export  {
             storage, 
             getDownloadURL, 
             ref, 
+            auth,
+            signOut
             
         }

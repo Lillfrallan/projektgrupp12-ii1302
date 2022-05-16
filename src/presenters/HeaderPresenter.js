@@ -5,6 +5,8 @@ import '../views/css/Header.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobsAzure } from '../services/BlobRetrieverAzure'
 import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
+import { auth, onAuthStateChanged, signOut } from '../services/api_client_Firebase'
+
 
 function HeaderPresenter( {toggleTheme, theme} ) {
 
@@ -43,9 +45,17 @@ function HeaderPresenter( {toggleTheme, theme} ) {
         navigate("/CreatorPage")
     }
 
+    const logoutUserButton = async () => {
+        if(window.confirm("Are you sure you wan't to log out?")) {
+            await signOut(auth)
+            navigate("/signin")
+        }
+    }
+
     return  (
         <div className="wholeHeader">
             <HeaderView
+            logoutUserButton={logoutUserButton}
                 redirectToHome={redirectToHome}
                 redirectToCreatorPage={redirectToCreatorPage}
                 toggleTheme={toggleTheme}

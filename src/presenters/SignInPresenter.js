@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signup, login, logout, useAuth } from "../services/api_client_Firebase";
+import { signup, login, logout } from "../services/api_client_Firebase";
 import SignInView from  '../views/SignInView'
 
 function SignInPresenter() {
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const currentUser = useAuth();
+    //const currentUser = useAuth();
 
     const navigate= useNavigate()
     const [user, setUser] = useState();
@@ -17,10 +17,10 @@ function SignInPresenter() {
         
         try {
           await login(emailRef.current.value, passwordRef.current.value);
+               navigate('/home');  
         } catch (error){
           console.log(error.message);
         }
-        navigate('/home');      
       }
     
 
