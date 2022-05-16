@@ -1,0 +1,76 @@
+.signInContainer{
+    padding-top: 4em;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signInLoayout {
+  padding-top: 100px;
+  height: 400px;
+  width: 400px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+border-radius: 10px;
+	background: rgb(9, 53, 90);  
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+}
+
+.password
+{ 
+    height: 30px;  
+    border: none;  
+    border-radius: 10px;  
+    padding-left: 100px;
+}
+.email{
+    height: 30px;  
+    border: none;  
+    border-radius: 10px;  
+    padding-left: 100px;  
+}
+.signUpButton{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: rgb(239, 6, 6);
+  padding: 10px 25px;
+  border-radius: 10px;      
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer; 
+}
+.signUpButton {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.signUpButton:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+.signUpButton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.link:hover span {
+  padding-right: 25px;
+}
+.link span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.link:hover span:after {
+  opacity: 1;
+  right: 0;}

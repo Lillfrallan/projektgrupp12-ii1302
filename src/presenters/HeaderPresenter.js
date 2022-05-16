@@ -5,24 +5,24 @@ import '../views/css/Header.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobsAzure } from '../services/BlobRetrieverAzure'
 import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
+import { auth, onAuthStateChanged, signOut } from '../services/api_client_Firebase'
 
-function HeaderPresenter( {toggleTheme, theme} ) {
+function HeaderPresenter( {toggleTheme, theme, setIsLoggedIn} ) {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
     const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
 
-    
     useEffect(() => {
         dispatch(getBlobsFirebase())
     }, [dispatch])
 
     useEffect(() => {
-        setLastUploadedBlob(blobs[blobs.length-1].datesAndTime)
+        setLastUploadedBlob(blobs[blobs.length-1]?.datesAndTime)
     }, [blobs])
 
-
+    
     /**
      * redirects the user to the home screen
      * 
@@ -43,6 +43,15 @@ function HeaderPresenter( {toggleTheme, theme} ) {
         navigate("/CreatorPage")
     }
 
+    const logoutUserButton = async () => {
+        if(window.confirm("Are you sure you wan't to log out?")) {
+            await signOut(auth)
+            navigate("/signInUser")
+            setIsLoggedIn(false);
+        }
+    }
+
+
     return  (
         <div className="wholeHeader">
             <HeaderView
@@ -50,7 +59,8 @@ function HeaderPresenter( {toggleTheme, theme} ) {
                 redirectToCreatorPage={redirectToCreatorPage}
                 toggleTheme={toggleTheme}
                 theme={theme}
-                lastUploadedBlob = {lastUploadedBlob} 
+                lastUploadedBlob = {lastUploadedBlob}
+                logoutUserButton={logoutUserButton}
             />
         </div>
     )
