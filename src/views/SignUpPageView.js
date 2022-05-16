@@ -11,7 +11,7 @@ function SignUpPageView( {setRegisterPassword , setRegisterEmail, registerUser }
                 <br></br>
                 <input className ="password" placeholder="Enter a password" onChange={(event) => {setRegisterPassword(event.target.value)}}/>
                 <br></br>
-                <button className='signUpButton'  onClick={registerUser} >Log in</button>
+                <button className='signUpButton'  onClick={registerUser} >Sign Up</button>
                 <br></br>
                 <Link to='/signInUser' className='link'>
                     <span>Already Registered? Log in here</span>
