@@ -1,4 +1,4 @@
-/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/prefer-screen-queries  */
 /* eslint-disable testing-library/no-debugging-utils */
 import { render, screen, fireEvent } from '@testing-library/react';
 import BodyView from '../views/BodyView'
