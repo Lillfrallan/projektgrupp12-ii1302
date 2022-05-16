@@ -1,14 +1,10 @@
 
-.wholeHeader {
-}
-
 .headerContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(9, 53, 90);  
-    flex-flow: nowrap;
-    position: static;
+    position: sticky;
 }
 
 .headerTitle {
@@ -19,6 +15,7 @@
     text-shadow: 0px 2px 4px rgba(0,0,0,.4);
     font-size: 3.3em;
     font-weight: bold;
+    cursor: pointer;
 }
 #light .headerTitle { color: white; }
 #dark .headerTitle { color: #abaec4; }
@@ -53,6 +50,32 @@
 #dark .homeIcon { color: #abaec4;}
 
 .homeIcon:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.teamIcon {
+    font-size: 3em;
+}
+#light .teamIcon {color: white; }
+#dark .teamIcon { color: #abaec4;}
+
+.teamIcon:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.logoutIcon {
+    font-size: 3em;
+}
+#light .homeIcon {color: white; }
+#dark .homeIcon { color: #abaec4;}
+
+.logoutIcon:hover {
     transform: scale(1.05);
     position:relative;
     z-index:5;

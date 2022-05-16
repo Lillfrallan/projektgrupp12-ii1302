@@ -1,0 +1,61 @@
+
+.cameraPageView {
+    display: flex;
+    flex-direction: column;   
+}
+
+.cameraPictureContainer {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cameraPicture {
+    width: 30%;
+}
+
+.cameraPageData {
+    color: #d2d4dd;
+    font-weight: bold;
+    align-content: space-between;
+    gap: 3em;
+    font-size: larger;
+    font-weight: bold;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding-top: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1300px;
+    align-items: center;
+    justify-content: center;
+    
+}
+#light .cameraPageData {color: rgb(0, 0, 0);}
+#dark .cameraPageData { color: rgb(237, 233, 233);}
+
+.cameraData {
+    font-weight: Normal;
+}
+
+.goBackButtonContainer {
+    display: flex;
+    justify-content: center;
+    padding-top: 6em;
+}
+
+.goBackButton {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+}
+
+.goBackButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
