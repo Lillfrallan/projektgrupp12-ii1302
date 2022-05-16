@@ -29,7 +29,9 @@
     position: relative;
     align-self: center;
 }
-
+@media screen and ( max-width: 600px) {
+    .summaryImage{ height:30rem;}
+}
 .summaryData {
     color: #d2d4dd;
     font-weight: bold;
@@ -44,6 +46,10 @@
 }
 #light .summaryData {color: rgb(0, 0, 0);}
 #dark .summaryData { color: rgb(237, 233, 233);}
+
+@media screen and ( max-width: 600px) {
+    .summaryData{gap:10em;}
+}
 
 .data {
     font-weight: Normal;
@@ -66,6 +72,10 @@
     font-size: 2em;
     cursor: pointer;
 }
+@media screen and ( max-width: 600px) {
+    .downloadBlobButton{ padding: 0.1em 0.01em;}
+}
+
 
 .downloadBlobButton:hover {
     transform: scale(1.05);
@@ -88,6 +98,10 @@
     position:relative;
     z-index:5;
     cursor: pointer;
+}
+@media screen and ( max-width: 600px) {
+    .viewInBrowserButton{ padding: 0.1em;
+}
 }
 
 .deleteBlobButton {

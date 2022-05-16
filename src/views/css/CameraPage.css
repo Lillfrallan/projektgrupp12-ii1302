@@ -32,6 +32,12 @@
     justify-content: center;
     
 }
+@media screen and ( max-width: 600px) {
+    .cameraPageData{flex-wrap: wrap;
+        max-width:500px;
+        gap:5em;
+        }
+}
 #light .cameraPageData {color: rgb(0, 0, 0);}
 #dark .cameraPageData { color: rgb(237, 233, 233);}
 
