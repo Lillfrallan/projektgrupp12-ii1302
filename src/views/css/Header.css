@@ -20,6 +20,10 @@
 #light .headerTitle { color: white; }
 #dark .headerTitle { color: #abaec4; }
 
+@media screen and ( max-width: 600px) {
+    .headerTitle{ font-size:2rem;}
+}
+
 .leftContainer {
     display: flex;
     flex-direction: column;
@@ -35,6 +39,10 @@
 #light .lastCreatedText {color: white; }
 #dark .lastCreatedText { color: #abaec4;}
 
+@media screen and ( max-width: 600px) {
+    .lastCreatedText{ font-size:1.2rem;}
+}
+
 .rightContainer {
     display: flex;
     align-items: center;
@@ -43,6 +51,9 @@
 #light .rightContainer {color: white; }
 #dark .rightContainer { color: #abaec4;}
 
+@media screen and ( max-width: 600px) {
+    .rightContainer{ font-size:1rem;}
+}
 .homeIcon {
     font-size: 3em;
 }
@@ -55,7 +66,9 @@
     z-index:5;
     cursor: pointer;
 }
-
+@media screen and ( max-width: 600px) {
+    .homeIcon{ font-size:2rem;}
+}
 .teamIcon {
     font-size: 3em;
 }
@@ -67,6 +80,9 @@
     position:relative;
     z-index:5;
     cursor: pointer;
+}
+@media screen and ( max-width: 600px) {
+    .teamIcon{ font-size:2rem;}
 }
 
 .logoutIcon {
@@ -80,6 +96,9 @@
     position:relative;
     z-index:5;
     cursor: pointer;
+}
+@media screen and ( max-width: 600px) {
+    .logoutIcon{ font-size:2rem;}
 }
 
 .form-switch {
