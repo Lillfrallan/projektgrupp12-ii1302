@@ -9,6 +9,8 @@ function SignIn({emailRef, passwordRef,signIn}) {
          <form className="signup" onSubmit={signIn}>
                 <div className="signUpTitleLocation">
                     <span className="signUpTitle">Sign In</span>
+                    <br></br>
+                    <br></br>
                 </div>
                 <label >
                     <input  className="email"
