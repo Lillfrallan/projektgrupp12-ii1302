@@ -1,22 +1,55 @@
-import React, {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 import App from './App';
-import './services/api_client';
-const { BlobServiceClient } = require("@azure/storage-blob");
+import { configureStore } from '@reduxjs/toolkit'
+import { Provider } from 'react-redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { PersistGate } from 'redux-persist/es/integration/react'
+// import blobReducer from './services/BlobRetrieverAzure'
+import blobReducer from './services/BlobRetrieverFireBase'
 
 
-//required to be here for github actions to work -> not used
-const blobServiceClient = new BlobServiceClient(`https://ktodb.blob.core.windows.net`);
+/**
+ * All persist code work like local storage but for redux
+ */
+const persistConfig = {key:'persist-key',storage }
+
+const persistedReducer = persistReducer(persistConfig, blobReducer)
+
+const store = configureStore({
+  reducer: { 
+      blobs: persistedReducer, 
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+})
+
+const persistor = persistStore(store)
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
+<<<<<<< HEAD
   <StrictMode>
     <App />
   </StrictMode>,
 );
 
 export {blobServiceClient}
+=======
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>,
+);
+
+>>>>>>> developingBranch
 
 

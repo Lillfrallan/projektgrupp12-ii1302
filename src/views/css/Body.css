@@ -1,30 +1,233 @@
-.elementBox {
+.bodyPresenter {
+    display: flex;
+    position: static;
 }
 
-.imageBox {
+.bodyButtons {
+    padding-top: 0.8em;
     display: flex;
-    justify-content: center;
+    flex-flow: column;
+    gap: 1em;
+    max-width: 8em;
+}
+
+.reverseButton {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+    color: black;
+}
+
+.reverseButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.azureLinkButton {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+}
+
+.azureLinkButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.lastUploadedImageButton{
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    font-size: 2em;
+}
+
+.lastUploadedImageButton:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+
+.searchBar {
+    background-color: #88918e; 
+    border: none;
+    padding: 0.2em 1.3em; 
+    border-radius: 25px;
+    height: 3.3em;
+    color: black;
+}
+
+::placeholder {
+    color: black;
+}
+
+.blobsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding-top: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 80%;
+    gap: 1em;
+}
+
+.blobs { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    border: 1px solid #737070;
+    border-radius: 25px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
+    cursor: pointer;
+    background-image: url(/src/resources/Webp.net-resizeimage.jpg);
+    font-family: 'Lato';
+}
+
+.blobs:hover {
+    box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+}
+
+.image{
+    max-width: 80%;
+}
+
+.dateAndTime {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: flex;
     align-items: center;
 }
+#light .dateAndTime {color: white; }
+#dark .dateAndTime { color: #abaec4;}
 
-.image {
-    padding-top: 0.5%;
-}
+@media screen and ( max-width: 500px) {
+    .bodyPresenter {
+        flex-direction: column;
+        position: static;
+    }
 
-img{
-    max-width:60%;
-}
-
-.dateAndTimeBox {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-right: 8%;
-}
-
-.dateAndTime{
-    padding-top: 2em;
+    .bodyButtons {
+        padding-top: 10px;
+        display: flex;
+        flex-flow: row;
+        max-height: fit-content;
+        max-width: fit-content;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
     
+    .reverseButton {
+        background-color: #88918e; 
+        padding: 10px; 
+        font-size: 10px;
+        color: black;
+    }
+    
+    .reverseButton:hover {
+        transform: scale(1.05);
+        position:relative;
+        z-index:5;
+        cursor: pointer;
+    }
+    
+    .azureLinkButton {
+        background-color: #88918e; 
+        border: none;
+        padding: 10px; 
+        font-size: 10px; 
+    }
+    
+    .azureLinkButton:hover {
+        transform: scale(1.05);
+        position:relative;
+        z-index:5;
+        cursor: pointer;
+    }
+    
+    .lastUploadedImageButton{
+        background-color: #88918e; 
+        border: none;
+        padding: 10px; 
+        font-size: 10px;
+    }
+    
+    .lastUploadedImageButton:hover {
+        transform: scale(1.05);
+        position:relative;
+        z-index:5;
+        cursor: pointer;
+    }
+    
+    .searchBarContainer {
+        width: max-content;
+    }
+
+    .searchBar {
+        width: 100%;
+        position: relative;
+        display: flex;
+        background-color: #88918e; 
+        font-size: 8px;
+        color: black;
+    }
+    
+    .blobsList {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        align-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 1rem;
+        max-width: 80%;
+        margin-top: 5em;
+        gap: 1em;
+    }
+    
+    .blobs { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1.5rem;
+        border: 1px solid #737070;
+        border-radius: 25px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.089);
+        cursor: pointer;
+        background-image: url(/src/resources/Webp.net-resizeimage.jpg);
+        font-family: 'Lato';
+    }
+    
+    .blobs:hover {
+        box-shadow:10px 10px 7px rgba(0,0,0,.7);
+        transform: scale(1.05);
+        position:relative;
+        z-index:5;
+    }
+    
+    .image{
+        max-width: 80%;
+    }
+    
+    .dateAndTime {
+        text-transform: uppercase;
+        font-size: 1.2em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
 }
-
-

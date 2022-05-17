@@ -1,23 +1,42 @@
 import React from 'react'
 import './css/Header.css'
+import { FaHome } from "react-icons/fa";
+import { RiTeamFill } from "react-icons/ri";
+import { VscSignOut } from "react-icons/vsc";
 
-function HeaderView( {lastCreatedBlob} ) {
+
+function HeaderView( { lastUploadedBlob, redirectToHome, toggleTheme, theme, redirectToCreatorPage, logoutUserButton } ) {
+
+    /**
+     * A toggle switch component, used for dark/light mode toggeling 
+     * 
+     * @returns a toggle switch component
+     */
+    const ToggleSwitch = () => {
+        return(
+            <label className="form-switch">
+                <input type="checkbox" onChange={toggleTheme} checked={theme === "dark"}/>
+                <i></i>
+            </label>
+        )
+    }
 
     return (
         <div>
             <div className="headerContainer">
                 <div className="leftContainer"> 
-                    <h3>Last uploaded foto:</h3>
-                    <div className="lastCreatedText">{lastCreatedBlob}</div>
+                    <h2 className="">Last uploaded foto: </h2>
+                    <div className="lastCreatedText">{lastUploadedBlob}</div>
                 </div>
                 <div className="middlecontainer">
-                    <span className="headerTitle">KTH-LINK</span>
+                    <span className="headerTitle" onClick={redirectToHome}>KTH-LINK</span>
                 </div>
-                <div className="rightContainer"></div>
-<<<<<<< HEAD
-                {/* <HeaderButtons icon={"fas fa-home fa-1g"} title="Home"/> */}
-=======
->>>>>>> 766f8fa070b2b0d6dd483fb51b7c7d30221f7cf2
+                <div className="rightContainer">
+                    <FaHome className="homeIcon" onClick={redirectToHome} title="go to home screen" />
+                    <RiTeamFill className="teamIcon" onClick={redirectToCreatorPage} title="go to creator page"/>
+                    <VscSignOut className="logoutIcon" onClick={logoutUserButton} title="logout"/>
+                    <ToggleSwitch className="themeSwitch" /> 
+                </div>
             </div>
         </div>
     )

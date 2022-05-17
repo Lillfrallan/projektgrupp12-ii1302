@@ -1,0 +1,53 @@
+.personContainer {
+    display: flex;
+    gap: 3em;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 2500px;
+    padding-top: 2em;
+}
+
+.person {
+    display: flex;  
+    flex-direction: column;
+    flex-wrap: column;
+    align-items: center;
+}
+@media screen and ( max-width: 600px) {
+    .personContainer{flex-wrap: wrap;
+        max-width:1500px;
+        gap:12em;
+        }
+}
+@media screen and ( max-width: 600px) {
+    .person{ height:230px;
+    
+    }
+}
+.creatorName {
+
+}
+#light .creatorName {color: rgb(0, 0, 0);}
+#dark .creatorName { color: rgb(237, 233, 233);}
+@media screen and ( max-width: 600px) {
+    .creatorName{font-size:20px  ;}
+}
+.creatorRole {
+    font-size: larger;
+}
+#light .creatorRole {color: rgb(0, 0, 0);}
+#dark .creatorRole { color: rgb(237, 233, 233);}
+
+@media screen and ( max-width: 600px) {
+    .creatorRole{font-size:15px;
+        ;}
+}
+.creatorImage {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.imageSource {
+    padding-left: 2em;
+    padding-top: 2em;
+}

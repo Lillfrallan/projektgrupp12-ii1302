@@ -1,83 +1,121 @@
-import * as api_client from '../services/api_client'
-import React, {useState, useEffect} from 'react';
-// import BodyView from '../views/BodyView';
+import BodyView from '../views/BodyView';
+import { useNavigate } from 'react-router-dom';
+import '../views/css/Body.css'
+import { BsArrowDownUp } from "react-icons/bs";
+import { VscAzure, VscGoToFile } from "react-icons/vsc"
+import { GiCctvCamera } from "react-icons/gi"
+import { useSelector, useDispatch } from 'react-redux'
+import { SiFirebase } from 'react-icons/si'
+import { GrRefresh } from 'react-icons/gr'
+import { getBlobsAzure } from '../services/BlobRetrieverAzure'
+import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
+import React, { useEffect, useState } from 'react';
 
 function BodyPresenter() {
 
-    const [blobs, setBlobs] = useState([]);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const {blobs}  = useSelector(state => state.blobs);
+    const [blobArray, setBlobArray] = useState(blobs)
+    const [searchTerm, setSearchTerm] = useState('')
+    
 
     useEffect(() => {
-        async function blobStorage() {
-            
-            let blobs = api_client.containerClient.listBlobsFlat();
-        
-            let arrayForBlobs = [];
-    
-            for await (const blob of blobs) {
-        
-                arrayForBlobs.push(blob.name); 
-                arrayForBlobs.push(
-                    blob.properties.createdOn.getDate() + "/" + 
-                    blob.properties.createdOn.getMonth() + "-" + 
-                    blob.properties.createdOn.getFullYear() + " " + 
-                    blob.properties.createdOn.getHours() + ":" + 
-                    blob.properties.createdOn.getMinutes() + ":" + 
-                    blob.properties.createdOn.getSeconds()
-                )
-            }
+        dispatch(getBlobsFirebase())
+    }, [dispatch])
 
-            /**
-             * Divides array into smaller arrays.
-             * 
-             * @param {array to divide} array 
-             * @param {size of each division} K 
-             * @param {array length} N 
-             * @returns the divided array
-             */
-            function divideArray(array, K, N) {
-                let ans = [];
-                let temp = [];
-                for (let i = 0; i < N; i++) {
-                    temp.push(array[i]);
-                    if (((i + 1) % K) === 0) {
-                        ans.push(temp);
-                        temp = [];
-                    }
-                }
-                if (temp.length !== 0) {
-                    let a = temp.length;
-                    while (a !== K) {
-                        temp.push(0);
-                        a++;
-                    }
-                    ans.push(temp);
-                }
-                return ans;
-            }
+    /**
+     * Used to redirect to a specific blobs summary page
+     * 
+     * @param {Integer} index blobs index number
+     * @returns navigates to the page
+     */
+    const redirectToSummaryPage = (index) => {
+        return navigate("/summary/" + index
+        );
+    }
 
-            setBlobs(divideArray(arrayForBlobs, 2, arrayForBlobs.length))
+    /**
+     * Used to redirect to the camera page
+     * 
+     * @returns navigates to the page
+     */
+    const redirectToCameraPage = () => {
+        return navigate("/cameraPage"
+        );
+    }
 
+    /**
+     * Reverses the order of the array of blobs
+     */
+    const reverseOrderButton = () => {
+        setBlobArray([...blobArray].reverse())
+    }
 
+    /**
+     * Links the user to Azure portal
+     */
+    const goToAzureBlobStorageButton = () => {
+        window.location = 
+        'https://portal.azure.com/#blade/Microsoft_Azure_Storage/ContainerMenuBlade' + 
+        '/overview/storageAccountId/%2Fsubscriptions%2F19ce1917-2d49-47ba-b0a1-6e0b8' +
+        '2b295f4%2Fresourcegroups%2Fprojektgrupp12%2Fproviders%2FMicrosoft.Storage%2F' +
+        'storageAccounts%2Fktodb/path/images/etag/%220x8DA1E2D4669C44B%22/defaultEncry' +
+        'ptionScope/%24account-encryption-key/denyEncryptionScopeOverride//defaultId//publicAccessVal/Container'
+    }
 
-            
+    /**
+     * Links the user to Azure portal
+     */
+    const goToFireBaseStorageButton = () => {
+        window.location = 
+        'https://console.firebase.google.com/project/projectgroup12-2f2a2/storage/' +
+        'projectgroup12-2f2a2.appspot.com/files/~2Fimages'
+        console.log("success")
+    }
+
+    /**
+     * Filters through the array, used for searching
+     */
+    const filteredArray = blobArray.filter((blob) => {
+        if (searchTerm === '') {
+            return blob;
         }
-        return blobStorage;
-    }, [blobs]) 
+        else if (blob.datesAndTime.includes(searchTerm)) {
+            return blob;
+        }
+    })
 
-    // console.log(blobs[0])
-    
-    
     return (
-        <div className="BodyPresenter">
-            {/* {blobs.map(() => {
-                <BodyView
-                    image={blobs[0]}
-                /> 
-
-            })} */}
-            
+        <div className="bodyPresenter">
+            <div className="bodyButtons">
+                <input className="searchBar" type="text" onChange={event => setSearchTerm(event.target.value)} placeholder='Search for date...'/>
+                <button className="lastUploadedImageButton" onClick={() => redirectToSummaryPage((blobArray[blobArray.length-1].index))} title="go to most recent picture"><VscGoToFile/></button>
+                <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
+                <button className="azureLinkButton" onClick={() => window.location.reload()} title="retrieve new image"><GrRefresh/></button>
+                <button className="azureLinkButton" onClick={redirectToCameraPage} title="camera info"><GiCctvCamera/></button>
+                <button className="azureLinkButton" onClick={goToAzureBlobStorageButton} title="go to Azure"><VscAzure/></button>
+                <button className="azureLinkButton" onClick={goToFireBaseStorageButton} title="go to Firebase"><SiFirebase/></button>
+            </div>
+            <div className="blobsList">
+                {filteredArray.map((blob, i) => (
+                    <div key={i} className="elementBox">
+                        <BodyView
+                            images={blob.images}
+                            index = {blob.index}
+                            datesAndTime = {blob.datesAndTime}
+                            redirect={redirectToSummaryPage}
+                            key={i}  
+                        />
+                    </div>
+                ))} 
+            </div>  
         </div >
     )
 }
 
+<<<<<<< HEAD
 export default BodyPresenter
+=======
+export default BodyPresenter;
+>>>>>>> developingBranch

@@ -1,5 +1,9 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.*
+!/.gitignore
+/services/credentials.js
+
 # dependencies
 /.pnp
 .pnp.js
@@ -8,6 +12,8 @@ node_modules
 # ignores all node_modules except @azure
 # /node_modules/*
 # !/node_modules/@azure
+
+
 
 # testing
 /coverage
@@ -25,4 +31,16 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 
+=======
+yarn.lock
+
+secrets.js
+<<<<<<< HEAD
+
+=======
+/services/secrets.js
+src/services/secrets.js
+>>>>>>> 2a62d07c65ff0477cda75a0a0e891b3271fbbd5a
+>>>>>>> developingBranch

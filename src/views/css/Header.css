@@ -1,24 +1,155 @@
+
 .headerContainer {
     display: flex;
-    flex-flow: nowrap;
     justify-content: space-between;
     align-items: center;
-    align-content: center;
-    border-bottom: 0.2px solid lightgray;
-    background-color: rgb(36, 182, 231);
+    background-color: rgb(9, 53, 90);  
+    position: sticky;
 }
 
 .headerTitle {
     white-space: nowrap;
-    color: #3b478a;
+    color: #abaec4;
     text-transform: uppercase;
     font-size: 5rem;
     text-shadow: 0px 2px 4px rgba(0,0,0,.4);
     font-size: 3.3em;
     font-weight: bold;
-
+    cursor: pointer;
 }
+#light .headerTitle { color: white; }
+#dark .headerTitle { color: #abaec4; }
+
+@media screen and ( max-width: 600px) {
+    .headerTitle{ font-size:2rem;}
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+}
+#light .leftContainer {color: white; }
+#dark .leftContainer { color: #abaec4;}
 
 .lastCreatedText {
     padding-bottom: 10%;
+    font-size: 1.3em;
 }
+#light .lastCreatedText {color: white; }
+#dark .lastCreatedText { color: #abaec4;}
+
+@media screen and ( max-width: 600px) {
+    .lastCreatedText{ font-size:1.2rem;}
+}
+
+.rightContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+#light .rightContainer {color: white; }
+#dark .rightContainer { color: #abaec4;}
+
+@media screen and ( max-width: 600px) {
+    .rightContainer{ font-size:1rem;}
+}
+.homeIcon {
+    font-size: 3em;
+}
+#light .homeIcon {color: white; }
+#dark .homeIcon { color: #abaec4;}
+
+.homeIcon:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+@media screen and ( max-width: 600px) {
+    .homeIcon{ font-size:2rem;}
+}
+.teamIcon {
+    font-size: 3em;
+}
+#light .teamIcon {color: white; }
+#dark .teamIcon { color: #abaec4;}
+
+.teamIcon:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+@media screen and ( max-width: 600px) {
+    .teamIcon{ font-size:2rem;}
+}
+
+.logoutIcon {
+    font-size: 3em;
+}
+#light .homeIcon {color: white; }
+#dark .homeIcon { color: #abaec4;}
+
+.logoutIcon:hover {
+    transform: scale(1.05);
+    position:relative;
+    z-index:5;
+    cursor: pointer;
+}
+@media screen and ( max-width: 600px) {
+    .logoutIcon{ font-size:2rem;}
+}
+
+.form-switch {
+    display: inline-block;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+.form-switch i {
+    position: relative;
+    display: inline-block;
+    margin-right: .5rem;
+    width: 46px;
+    height: 26px;
+    background-color: #e6e6e6;
+    border-radius: 23px;
+    vertical-align: text-bottom;
+    transition: all 0.3s linear;
+}
+
+.form-switch i::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 42px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 11px;
+    transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+    transition: all 0.25s linear;
+}
+
+.form-switch i::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 11px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+    transform: translate3d(2px, 2px, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+.form-switch:active i::after {
+    width: 28px;
+    transform: translate3d(2px, 2px, 0);
+}
+
+.form-switch:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
+.form-switch input { display: none; }
+.form-switch input:checked + i { background-color: #4BD763; }
+.form-switch input:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
+.form-switch input:checked + i::after { transform: translate3d(22px, 2px, 0); }
