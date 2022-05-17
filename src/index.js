@@ -33,14 +33,6 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-<<<<<<< HEAD
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
-
-export {blobServiceClient}
-=======
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -50,6 +42,5 @@ export {blobServiceClient}
   </React.StrictMode>,
 );
 
->>>>>>> developingBranch
 
 
