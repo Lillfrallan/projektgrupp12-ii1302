@@ -17,38 +17,38 @@ function SummaryView( {
                 <div className="summaryImageContainer">
                     <img className="summaryImage" src={images} alt=""/>
                     <span className="summaryData">
-                        <div>Blob name: <div className="data">{name}</div></div>
-                        <div>Etag: 
+                        <div className='tag'>Blob name: <div className="data">{name}</div></div>
+                        <div className='tag'>Etag: 
                             <div className="data">{etag}</div>
                         </div>
-                        <div>Bucket: 
+                        <div className='tag'>Bucket: 
                             <div className="data">{bucket}</div>
                         </div>
-                        <div>Storage Class: 
+                        <div className='tag'>Storage Class: 
                             <div className="data">{storageClass}</div>
                         </div>
-                        <div>Content Encoding: 
+                        <div className='tag'>Content Encoding: 
                             <div className="data">{contentEncoding}</div>
                         </div>
-                        <div>Content Type: 
+                        <div className='tag'>Content Type: 
                             <div className="data">{contentType}</div>
                         </div>
-                        <div>Crc32c: 
+                        <div className='tag'>Crc32c: 
                             <div className="data">{crc32c}</div>
                         </div>
-                        <div>Generation: 
+                        <div className='tag'>Generation: 
                             <div className="data">{generation}</div>
                         </div>
                         {/* <div>Meta Generation: 
                             <div className="data">{metageneration}</div>
                         </div> */}
-                        <div>Size: 
+                        <div className='tag'>Size: 
                             <div className="data">{size + " bytes"}</div>
                         </div>
-                        <div>md5Hash: 
+                        <div className='tag'>md5Hash: 
                             <div className="data">{md5Hash}</div>
                         </div>
-                        <div>Date and Time: 
+                        <div className='tag'>Date and Time: 
                             <div className="data">{datesAndTime}</div>
                         </div>
                     </span>

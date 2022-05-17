@@ -25,6 +25,23 @@ function CameraPageView( {images, home} ) {
                     <div className="cameraData">520 kb sRAM</div>
                 </div>
             </div>
+            <div className='cameraPictureContainer'>
+                <img className="cameraPicture" src={images['PIRsensor.jpg']} alt="" />
+            </div>
+            <div className="cameraPageData">
+                <div>PIR sensor: 
+                    <div className="cameraData">HC--SR501 Body Sensor Module</div>
+                </div>
+                <div>Type: 
+                    <div className="cameraData">Based on Infrared technology</div>
+                </div>
+                <div>Sensing Range: 
+                    <div className="cameraData">less than 120 degree, within 7 meters</div>
+                </div>
+                <div>Voltage: 
+                    <div className="cameraData">5V -20V</div>
+                </div>
+            </div>
             <div className="goBackButtonContainer">
                 <button className="goBackButton" title="go back to home" onClick={home}><FaHome/></button>
             </div>
