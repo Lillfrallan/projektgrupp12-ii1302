@@ -24,8 +24,8 @@
 
 .summaryImage{
     margin: auto;
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 90%;
     object-fit: contain;
 }
 
@@ -36,9 +36,10 @@
     grid-template-columns: repeat(3, minmax(10px, 1fr));
     align-content: space-between;
     flex-direction: column;
-    font-size: small;
+    font-size: medium;
     font-weight: bold;
     position: relative;
+    row-gap: 1em;
 }
 #light .summaryData {color: rgb(0, 0, 0);}
 #dark .summaryData { color: rgb(237, 233, 233);}
