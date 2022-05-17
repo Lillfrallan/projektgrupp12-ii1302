@@ -53,6 +53,12 @@
   },
   "devDependencies": {
     "@parcel/transformer-yaml": "^2.5.0",
-    "buffer": "^6.0.3"
+    "buffer": "^6.0.3",
+    "identity-obj-proxy": "^3.0.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy"
+    }
   }
 }
