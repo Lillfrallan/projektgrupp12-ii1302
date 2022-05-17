@@ -71,9 +71,11 @@ border-radius: 10px;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-.link:hover span {
-  padding-right: 25px;
+
+.link {
+  color: #3e8e41;
 }
+
 .link span:after {
   content: '\00bb';
   position: absolute;
@@ -81,7 +83,7 @@ border-radius: 10px;
   top: 0;
   right: -20px;
   transition: 0.5s;
-}
+} 
 
 .link:hover span:after {
   opacity: 1;
