@@ -5,7 +5,7 @@ import '../views/css/Header.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getBlobsAzure } from '../services/BlobRetrieverAzure'
 import { getBlobsFirebase } from '../services/BlobRetrieverFireBase'
-import { auth, onAuthStateChanged, signOut } from '../services/api_client_Firebase'
+import { auth, signOut } from '../services/api_client_Firebase'
 
 function HeaderPresenter( {toggleTheme, theme, setIsLoggedIn} ) {
 

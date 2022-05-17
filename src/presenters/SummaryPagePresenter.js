@@ -23,6 +23,10 @@ function SummaryPagePresenter() {
     var currentBlob = blobs[window.location.href.slice(-1)]; 
 
 
+    /**
+     * Downloads an image from firebase
+     * @param {String} name 
+     */
     const downloadImageFirebase = ( name) => {
         api_client_fireBase.download_image(name)
     }
@@ -38,8 +42,8 @@ function SummaryPagePresenter() {
     /**
      * Used to redirect to the next blobs summary page
      * 
-     * @param {*} index blobs index number 
-     * @param {*} blob the blob object
+     * @param {Integer} index blobs index number 
+     * @param {String} blob the blob object
      * @returns navigates to the page
      */
     const redirectToNextBlob = (blob) => {
@@ -54,7 +58,7 @@ function SummaryPagePresenter() {
     /**
      * Used to redirect to the next blobs summary page
      * 
-     * @param {*} blob blobs index number
+     * @param {String} blob blobs index number
      * @returns navigates to the page
      */
     const redirectToPreviousBlob = (blob) => {
@@ -69,8 +73,8 @@ function SummaryPagePresenter() {
     /**
      * deletes the current blob from Firebase storage
      * 
-     * @param {*} blobName name of the blob to remove
-     * @param {*} index index of the blob to redirect to
+     * @param {String} blobName name of the blob to remove
+     * @param {Integer} index index of the blob to redirect to
      * @returns null if no blob can be removed
      */
     const deleteFromFirebase = (blobName, index) => {
@@ -103,8 +107,8 @@ function SummaryPagePresenter() {
      **************************************************
      * deletes the current blob from Azure blob storage
      * 
-     * @param {*} blobName name of the blob to remove
-     * @param {*} index index of the blob to redirect to
+     * @param {String} blobName name of the blob to remove
+     * @param {Integer} index index of the blob to redirect to
      * @returns null if no blob can be removed
      */
     async function deleteFromAzure(blobName, index) {

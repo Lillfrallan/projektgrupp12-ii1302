@@ -17,11 +17,20 @@ const account = "ktodb";
 const containerName = "images";
 const sas = "?sv=2020-08-04&ss=bfqt&srt=sco&sp=rwdlacupitfx&se=2023-05-03T04:41:44Z&st=2022-05-02T20:41:44Z&spr=https&sig=hBBP8KRK5J65i6nieht0YM2qzpRGhIyv8JnU5tNHGXg%3D";
 
-
+/**
+ * 
+ * @param {String} image_id 
+ * @returns image url
+ */
 const get_image_url = (image_id) => {
     return `https://${account}.blob.core.windows.net/images/${image_id}`;
 }
 
+/**
+ * 
+ * @param {String} account 
+ * @returns blob account
+ */
 const get_blob_account = (account) => {
     return `https://${account}.blob.core.windows.net`;
 }

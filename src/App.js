@@ -16,8 +16,8 @@ export const ThemeContext = createContext(null);
 /**
  * Helps to keep the state of the light/dark modes even after refreshes.
  * 
- * @param {*} defaultValue of the theme
- * @param {*} key 
+ * @param {String} defaultValue of the theme
+ * @param {Integer} key 
  * @returns 
  */
 const useStickyState = (defaultValue, key) => {
@@ -37,7 +37,6 @@ function App() {
 
   const [theme, setTheme] = useStickyState("light", "count");
   const [isLoggedIn, setIsLoggedIn] = useState();
-
 
 
     /**

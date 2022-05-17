@@ -27,8 +27,7 @@ function BodyPresenter() {
     /**
      * Used to redirect to a specific blobs summary page
      * 
-     * @param {*} index blobs index number
-     * @param {*} blob the blob object
+     * @param {Integer} index blobs index number
      * @returns navigates to the page
      */
     const redirectToSummaryPage = (index) => {
@@ -37,10 +36,8 @@ function BodyPresenter() {
     }
 
     /**
-     * Used to redirect to a specific blobs summary page
+     * Used to redirect to the camera page
      * 
-     * @param {*} index blobs index number
-     * @param {*} blob the blob object
      * @returns navigates to the page
      */
     const redirectToCameraPage = () => {

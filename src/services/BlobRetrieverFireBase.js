@@ -3,8 +3,6 @@ import { ref, listAll } from "firebase/storage";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import * as api_client_fireBase from './api_client_Firebase'
 
-
-
 export const getBlobsFirebase = createAsyncThunk("blobs/getBlobsFirebase",
     (async () => {
 

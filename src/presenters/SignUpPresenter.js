@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import SignUpPageView from '../views/SignUpPageView'
-import {createUserWithEmailAndPassword, auth, onAuthStateChanged} from '../services/api_client_Firebase'
+import {createUserWithEmailAndPassword, auth} from '../services/api_client_Firebase'
 import { useNavigate } from 'react-router-dom';
-
 
 function SignInPresenter() {
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const navigate = useNavigate();
     
+    /**
+     * Register a user via firebase
+     */
     const registerUser = async () => {
         try {
             const user = await createUserWithEmailAndPassword(
@@ -19,7 +21,6 @@ function SignInPresenter() {
             console.log(user);
             navigate('/signIn')
         }
-        
         catch(error) {
             console.log(error.message);
         }

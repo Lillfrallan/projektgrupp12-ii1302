@@ -21,15 +21,28 @@ const analytics = getAnalytics(app);
 const storage = getStorage();
 const auth = getAuth(app);
 
+/**
+ * 
+ * @param {String} IMAGE 
+ * @returns the image url
+ */
 const get_image_url = (IMAGE) => {
     return `https://firebasestorage.googleapis.com/v0/b/projectgroup12-2f2a2.appspot.com/o/images%2F${IMAGE}?alt=media`;
 }
 
+/**
+ * Deletes the image from firebase
+ * @param {String} IMAGE 
+ */
 const delete_image = (IMAGE) => {
     const deleteRef = ref(storage, `images/${IMAGE}`)
     deleteObject(deleteRef)
 }
 
+/**
+ * Downloads the image from firebase
+ * @param {String} IMAGE 
+ */
 const download_image = (IMAGE) => {
     const downloadRef = ref(storage, `images/${IMAGE}`)
 

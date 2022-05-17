@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import SignInPageView from '../views/SignInPageView'
 import { auth, signInWithEmailAndPassword } from '../services/api_client_Firebase'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function SignInPresenter() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const navigate = useNavigate();
     
-
+    /**
+     * Signs in a user via firebase
+     */
     const loginUser = async () => {
         try {
             const user = await signInWithEmailAndPassword(

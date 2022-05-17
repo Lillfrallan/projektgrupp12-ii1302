@@ -8,7 +8,7 @@ function SummaryView( {
     name, images, etag, contentType, datesAndTime, 
     viewImageInBrowserButton, index, redirectToNextBlob, redirectToPreviousBlob,
     totalNumberOfBlobs, deleteBlobButton, bucket, contentEncoding, crc32c,  generation,
-    md5Hash, metageneration, size,  storageClass, downloadImageFirebase,
+    md5Hash, size, storageClass, downloadImageFirebase,
     } ) {
 
     return (

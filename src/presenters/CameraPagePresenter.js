@@ -9,7 +9,7 @@ function CameraPagePresenter() {
     /**
      * Imports the images from the resource folder
      * 
-     * @param {*} image the images to import
+     * @param {String} image the images to import
      * @returns an array of the imported images
      */
     const importImages = (image) => {
@@ -23,7 +23,7 @@ function CameraPagePresenter() {
     /**
      * redirects the user to the home screen
      * 
-     * @param {*} element 
+     * @param {String} element 
      */
     const home = (element) => {
         element.preventDefault();
