@@ -5,7 +5,6 @@
 }
 
 .summaryDisplay {
-    padding-top: 2em;
     display: flex;
     gap: 1em;
     justify-content: center; 
@@ -117,15 +116,6 @@
     justify-content: space-between;
 }
 
-.nextSummaryButtonContainer {
-    display: flex;
-    justify-content:flex-end;
-    position: relative;
-    bottom: 20em;
-    left:2em;
-    margin-bottom: 300mm;
-}
-
 .nextSummaryButton{
     background-color: #88918e; 
     border: none;
@@ -142,13 +132,20 @@
     cursor: pointer;
 }
 
+.nextSummaryButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    bottom: 20em;
+    left:2em;
+}
+
 .previousSummaryButtonContainer {
     display: flex;
-    justify-content:flex-start;
+    justify-content: flex-start;
     position: relative;
     bottom: 20em;
     right: 2em;
-    margin-bottom: 300mm;
 }
 
 .previousSummaryButton{
@@ -191,14 +188,17 @@
     }
 
     .viewInBrowserButton {
+        font-size: 5mm;
         padding: 10%;
     }
 
     .deleteBlobButton {
+        font-size: 5mm;
         padding: 10%;
     }
 
     .downloadBlobButton {
+        font-size: 5mm;
         padding: 10%;
     }
 
@@ -211,26 +211,9 @@
         align-content: space-between;
         flex-direction: column;
         position: relative;
-        font-size: xx-small;
+        font-size: 5px;
         font-weight: bold;
         text-align: center;
-    }
-
-    .previousSummaryButtonContainer {
-        display: flex;
-        justify-content:flex-start;
-        position: relative;
-        right: 2em;
-        margin-top: 13em;
-    }
-
-    .previousSummaryButton{
-        background-color: #88918e; 
-        border: none;
-        padding: 10%; 
-        border-radius: 25px;
-        font-size: 2em;
-        cursor: pointer;
     }
     
     .previousSummaryButton:hover {
@@ -240,13 +223,21 @@
         cursor: pointer;
     }
 
+    .previousSummaryButtonContainer {
+        display: flex;
+        justify-content:flex-start;
+        position: relative;
+        right: 3em;
+        margin-top: 15em;
+    }
+
     .nextSummaryButtonContainer {
         display: flex;
         justify-content: flex-start;
         position: relative;
-        left: 2em;
+        left: 3em;
         object-position: bottom;
-        margin-top: 13em;
+        margin-top: 15em;
     }
 
     .nextSummaryButton{
@@ -254,14 +245,23 @@
         border: none;
         padding: 10%; 
         border-radius: 25px;
-        font-size: 2em;
+        font-size: 1em;
+        cursor: pointer;
+    }
+
+    .previousSummaryButton{
+        background-color: #88918e;
+        border: none;
+        padding: 10%;
+        border-radius: 25px;
+        font-size: 1em;
         cursor: pointer;
     }
     
     .nextSummaryButton:hover {
         transform: scale(1.05);
-        position:relative;
-        z-index:5;
+        position: relative;
+        z-index: 5;
         cursor: pointer;
     }
 }
