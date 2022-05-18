@@ -1,12 +1,13 @@
 import React from 'react'
 import './css/CameraPage.css'
 import { FaHome } from "react-icons/fa";
+import cameraImage from '../resources/cameraPicture.jpg'
 
-function CameraPageView( {images, home} ) {
+function CameraPageView( { home } ) {
     return (
         <div className="cameraPageView">
             <div className='cameraPictureContainer'>
-                <img className="cameraPicture" src={images['testKameraBild.jpg']} alt="" />
+                <img className="cameraImage" src={cameraImage} alt=""/>
             </div>
             <div className="cameraPageData">
                 <div>Camera Name: 
@@ -24,21 +25,16 @@ function CameraPageView( {images, home} ) {
                 <div>Total Memory: 
                     <div className="cameraData">520 kb sRAM</div>
                 </div>
-            </div>
-            <div className='cameraPictureContainer'>
-                <img className="cameraPicture" src={images['PIRsensor.jpg']} alt="" />
-            </div>
-            <div className="cameraPageData">
                 <div>PIR sensor: 
                     <div className="cameraData">HC--SR501 Body Sensor Module</div>
                 </div>
-                <div>Type: 
+                <div>PIR Type: 
                     <div className="cameraData">Based on Infrared technology</div>
                 </div>
-                <div>Sensing Range: 
+                <div>PIR Sensing Range: 
                     <div className="cameraData">less than 120 degree, within 7 meters</div>
                 </div>
-                <div>Voltage: 
+                <div>PIR Voltage: 
                     <div className="cameraData">5V -20V</div>
                 </div>
             </div>
