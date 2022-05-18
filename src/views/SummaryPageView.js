@@ -15,6 +15,9 @@ function SummaryView( {
         <div className="summaryView">
             <div className="summaryDisplay">
                 <div className="summaryImageContainer">
+                    <div className="pageNumber">
+                        {index + 1}({totalNumberOfBlobs + 1})
+                    </div>
                     <img className="summaryImage" src={images} alt=""/>
                     <span className="summaryData">
                         <div className='tag'>Blob name: <div className="data">{name}</div></div>
@@ -76,11 +79,6 @@ function SummaryView( {
                         <AiOutlineArrowRight/>
                     </button>
                 </div>
-            </div>
-            <div className="pageNumber">
-                {index + 1}({totalNumberOfBlobs + 1})
-                
-                
             </div>
         </div>
     )
