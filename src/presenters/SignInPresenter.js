@@ -22,7 +22,6 @@ function SignInPresenter( {setIsLoggedIn} ) {
         } catch (error) {
             console.log(error.message);
         }
-        setIsLoggedIn(true)
         navigate('/home')
         
     };

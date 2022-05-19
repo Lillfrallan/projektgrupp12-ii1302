@@ -39,8 +39,6 @@ export const getBlobsFirebase = createAsyncThunk("blobs/getBlobsFirebase",
     }
 ))
 
-
-
 /**
  * Creates a redux slice for the blob data
  */
@@ -63,6 +61,5 @@ export const blobSliceFireBase = createSlice({
         },
     }
 })
-
 
 export default blobSliceFireBase.reducer
