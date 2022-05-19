@@ -7,7 +7,6 @@ export const getBlobsFirebase = createAsyncThunk("blobs/getBlobsFirebase",
     (async () => {
 
         const imagesRef = ref(api_client_fireBase.storage, 'images/');
-
         return listAll(imagesRef)
             .then((res) => {
                 const objFetches = res.items.map((imageRef, index) =>

@@ -5,7 +5,7 @@ import { RiTeamFill } from "react-icons/ri";
 import { VscSignOut } from "react-icons/vsc";
 
 
-function HeaderView( { lastUploadedBlob, redirectToHome, toggleTheme, theme, redirectToCreatorPage, logoutUserButton } ) {
+function HeaderView( { redirectToHome, toggleTheme, theme, redirectToCreatorPage, logoutUserButton } ) {
 
     /**
      * A toggle switch component, used for dark/light mode toggeling 
@@ -25,8 +25,7 @@ function HeaderView( { lastUploadedBlob, redirectToHome, toggleTheme, theme, red
         <div>
             <div className="headerContainer">
                 <div className="leftContainer"> 
-                    <h2 className="">Last uploaded foto: </h2>
-                    <div className="lastCreatedText">{lastUploadedBlob}</div>
+                    <h2 className="">Camera Version: 3.0 </h2>
                 </div>
                 <div className="middlecontainer">
                     <span className="headerTitle" onClick={redirectToHome}>KTH-LINK</span>

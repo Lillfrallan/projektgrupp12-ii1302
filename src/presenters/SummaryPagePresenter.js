@@ -20,8 +20,9 @@ function SummaryPagePresenter() {
         dispatch(getBlobsFirebase())
     }, [dispatch])
 
-    var currentBlob = blobs[window.location.href.slice(-1)]; 
-
+    
+    const currentBlob = blobs[window.location.href.slice(-2).replace('/', '')]; 
+    
 
     /**
      * Downloads an image from firebase

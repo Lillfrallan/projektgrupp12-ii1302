@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/Body.css'
 
-function BodyView({ images, datesAndTime, index, redirect}) {
+function BodyView({ images, datesAndTime, index, redirect }) {
     
 
     return (

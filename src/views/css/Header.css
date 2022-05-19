@@ -5,6 +5,8 @@
     align-items: center;
     background-color: rgb(9, 53, 90);  
     position: sticky;
+    padding-bottom: 1em;
+    padding-top: 1em;
 }
 
 .headerTitle {

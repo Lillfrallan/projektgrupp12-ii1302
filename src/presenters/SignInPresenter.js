@@ -3,7 +3,7 @@ import SignInPageView from '../views/SignInPageView'
 import { auth, signInWithEmailAndPassword } from '../services/api_client_Firebase'
 import { useNavigate } from 'react-router-dom';
 
-function SignInPresenter() {
+function SignInPresenter( {setIsLoggedIn} ) {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const navigate = useNavigate();
@@ -22,9 +22,12 @@ function SignInPresenter() {
         } catch (error) {
             console.log(error.message);
         }
+        setIsLoggedIn(true)
         navigate('/home')
         
     };
+
+
 
     return (
         <div>

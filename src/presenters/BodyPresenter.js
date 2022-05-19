@@ -20,6 +20,8 @@ function BodyPresenter() {
     const [searchTerm, setSearchTerm] = useState('')
     
 
+    console.log(blobs[17])
+
     useEffect(() => {
         dispatch(getBlobsFirebase())
     }, [dispatch])
@@ -41,8 +43,7 @@ function BodyPresenter() {
      * @returns navigates to the page
      */
     const redirectToCameraPage = () => {
-        return navigate("/cameraPage"
-        );
+        return navigate("/cameraPage");
     }
 
     /**
@@ -85,6 +86,8 @@ function BodyPresenter() {
             return blob;
         }
     })
+
+    console.log(filteredArray)
 
     return (
         <div className="bodyPresenter">

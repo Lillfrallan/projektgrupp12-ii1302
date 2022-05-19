@@ -11,6 +11,8 @@ function SummaryView( {
     md5Hash, size, storageClass, downloadImageFirebase,
     } ) {
 
+        console.log(index)
+
     return (
         <div className="summaryView">
             <div className="summaryDisplay">
