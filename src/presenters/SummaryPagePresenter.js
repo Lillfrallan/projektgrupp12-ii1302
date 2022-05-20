@@ -20,8 +20,9 @@ function SummaryPagePresenter() {
         dispatch(getBlobsFirebase())
     }, [dispatch])
 
-    var currentBlob = blobs[window.location.href.slice(-1)]; 
-
+    
+    const currentBlob = blobs[window.location.href.slice(-2).replace('/', '')]; 
+    
 
     /**
      * Downloads an image from firebase
@@ -80,16 +81,16 @@ function SummaryPagePresenter() {
     const deleteFromFirebase = (blobName, index) => {
         let blobsLeft = blobs.length;
         if(window.confirm("Are you sure you want to delete the current blob?")) {
-            if(blobsLeft > 1 && index !== blobs[blobs.length -1]) {
+            if(blobsLeft === 1) {
+                api_client_fireBase.delete_image(blobName)
+                navigate("/home")
+            }
+            else if(blobsLeft > 1 && index !== blobs[blobs.length -1]) {
                 api_client_fireBase.delete_image(blobName)
                 redirectToNextBlob(index)
                 setTotalNumberOfBlobs(totalNumberOfBlobs)
             }
-            else if(blobsLeft = 1) {
-                api_client_fireBase.delete_image(blobName)
-                navigate("/home")
-            }
-            if(currentBlob.index === blobs.length-1) {
+            else if(currentBlob.index === blobs.length-1) {
                 api_client_fireBase.delete_image(blobName)
                 redirectToPreviousBlob(index - 1)
                 setTotalNumberOfBlobs(totalNumberOfBlobs)

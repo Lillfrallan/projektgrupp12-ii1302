@@ -20,6 +20,8 @@ function BodyPresenter() {
     const [searchTerm, setSearchTerm] = useState('')
     
 
+    console.log(blobs[17])
+
     useEffect(() => {
         dispatch(getBlobsFirebase())
     }, [dispatch])
@@ -41,8 +43,7 @@ function BodyPresenter() {
      * @returns navigates to the page
      */
     const redirectToCameraPage = () => {
-        return navigate("/cameraPage"
-        );
+        return navigate("/cameraPage");
     }
 
     /**
@@ -86,11 +87,13 @@ function BodyPresenter() {
         }
     })
 
+    console.log(filteredArray)
+
     return (
         <div className="bodyPresenter">
             <div className="bodyButtons">
                 <input className="searchBar" type="text" onChange={event => setSearchTerm(event.target.value)} placeholder='Search for date...'/>
-                <button className="lastUploadedImageButton" onClick={() => redirectToSummaryPage((blobArray[blobArray.length-1].index))} title="go to most recent picture"><VscGoToFile/></button>
+                <button className="lastUploadedImageButton" onClick={() => redirectToSummaryPage((blobArray[0].index))} title="go to most recent picture"><VscGoToFile/></button>
                 <button className="reverseButton" onClick={reverseOrderButton} title="reverse order"><BsArrowDownUp/></button>
                 <button className="azureLinkButton" onClick={() => window.location.reload()} title="retrieve new image"><GrRefresh/></button>
                 <button className="azureLinkButton" onClick={redirectToCameraPage} title="camera info"><GiCctvCamera/></button>

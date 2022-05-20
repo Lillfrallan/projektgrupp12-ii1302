@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import HeaderView from '../views/HeaderView'
 import { useNavigate } from 'react-router-dom';
 import '../views/css/Header.css'
@@ -12,15 +12,10 @@ function HeaderPresenter( {toggleTheme, theme, setIsLoggedIn} ) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const {blobs} = useSelector(state => state.blobs)
-    const [lastUploadedBlob, setLastUploadedBlob] = useState(blobs[blobs.length-1].datesAndTime)
 
     useEffect(() => {
         dispatch(getBlobsFirebase())
     }, [dispatch])
-
-    useEffect(() => {
-        setLastUploadedBlob(blobs[blobs.length-1]?.datesAndTime)
-    }, [blobs])
 
     
     /**
@@ -59,7 +54,6 @@ function HeaderPresenter( {toggleTheme, theme, setIsLoggedIn} ) {
                 redirectToCreatorPage={redirectToCreatorPage}
                 toggleTheme={toggleTheme}
                 theme={theme}
-                lastUploadedBlob = {lastUploadedBlob}
                 logoutUserButton={logoutUserButton}
             />
         </div>

@@ -10,8 +10,9 @@
     justify-content: center;
 }
 
-.cameraPicture {
-    width: 30%;
+.cameraImage {
+    width: 40%;
+    height: auto;
 }
 
 .cameraPageData {
