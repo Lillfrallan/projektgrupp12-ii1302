@@ -13,8 +13,9 @@ import { useStickyState } from './components/ThemeContext';
 
 function App() {
 
-  const [theme, setTheme] = useStickyState("light", "count");
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [theme, setTheme] = useStickyState("light", "count");
   const Context = createContext(null);
 
   /**

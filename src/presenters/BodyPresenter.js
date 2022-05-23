@@ -117,8 +117,4 @@ function BodyPresenter() {
     )
 }
 
-<<<<<<< HEAD
-export default BodyPresenter
-=======
 export default BodyPresenter;
->>>>>>> developingBranch
